@@ -82,11 +82,11 @@ nav ul {
 
 nav ul li {
     margin-left: 25px; /* Espaçamento entre os itens do menu no desktop */
-    position: relative; /* NOVO: Para posicionar o pseudo-elemento relativo ao li */
-    padding-left: 15px; /* NOVO: Adiciona espaço à esquerda para o marcador no desktop */
+    position: relative; /* Para posicionar o pseudo-elemento relativo ao li */
+    padding-left: 15px; /* Adiciona espaço à esquerda para o marcador no desktop */
 }
 
-/* NOVO: Estilo para o marcador/bolinha no desktop */
+/* Estilo para o marcador/bolinha no desktop */
 nav ul li::before {
     content: '•'; /* Você pode usar '•' para uma bolinha, ou '★', '►', etc. */
     color: gold; /* Cor da bolinha (dourado) */
@@ -111,7 +111,7 @@ nav ul li a:hover {
     color: #f39c12; /* Cor de destaque ao passar o mouse */
 }
 
-/* Estilo do Botão de WhatsApp no Cabeçalho */
+/* Estilo do Botão de WhatsApp no Cabeçalho (original, pode ser oculto pelo flutuante) */
 .btn-whatsapp {
     background-color: #25D366; /* Verde WhatsApp */
     color: white;
@@ -316,31 +316,9 @@ nav ul li a:hover {
     margin-bottom: 30px;
 }
 
-.contact-whatsapp-section .btn-whatsapp {
-    background-color: #25D366; /* Verde WhatsApp */
-    color: white;
-    padding: 15px 30px;
-    border-radius: 8px;
-    font-size: 1.2em;
-    display: inline-flex; /* Para centralizar e manter o ícone ao lado do texto */
-    align-items: center;
-    margin-bottom: 20px;
-    white-space: nowrap; /* Evita que o texto quebre */
-}
-
-.contact-whatsapp-section .btn-whatsapp:hover {
-    background-color: #1DA851;
-}
-
-.contact-whatsapp-section .whatsapp-icon {
-    width: 25px;
-    height: 25px;
-    margin-right: 10px;
-    /* IMPORTANTE: Se o seu 'zap22.jfif' tiver um fundo branco,
-       ele precisa ser um PNG transparente.
-       Tente COMENTAR a linha abaixo se o ícone ficar branco com fundo.
-       Ele (filter: invert) só muda a cor de um ícone preto para branco. */
-    filter: invert(100%);
+/* Oculta o botão da seção de contato para evitar duplicação com o flutuante */
+.contact-whatsapp-section .btn-whatsapp.main-whatsapp-btn {
+    display: none;
 }
 
 .contact-whatsapp-section .alt-contact,
@@ -363,7 +341,42 @@ footer .container p {
     margin: 5px 0;
 }
 
+/* ========================================= */
+/* ESTILOS PARA O BOTÃO FLUTUANTE (FIXO) */
+/* ========================================= */
+#botao-flutuante-whatsapp {
+    position: fixed; /* Fixa o botão na janela do navegador */
+    bottom: 20px; /* 20px da parte inferior da tela */
+    right: 20px; /* 20px da parte direita da tela */
+    z-index: 1000; /* Garante que o botão fique acima de outros elementos */
+    background-color: #25D366; /* Cor verde do WhatsApp */
+    color: white;
+    padding: 15px 25px;
+    border-radius: 10px; /* Borda mais arredondada */
+    font-size: 1.2em;
+    text-decoration: none;
+    display: inline-flex; /* Para alinhar ícone e texto */
+    align-items: center;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Sombra para destacá-lo */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Transição suave no hover */
+}
+
+#botao-flutuante-whatsapp:hover {
+    background-color: #1DA851; /* Verde mais escuro no hover */
+    transform: scale(1.05); /* Pequeno zoom no hover */
+}
+
+#botao-flutuante-whatsapp .whatsapp-icon {
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+    /* IMPORTANTE: Se o 'zap22.jfif' tiver fundo, ele precisa ser um PNG transparente. */
+    filter: invert(100%); /* Mantém o ícone branco no botão verde */
+}
+
+/* ========================================= */
 /* Media Queries para Responsividade */
+/* ========================================= */
 @media (min-width: 768px) {
     /* Ajustes para telas maiores (desktop) */
     .fleet-description {
@@ -403,34 +416,32 @@ footer .container p {
     }
 
     header nav ul {
-        flex-direction: row; /* VOLTA a ser linha para mobile */
-        justify-content: center; /* Centraliza os itens horizontalmente */
+        flex-direction: row; /* ALTERADO: Coloca os itens do menu um ao lado do outro no mobile */
+        justify-content: center; /* Centraliza os itens do menu horizontalmente */
         width: 100%;
         margin-bottom: 10px;
     }
 
     header nav ul li {
-        margin: 0 15px; /* Espaçamento entre os itens */
-        padding-left: 25px; /* Espaço para o marcador */
+        margin: 0 15px; /* ALTERADO: Espaçamento entre os itens */
+        padding-left: 15px; /* Ajusta o padding-left para o marcador */
         text-align: left; /* Alinha o texto à esquerda do marcador */
         position: relative; /* Mantém o posicionamento relativo para o before */
         width: auto; /* Ajusta a largura do item para o conteúdo */
     }
 
     header nav ul li::before {
-        left: 5px; /* Ajuste a posição da bolinha */
-        color: rgb(244, 218, 72); /* Cor da bolinha no mobile também */
+        left: 0; /* Ajusta a posição da bolinha no mobile */
+        color: gold; /* Cor da bolinha no mobile também */
     }
 
     header nav ul li a {
-        color: rgb(244, 218, 72); /* Cor dos links no mobile */
+        color: gold; /* ALTERADO: Cor dos links no mobile para DOURADO OURO */
     }
 
+    /* Oculta o botão do cabeçalho para não duplicar com o flutuante */
     .btn-whatsapp.header-whatsapp-btn {
-        width: 100%;
-        justify-content: center; /* Centraliza o conteúdo do botão */
-        margin-top: 20px; /* Mais espaçamento acima do botão */
-        order: 3; /* Garante que o botão venha por último */
+        display: none;
     }
 
     /* Seção Hero no mobile - ajuste de fonte para o título e parágrafo */
@@ -465,5 +476,17 @@ footer .container p {
 
     .top-announcement span {
         font-size: 0.8em; /* Reduz o tamanho da fonte da faixa superior */
+    }
+
+    /* Ajuste para o botão flutuante em telas muito pequenas */
+    #botao-flutuante-whatsapp {
+        font-size: 1em; /* Fonte um pouco menor */
+        padding: 12px 20px; /* Padding ajustado */
+        bottom: 10px;
+        right: 10px;
+    }
+    #botao-flutuante-whatsapp .whatsapp-icon {
+        width: 20px;
+        height: 20px;
     }
 }
