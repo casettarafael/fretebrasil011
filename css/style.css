@@ -35,9 +35,7 @@ body {
     width: 18px; /* Tamanho ajustado para o ícone de localização */
     height: 18px;
     margin-right: 6px; /* Espaçamento entre o ícone e o texto */
-    /* IMPORTANTE: Se o seu 'localizacao.png' tiver um fundo branco e você quer removê-lo,
-       ele precisa ser um PNG transparente salvo corretamente.
-       Este filtro (invert) só muda a cor de um ícone preto para branco. */
+    /* Se o seu 'localizacao.png' for um PNG transparente preto e você quer ele branco */
     filter: invert(100%);
 }
 
@@ -133,11 +131,9 @@ nav ul li a:hover {
     width: 20px;
     height: 20px;
     margin-right: 8px;
-    /* IMPORTANTE: Se o seu 'zap22.jfif' tiver um fundo branco,
-       ele precisa ser um PNG transparente.
-       Tente COMENTAR a linha abaixo se o ícone ficar branco com fundo.
-       Ele (filter: invert) só muda a cor de um ícone preto para branco. */
-    filter: invert(100%);
+    /* AGORA: Se o seu zap4.png já é verde transparente, 'filter: none;' é o ideal.
+       Se for branco transparente, pode precisar de um filtro para colorir. */
+    filter: none; /* REMOVIDO o filtro problemático. O ícone aparecerá como ele é no arquivo PNG transparente. */
 }
 
 /* Estilo da Seção Hero (Banner Principal com imagem de fundo) */
@@ -349,8 +345,8 @@ footer .container p {
     bottom: 20px; /* 20px da parte inferior da tela */
     right: 20px; /* 20px da parte direita da tela */
     z-index: 1000; /* Garante que o botão fique acima de outros elementos */
-    background-color: #25D366; /* Cor verde do WhatsApp */
-    color: white;
+    background-color: #2c3e50; /* ALTERADO: Cor azul escuro do cabeçalho */
+    color: white; /* Mantém as letras brancas */
     padding: 15px 25px;
     border-radius: 10px; /* Borda mais arredondada */
     font-size: 1.2em;
@@ -362,7 +358,7 @@ footer .container p {
 }
 
 #botao-flutuante-whatsapp:hover {
-    background-color: #2c3e50; /* Verde mais escuro no hover */
+    background-color: #1DA851; /* Verde mais escuro no hover */
     transform: scale(1.05); /* Pequeno zoom no hover */
 }
 
@@ -370,8 +366,9 @@ footer .container p {
     width: 25px;
     height: 25px;
     margin-right: 10px;
-    /* IMPORTANTE: Se o 'zap22.jfif' tiver fundo, ele precisa ser um PNG transparente. */
-    filter: invert(100%); /* Mantém o ícone branco no botão verde */
+    /* AGORA: Como 'zap4.png' é um PNG transparente, o filtro é REMOVIDO.
+       A cor do ícone virá diretamente da imagem PNG. */
+    filter: none; /* REMOVIDO o filtro problemático. O ícone aparecerá como ele é no arquivo PNG transparente. */
 }
 
 /* ========================================= */
