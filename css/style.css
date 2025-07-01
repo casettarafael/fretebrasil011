@@ -89,7 +89,7 @@ nav ul li {
 /* NOVO: Estilo para o marcador/bolinha no desktop */
 nav ul li::before {
     content: '•'; /* Você pode usar '•' para uma bolinha, ou '★', '►', etc. */
-    color: #f39c12; /* Cor da bolinha (laranja/amarelo de destaque) */
+    color: gold; /* Cor da bolinha (dourado) */
     font-size: 1.5em; /* Tamanho da bolinha */
     position: absolute;
     left: 0; /* Posição à esquerda do item */
@@ -100,7 +100,7 @@ nav ul li::before {
 
 
 nav ul li a {
-    color: gold; /* ALTERADO: Cor dos links de navegação para DOURADO OURO */
+    color: white; /* Cor padrão dos links (será dourado no mobile) */
     text-decoration: none;
     font-weight: bold;
     font-size: 1em;
@@ -403,22 +403,27 @@ footer .container p {
     }
 
     header nav ul {
-        flex-direction: column; /* NOVO: Volta a empilhar os itens do menu no mobile */
-        justify-content: center;
+        flex-direction: row; /* VOLTA a ser linha para mobile */
+        justify-content: center; /* Centraliza os itens horizontalmente */
         width: 100%;
         margin-bottom: 10px;
     }
 
     header nav ul li {
-        margin: 0; /* Removendo margens horizontais */
-        margin-bottom: 10px; /* Espaçamento entre os itens empilhados */
-        padding-left: 25px; /* Mais espaço para o marcador */
-        text-align: left; /* NOVO: Garante que o texto se alinhe à esquerda do marcador */
-        width: fit-content; /* NOVO: Faz o li não ocupar toda a largura para o text-align funcionar melhor */
+        margin: 0 15px; /* Espaçamento entre os itens */
+        padding-left: 25px; /* Espaço para o marcador */
+        text-align: left; /* Alinha o texto à esquerda do marcador */
+        position: relative; /* Mantém o posicionamento relativo para o before */
+        width: auto; /* Ajusta a largura do item para o conteúdo */
     }
 
     header nav ul li::before {
-        left: 5px; /* Ajuste a posição da bolinha no mobile, se necessário */
+        left: 5px; /* Ajuste a posição da bolinha */
+        color: gold; /* Cor da bolinha no mobile também */
+    }
+
+    header nav ul li a {
+        color: gold; /* Cor dos links no mobile */
     }
 
     .btn-whatsapp.header-whatsapp-btn {
@@ -454,4 +459,11 @@ footer .container p {
         font-size: 1.8em; /* Ajuste ainda mais para telas menores */
     }
 
-    #hero.hero
+    #hero.hero-section p {
+        font-size: 1em;
+    }
+
+    .top-announcement span {
+        font-size: 0.8em; /* Reduz o tamanho da fonte da faixa superior */
+    }
+}
