@@ -21,22 +21,29 @@ body {
     padding: 8px 0;
     font-size: 0.9em;
     font-weight: bold;
-    text-align: center; /* Garante que o texto esteja centralizado */
+    text-align: center;
 }
 
 .top-announcement .container {
-    display: flex; /* Ativa Flexbox para alinhar ícone e texto */
+    display: flex; /* Ativa Flexbox para alinhar ícones e textos */
     align-items: center; /* Centraliza verticalmente */
-    justify-content: center; /* Centraliza horizontalmente */
-    padding: 0 15px; /* Ajuste do padding para esta faixa específica */
+    justify-content: center; /* Centraliza horizontalmente os grupos de itens */
+    padding: 0 15px;
+    flex-wrap: wrap; /* Permite que os itens quebrem para a linha de baixo em telas pequenas */
+}
+
+.top-announcement .announcement-item {
+    display: flex; /* Ativa Flexbox para alinhar o ícone e o texto dentro de cada item */
+    align-items: center; /* Centraliza verticalmente o ícone e o texto */
+    margin: 0 15px; /* Espaçamento entre os itens (Região e Atendimentos) */
+    white-space: nowrap; /* Impede que o texto quebre em várias linhas */
 }
 
 .top-announcement .icon {
-    width: 18px; /* Tamanho ajustado para o ícone de localização */
+    width: 18px;
     height: 18px;
-    margin-right: 6px; /* Espaçamento entre o ícone e o texto */
-    /* Se o seu 'localizacao.png' for um PNG transparente preto e você quer ele branco */
-    filter: invert(100%);
+    margin-right: 6px;
+    filter: invert(100%); /* Se o seu ícone for preto e você quer ele branco */
 }
 
 /* Estilos para o Cabeçalho Principal (onde está o menu e botão) */
@@ -131,9 +138,7 @@ nav ul li a:hover {
     width: 20px;
     height: 20px;
     margin-right: 8px;
-    /* AGORA: Se o seu zap4.png já é verde transparente, 'filter: none;' é o ideal.
-       Se for branco transparente, pode precisar de um filtro para colorir. */
-    filter: none; /* REMOVIDO o filtro problemático. O ícone aparecerá como ele é no arquivo PNG transparente. */
+    filter: none; /* REMOVIDO o filtro. A cor do ícone virá da imagem PNG transparente. */
 }
 
 /* Estilo da Seção Hero (Banner Principal com imagem de fundo) */
@@ -293,6 +298,65 @@ nav ul li a:hover {
     color: #25D366; /* Verde */
 }
 
+/* ========================================= */
+/* NOVA SEÇÃO: NOSSOS ATENDIMENTOS */
+/* ========================================= */
+.atendimentos-section {
+    padding: 60px 0;
+    background-color: #ffffff; /* Fundo branco ou suave para a seção */
+    text-align: center;
+}
+
+.atendimentos-section h2 {
+    font-size: 2.2em;
+    color: #2c3e50;
+    margin-bottom: 40px;
+}
+
+.atendimentos-section p {
+    font-size: 1.1em;
+    color: #555;
+    max-width: 800px;
+    margin: 0 auto 30px auto; /* Centraliza o parágrafo e adiciona margem inferior */
+}
+
+.atendimento-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.atendimento-item {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 30px;
+    flex: 1;
+    min-width: 280px;
+    max-width: 350px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    text-align: left;
+    transition: transform 0.3s ease;
+}
+
+.atendimento-item:hover {
+    transform: translateY(-5px);
+}
+
+.atendimento-item h3 {
+    color: #e74c3c;
+    font-size: 1.5em;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.atendimento-item p {
+    font-size: 1em;
+    color: #555;
+}
+
+
 /* Contato e WhatsApp */
 .contact-whatsapp-section {
     padding: 60px 0;
@@ -345,7 +409,7 @@ footer .container p {
     bottom: 20px; /* 20px da parte inferior da tela */
     right: 20px; /* 20px da parte direita da tela */
     z-index: 1000; /* Garante que o botão fique acima de outros elementos */
-    background-color: #2c3e50; /* ALTERADO: Cor azul escuro do cabeçalho */
+    background-color: #2c3e50; /* Cor azul escuro do cabeçalho */
     color: white; /* Mantém as letras brancas */
     padding: 15px 25px;
     border-radius: 10px; /* Borda mais arredondada */
