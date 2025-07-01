@@ -77,37 +77,39 @@ nav ul {
     list-style: none;
     margin: 0;
     padding: 0;
-    display: flex; /* Para alinhar os itens da navegação horizontalmente */
+    display: flex; /* Para alinhar os itens da navegação horizontalmente no desktop */
 }
 
 nav ul li {
-    margin-left: 25px; /* Espaçamento entre os itens do menu */
+    margin-left: 25px; /* Espaçamento entre os itens do menu no desktop */
+    position: relative; /* NOVO: Para posicionar o pseudo-elemento relativo ao li */
+    padding-left: 15px; /* NOVO: Adiciona espaço à esquerda para o marcador no desktop */
 }
 
-/* Estilos para links de navegação com ícones */
-.nav-link-with-icon {
-    display: flex; /* Para alinhar o ícone e o texto */
-    align-items: center; /* Centraliza verticalmente */
-    gap: 5px; /* Espaçamento entre o ícone e o texto */
-    color: white; /* Cor padrão para o ícone e texto */
+/* NOVO: Estilo para o marcador/bolinha no desktop */
+nav ul li::before {
+    content: '•'; /* Você pode usar '•' para uma bolinha, ou '★', '►', etc. */
+    color: #f39c12; /* Cor da bolinha (laranja/amarelo de destaque) */
+    font-size: 1.5em; /* Tamanho da bolinha */
+    position: absolute;
+    left: 0; /* Posição à esquerda do item */
+    top: 50%; /* Centraliza verticalmente */
+    transform: translateY(-50%); /* Ajuste fino para o centro */
+    line-height: 1; /* Garante que a bolinha não afete a linha */
+}
+
+
+nav ul li a {
+    color: white;
     text-decoration: none;
     font-weight: bold;
     font-size: 1em;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease; /* Transição suave na cor */
 }
 
-.nav-link-with-icon:hover {
+nav ul li a:hover {
     color: #f39c12; /* Cor de destaque ao passar o mouse */
 }
-
-.nav-icon {
-    width: 20px; /* Tamanho do ícone */
-    height: 20px;
-    /* Adicione estas propriedades para que o ícone herde a cor do pai (o <a>) */
-    fill: currentColor; /* Preenche o ícone com a cor do texto */
-    stroke: currentColor; /* Contorna o ícone com a cor do texto */
-}
-
 
 /* Estilo do Botão de WhatsApp no Cabeçalho */
 .btn-whatsapp {
@@ -401,14 +403,22 @@ footer .container p {
     }
 
     header nav ul {
-        flex-direction: row; /* AGORA: Coloca os itens do menu um ao lado do outro no mobile */
-        justify-content: center; /* Centraliza os itens do menu horizontalmente */
+        flex-direction: column; /* NOVO: Volta a empilhar os itens do menu no mobile */
+        justify-content: center;
         width: 100%;
-        margin-bottom: 10px; /* Ajuste o espaçamento abaixo do menu, se necessário */
+        margin-bottom: 10px;
     }
 
     header nav ul li {
-        margin: 0 15px; /* Espaçamento horizontal entre os itens */
+        margin: 0; /* Removendo margens horizontais */
+        margin-bottom: 10px; /* Espaçamento entre os itens empilhados */
+        padding-left: 25px; /* Mais espaço para o marcador */
+        text-align: left; /* NOVO: Garante que o texto se alinhe à esquerda do marcador */
+        width: fit-content; /* NOVO: Faz o li não ocupar toda a largura para o text-align funcionar melhor */
+    }
+
+    header nav ul li::before {
+        left: 5px; /* Ajuste a posição da bolinha no mobile, se necessário */
     }
 
     .btn-whatsapp.header-whatsapp-btn {
