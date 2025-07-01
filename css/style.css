@@ -14,7 +14,7 @@ body {
     padding: 0 20px; /* Espaçamento interno nas laterais para evitar que o conteúdo encoste nas bordas */
 }
 
-/* Estilos para a Nova Faixa Superior (Top Announcement) */
+/* Estilos para a Nova Faixa Superior (Top Announcement) - Simplificada */
 .top-announcement {
     background-color: #e74c3c; /* Vermelho vibrante, similar à referência */
     color: white;
@@ -25,19 +25,14 @@ body {
 }
 
 .top-announcement .container {
-    display: flex; /* Ativa Flexbox para alinhar ícones e textos */
+    display: flex; /* Ativa Flexbox para alinhar ícone e texto */
     align-items: center; /* Centraliza verticalmente */
-    justify-content: center; /* Centraliza horizontalmente os grupos de itens */
+    justify-content: center; /* Centraliza horizontalmente */
     padding: 0 15px;
-    flex-wrap: wrap; /* Permite que os itens quebrem para a linha de baixo em telas pequenas */
+    flex-wrap: nowrap; /* Impede que os itens quebrem a linha */
 }
 
-.top-announcement .announcement-item {
-    display: flex; /* Ativa Flexbox para alinhar o ícone e o texto dentro de cada item */
-    align-items: center; /* Centraliza verticalmente o ícone e o texto */
-    margin: 0 15px; /* Espaçamento entre os itens (Região e Atendimentos) */
-    white-space: nowrap; /* Impede que o texto quebre em várias linhas */
-}
+/* Removido: .announcement-item e seus estilos, pois não são mais usados nesta versão do HTML */
 
 .top-announcement .icon {
     width: 18px;
@@ -138,7 +133,7 @@ nav ul li a:hover {
     width: 20px;
     height: 20px;
     margin-right: 8px;
-    filter: none; /* REMOVIDO o filtro. A cor do ícone virá da imagem PNG transparente. */
+    filter: none; /* O ícone aparecerá como ele é no arquivo PNG transparente. */
 }
 
 /* Estilo da Seção Hero (Banner Principal com imagem de fundo) */
@@ -179,7 +174,7 @@ nav ul li a:hover {
     text-shadow: 2px 2px 4px rgba(0,0,0,0.7); /* Sombra para o texto se destacar */
 }
 
-#hero.hero-section p {
+#hero.hero.section p {
     font-size: 1.3em; /* Fonte um pouco maior para o parágrafo */
     line-height: 1.6;
     text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
@@ -234,7 +229,7 @@ nav ul li a:hover {
     color: #555;
 }
 
-/* Seção da Frota */
+/* Seção da Frota (que você me enviou por último com o título "Nossos Atendimentos") */
 .fleet-section {
     padding: 60px 0;
     background-color: #f4f4f4;
@@ -297,65 +292,6 @@ nav ul li a:hover {
     left: 0;
     color: #25D366; /* Verde */
 }
-
-/* ========================================= */
-/* NOVA SEÇÃO: NOSSOS ATENDIMENTOS */
-/* ========================================= */
-.atendimentos-section {
-    padding: 60px 0;
-    background-color: #ffffff; /* Fundo branco ou suave para a seção */
-    text-align: center;
-}
-
-.atendimentos-section h2 {
-    font-size: 2.2em;
-    color: #2c3e50;
-    margin-bottom: 40px;
-}
-
-.atendimentos-section p {
-    font-size: 1.1em;
-    color: #555;
-    max-width: 800px;
-    margin: 0 auto 30px auto; /* Centraliza o parágrafo e adiciona margem inferior */
-}
-
-.atendimento-grid {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
-}
-
-.atendimento-item {
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 30px;
-    flex: 1;
-    min-width: 280px;
-    max-width: 350px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    text-align: left;
-    transition: transform 0.3s ease;
-}
-
-.atendimento-item:hover {
-    transform: translateY(-5px);
-}
-
-.atendimento-item h3 {
-    color: #e74c3c;
-    font-size: 1.5em;
-    margin-top: 0;
-    margin-bottom: 15px;
-}
-
-.atendimento-item p {
-    font-size: 1em;
-    color: #555;
-}
-
 
 /* Contato e WhatsApp */
 .contact-whatsapp-section {
@@ -430,9 +366,7 @@ footer .container p {
     width: 25px;
     height: 25px;
     margin-right: 10px;
-    /* AGORA: Como 'zap4.png' é um PNG transparente, o filtro é REMOVIDO.
-       A cor do ícone virá diretamente da imagem PNG. */
-    filter: none; /* REMOVIDO o filtro problemático. O ícone aparecerá como ele é no arquivo PNG transparente. */
+    filter: none; /* O ícone aparecerá como ele é no arquivo PNG transparente. */
 }
 
 /* ========================================= */
@@ -477,14 +411,14 @@ footer .container p {
     }
 
     header nav ul {
-        flex-direction: row; /* ALTERADO: Coloca os itens do menu um ao lado do outro no mobile */
+        flex-direction: row; /* Coloca os itens do menu um ao lado do outro no mobile */
         justify-content: center; /* Centraliza os itens do menu horizontalmente */
         width: 100%;
         margin-bottom: 10px;
     }
 
     header nav ul li {
-        margin: 0 15px; /* ALTERADO: Espaçamento entre os itens */
+        margin: 0 15px; /* Espaçamento entre os itens */
         padding-left: 15px; /* Ajusta o padding-left para o marcador */
         text-align: left; /* Alinha o texto à esquerda do marcador */
         position: relative; /* Mantém o posicionamento relativo para o before */
@@ -497,7 +431,7 @@ footer .container p {
     }
 
     header nav ul li a {
-        color: gold; /* ALTERADO: Cor dos links no mobile para DOURADO OURO */
+        color: gold; /* Cor dos links no mobile para DOURADO OURO */
     }
 
     /* Oculta o botão do cabeçalho para não duplicar com o flutuante */
@@ -510,7 +444,7 @@ footer .container p {
         font-size: 2em; /* Reduz o tamanho da fonte do título principal */
     }
 
-    #hero.hero-section p {
+    #hero.hero.section p {
         font-size: 1.1em; /* Reduz o tamanho da fonte do parágrafo */
     }
 
@@ -527,11 +461,11 @@ footer .container p {
 
 /* Ajustes adicionais para telas muito pequenas */
 @media (max-width: 480px) {
-    #hero.hero-section h2 {
+    #hero.hero.section h2 {
         font-size: 1.8em; /* Ajuste ainda mais para telas menores */
     }
 
-    #hero.hero-section p {
+    #hero.hero.section p {
         font-size: 1em;
     }
 
