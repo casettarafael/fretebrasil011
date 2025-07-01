@@ -419,11 +419,11 @@ footer .container p {
 
     header nav ul li::before {
         left: 5px; /* Ajuste a posição da bolinha */
-        color: gold; /* Cor da bolinha no mobile também */
+        color: rgb(244, 218, 72); /* Cor da bolinha no mobile também */
     }
 
     header nav ul li a {
-        color: gold; /* Cor dos links no mobile */
+        color: rgb(244, 218, 72); /* Cor dos links no mobile */
     }
 
     .btn-whatsapp.header-whatsapp-btn {
