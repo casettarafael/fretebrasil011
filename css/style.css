@@ -120,7 +120,8 @@ nav ul li a:hover {
     margin-right: 8px;
     /* IMPORTANTE: Se o seu 'zap22.jfif' tiver um fundo branco,
        ele precisa ser um PNG transparente.
-       Este filtro (invert) só muda a cor de um ícone preto para branco. */
+       Tente COMENTAR a linha abaixo se o ícone ficar branco com fundo.
+       Ele (filter: invert) só muda a cor de um ícone preto para branco. */
     filter: invert(100%);
 }
 
@@ -322,7 +323,8 @@ nav ul li a:hover {
     margin-right: 10px;
     /* IMPORTANTE: Se o seu 'zap22.jfif' tiver um fundo branco,
        ele precisa ser um PNG transparente.
-       Este filtro (invert) só muda a cor de um ícone preto para branco. */
+       Tente COMENTAR a linha abaixo se o ícone ficar branco com fundo.
+       Ele (filter: invert) só muda a cor de um ícone preto para branco. */
     filter: invert(100%);
 }
 
@@ -386,14 +388,14 @@ footer .container p {
     }
 
     header nav ul {
-        flex-direction: column; /* Empilha os itens do menu */
+        flex-direction: row; /* ALTERADO: Coloca os itens do menu um ao lado do outro */
+        justify-content: center; /* NOVO: Centraliza os itens do menu horizontalmente */
         width: 100%;
-        align-items: center; /* Centraliza os itens do menu */
+        margin-bottom: 10px; /* Ajuste o espaçamento abaixo do menu, se necessário */
     }
 
     header nav ul li {
-        margin-left: 0;
-        margin-bottom: 10px;
+        margin: 0 15px; /* ALTERADO: Adiciona espaçamento horizontal entre os itens */
     }
 
     .btn-whatsapp.header-whatsapp-btn {
