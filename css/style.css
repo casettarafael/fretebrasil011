@@ -84,17 +84,30 @@ nav ul li {
     margin-left: 25px; /* Espaçamento entre os itens do menu */
 }
 
-nav ul li a {
-    color: white;
+/* Estilos para links de navegação com ícones */
+.nav-link-with-icon {
+    display: flex; /* Para alinhar o ícone e o texto */
+    align-items: center; /* Centraliza verticalmente */
+    gap: 5px; /* Espaçamento entre o ícone e o texto */
+    color: white; /* Cor padrão para o ícone e texto */
     text-decoration: none;
     font-weight: bold;
     font-size: 1em;
-    transition: color 0.3s ease; /* Transição suave na cor */
+    transition: color 0.3s ease;
 }
 
-nav ul li a:hover {
-    color: #f39c12; /* Cor de destaque ao passar o mouse (laranja/amarelo) */
+.nav-link-with-icon:hover {
+    color: #f39c12; /* Cor de destaque ao passar o mouse */
 }
+
+.nav-icon {
+    width: 20px; /* Tamanho do ícone */
+    height: 20px;
+    /* Adicione estas propriedades para que o ícone herde a cor do pai (o <a>) */
+    fill: currentColor; /* Preenche o ícone com a cor do texto */
+    stroke: currentColor; /* Contorna o ícone com a cor do texto */
+}
+
 
 /* Estilo do Botão de WhatsApp no Cabeçalho */
 .btn-whatsapp {
@@ -388,14 +401,14 @@ footer .container p {
     }
 
     header nav ul {
-        flex-direction: row; /* ALTERADO: Coloca os itens do menu um ao lado do outro */
-        justify-content: center; /* NOVO: Centraliza os itens do menu horizontalmente */
+        flex-direction: row; /* AGORA: Coloca os itens do menu um ao lado do outro no mobile */
+        justify-content: center; /* Centraliza os itens do menu horizontalmente */
         width: 100%;
         margin-bottom: 10px; /* Ajuste o espaçamento abaixo do menu, se necessário */
     }
 
     header nav ul li {
-        margin: 0 15px; /* ALTERADO: Adiciona espaçamento horizontal entre os itens */
+        margin: 0 15px; /* Espaçamento horizontal entre os itens */
     }
 
     .btn-whatsapp.header-whatsapp-btn {
