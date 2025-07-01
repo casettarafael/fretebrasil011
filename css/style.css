@@ -100,7 +100,7 @@ nav ul li::before {
 
 
 nav ul li a {
-    color: white;
+    color: gold; /* ALTERADO: Cor dos links de navegação para DOURADO OURO */
     text-decoration: none;
     font-weight: bold;
     font-size: 1em;
@@ -454,11 +454,4 @@ footer .container p {
         font-size: 1.8em; /* Ajuste ainda mais para telas menores */
     }
 
-    #hero.hero-section p {
-        font-size: 1em;
-    }
-
-    .top-announcement span {
-        font-size: 0.8em; /* Reduz o tamanho da fonte da faixa superior */
-    }
-}
+    #hero.hero
