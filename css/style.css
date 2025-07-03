@@ -86,10 +86,6 @@ a:hover {
 .animate-on-scroll {
     opacity: 0; /* Inicia oculto para a animação */
 }
-/* Exemplo de uso em JS:
-    IntersectionObserver para adicionar 'animated' ao elemento quando visível
-    .element.animated { animation: fadeInUp 0.8s forwards; }
-*/
 
 /* Faixa Superior (Top Announcement) */
 .top-announcement {
@@ -99,22 +95,11 @@ a:hover {
     font-size: 0.95em;
     font-weight: 600;
     text-align: center;
-    overflow: hidden;
+    overflow: hidden; /* Mantido para a animação no desktop */
     position: relative;
-    white-space: nowrap; /* Impede que o texto quebre */
+    white-space: nowrap; /* Impede que o texto quebre no desktop */
     animation: slideIn 15s linear infinite; /* Animação de rolagem */
 }
-
-/* Parar a animação e permitir quebra de linha no mobile */
-@media (max-width: 767px) {
-    .top-announcement {
-        animation: none; /* Desativa a animação de rolagem */
-        white-space: normal; /* Permite quebra de linha */
-        height: auto; /* Ajusta a altura automaticamente */
-        padding: 0.5rem 1rem; /* Adiciona padding lateral para não encostar */
-    }
-}
-
 
 @keyframes slideIn {
     0% { transform: translateX(100%); }
@@ -126,22 +111,22 @@ a:hover {
     align-items: center;
     justify-content: center;
     padding: 0 10px;
-    flex-wrap: wrap; /* Permite que os itens quebrem linha */
+    /* Remover flex-wrap aqui no desktop para manter em linha */
 }
 
 .top-announcement .icon {
-    width: 1.1em; /* Ajustado para em */
-    height: 1.1em; /* Ajustado para em */
+    width: 1.1em;
+    height: 1.1em;
     margin-right: 0.5rem;
     filter: invert(100%);
 }
 
 /* Cabeçalho Principal */
 header {
-    background-color: var(--bg-dark); /* Azul escuro */
+    background-color: var(--bg-dark);
     color: var(--white);
-    padding: 1rem 0; /* Ajustado */
-    box-shadow: 0 4px 15px var(--shadow-light); /* Sombra mais moderna */
+    padding: 1rem 0;
+    box-shadow: 0 4px 15px var(--shadow-light);
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -152,7 +137,7 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 0 1.5rem;
-    flex-wrap: wrap; /* Adicionado para responsividade */
+    /* Remover flex-wrap aqui para desktop */
 }
 
 /* Ajustes na tagline do cabeçalho */
@@ -161,7 +146,7 @@ header .tagline {
     font-size: 1.2em;
     font-weight: 700;
     flex-grow: 1;
-    color: #f39c12; /* Cor dourada */
+    color: #f39c12;
     text-align: left;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
@@ -172,16 +157,16 @@ nav ul {
     margin: 0;
     padding: 0;
     display: flex;
-    gap: 1.5rem; /* Espaçamento com gap */
+    gap: 1.5rem;
 }
 
 nav ul li {
     position: relative;
-    padding: 0; /* Remove padding-left aqui */
+    padding: 0;
 }
 
 nav ul li::before {
-    display: none; /* Oculta o marcador padrão, vamos usar um underline animado */
+    display: none;
 }
 
 nav ul li a {
@@ -189,7 +174,7 @@ nav ul li a {
     font-weight: 600;
     font-size: 1em;
     position: relative;
-    padding-bottom: 5px; /* Espaço para o underline */
+    padding-bottom: 5px;
     transition: color var(--transition-speed);
 }
 
@@ -201,11 +186,11 @@ nav ul li a:hover {
     color: var(--primary-color);
 }
 
-/* Botão de WhatsApp no Cabeçalho */
+/* Botão de WhatsApp no Cabeçalho (se houver, para desktop) */
 .btn-whatsapp {
     background-color: var(--accent-color);
     color: var(--white);
-    padding: 0.7rem 1.2rem; /* Ajustado */
+    padding: 0.7rem 1.2rem;
     border-radius: var(--border-radius-md);
     text-decoration: none;
     display: flex;
@@ -213,12 +198,12 @@ nav ul li a:hover {
     font-weight: 600;
     transition: all var(--transition-speed);
     white-space: nowrap;
-    box-shadow: 0 4px 8px var(--shadow-light); /* Sombra suave */
+    box-shadow: 0 4px 8px var(--shadow-light);
 }
 
 .btn-whatsapp:hover {
-    background-color: #1eaf53; /* Verde mais escuro no hover */
-    transform: translateY(-2px); /* Pequeno lift */
+    background-color: #1eaf53;
+    transform: translateY(-2px);
     box-shadow: 0 6px 12px var(--shadow-medium);
 }
 
@@ -232,16 +217,21 @@ nav ul li a:hover {
 /* Estilo da Seção Hero (Banner Principal com imagem de fundo) */
 #hero.hero-section {
     position: relative;
-    height: 500px;
-    background: url('../images/hr.jfif') no-repeat center center/cover; /* Sua imagem de fundo */
-    color: var(--white); /* Cor do texto no hero */
+    /* Altura fixa para desktop, será ajustada no mobile */
+    height: 500px; 
+    background: url('../images/hr.jfif') no-repeat center center/cover;
+    color: var(--white);
     display: flex;
-    flex-direction: column; /* Para alinhar título, parágrafo e botão em coluna */
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
     overflow: hidden;
     padding: 2rem 1.5rem;
+    /* Ajuste para garantir que a seção comece logo abaixo do header */
+    top: 0; 
+    left: 0;
+    width: 100%;
 }
 
 #hero.hero-section::before {
@@ -251,7 +241,7 @@ nav ul li a:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.65); /* Overlay mais escuro */
+    background-color: rgba(0, 0, 0, 0.65);
     z-index: 1;
 }
 
@@ -260,7 +250,7 @@ nav ul li a:hover {
     z-index: 2;
     max-width: 900px;
     padding: 1.5rem;
-    display: flex; /* Adicionado para centralizar os itens internos do container Hero */
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -272,7 +262,7 @@ nav ul li a:hover {
     text-shadow: 3px 3px 8px rgba(0,0,0,0.8);
     font-weight: 700;
     color: var(--white);
-    text-align: center; /* Garantir centralização do texto no Hero */
+    text-align: center;
 }
 
 #hero.hero-section p {
@@ -280,40 +270,40 @@ nav ul li a:hover {
     line-height: 1.6;
     text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
     max-width: 700px;
-    margin: 0 auto 2rem auto; /* Aumentado a margem inferior para o botão */
+    margin: 0 auto 2rem auto;
     color: rgba(255, 255, 255, 0.9);
-    text-align: center; /* Garantir centralização do texto no Hero */
+    text-align: center;
 }
 
-/* NOVO ESTILO PARA O BOTÃO "Ligue Agora" NA SEÇÃO HERO */
+/* Estilo para o botão "Ligue Agora" na Seção Hero */
 .btn-hero-call {
-    background-color: var(--primary-color); /* Usando a cor primária (vermelho) */
+    background-color: var(--primary-color);
     color: var(--white);
-    padding: 1rem 2rem; /* Mais padding para ser maior */
-    border-radius: var(--border-radius-lg); /* Mais arredondado */
-    font-weight: 700; /* Mais negrito */
-    font-size: 1.2em; /* Fonte maior */
+    padding: 1rem 2rem;
+    border-radius: var(--border-radius-lg);
+    font-weight: 700;
+    font-size: 1.2em;
     text-decoration: none;
-    display: inline-flex; /* Garante que o botão apareça */
+    display: inline-flex; /* Garante que o botão sempre seja visível */
     align-items: center;
     transition: all var(--transition-speed);
-    box-shadow: 0 5px 15px var(--shadow-medium); /* Sombra mais pronunciada */
+    box-shadow: 0 5px 15px var(--shadow-medium);
 }
 
 .btn-hero-call:hover {
-    background-color: #c0392b; /* Tom mais escuro do vermelho no hover */
-    transform: translateY(-5px); /* Efeito de lift mais forte */
-    box-shadow: 0 8px 25px var(--shadow-strong); /* Sombra mais forte no hover */
+    background-color: #c0392b;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px var(--shadow-strong);
 }
 
-.btn-hero-call svg { /* Estilo para ícone SVG (se usar) */
+.btn-hero-call svg {
     margin-right: 0.8rem;
     width: 1.3em;
     height: 1.3em;
     fill: var(--white);
 }
-.btn-hero-call .whatsapp-icon { /* Se for um ícone de imagem (removido no HTML, mas mantido aqui como exemplo) */
-    width: 1.5em; /* Ajusta o tamanho do ícone */
+.btn-hero-call .whatsapp-icon {
+    width: 1.5em;
     height: 1.5em;
     margin-right: 0.8rem;
 }
@@ -571,29 +561,26 @@ footer a:hover {
 /* ========================================= */
 /* Media Queries para Responsividade */
 /* ========================================= */
-@media (min-width: 993px) { /* Telas maiores que 992px (desktops) */
+
+/* Desktop e Telas Maiores (acima de 992px) */
+@media (min-width: 993px) {
     .header-main-content {
-        flex-direction: row; /* Volta para a linha no desktop */
+        flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        text-align: left;
+        padding: 0 1.5rem; /* Padding padrão para desktop */
     }
     header .tagline {
         text-align: left;
-        margin-right: 2rem; /* Espaço entre tagline e nav */
+        margin-right: 2rem;
     }
     nav ul {
         display: flex; /* Mostra a navegação no desktop */
         flex-direction: row;
         gap: 1.5rem;
     }
-    /* Ocultar o ícone de hambúrguer se você adicionar um no HTML */
-    .menu-toggle {
-        display: none; 
-    }
-    .btn-whatsapp.header-whatsapp-btn { /* Se você tiver um botão no cabeçalho para desktop */
-        display: flex; 
-    }
+    /* Ocultar elementos específicos de mobile aqui, se existirem (ex: botão de hambúrguer) */
+
     .fleet-description {
         flex-direction: row;
         text-align: left;
@@ -607,107 +594,59 @@ footer a:hover {
     }
 }
 
-@media (max-width: 992px) { /* Tablets e desktops menores */
-    .header-main-content {
-        flex-direction: column;
-        gap: 1rem;
-        text-align: center;
-    }
-    header .tagline {
-        text-align: center;
-        font-size: 1em; /* Ajuste o tamanho da fonte da tagline */
-        margin-bottom: 0.5rem;
-    }
-    /* Oculta a navegação padrão para mobile (será controlada por um menu hambúrguer) */
-    nav ul {
-        display: none; 
-    }
-    /* Oculta o botão de WhatsApp do cabeçalho no mobile se não for flutuante */
-    .btn-whatsapp.header-whatsapp-btn {
-        display: none;
-    }
-    
-    .btn-hero-call { /* Use a classe correta aqui */
-        padding: 0.8rem 1.5rem;
-        font-size: 1.1em;
-    }
-    .btn-hero-call .whatsapp-icon { /* Se você colocar um ícone WhatsApp nele */
-        width: 1.3em;
-        height: 1.3em;
-        margin-right: 0.6rem;
-    }
-
-    #hero.hero-section {
-        height: 400px;
-        padding: 1.5rem 1rem;
-    }
-    .service-grid, .fleet-description {
-        gap: 1rem;
-    }
-    .service-item {
-        min-width: 250px;
-        max-width: 90%; /* Ocupa quase a largura total em tablets */
-    }
-}
-
-@media (max-width: 767px) { /* Smartphones e tablets menores */
+/* Tablets e Mobile Landscape (de 768px até 992px) */
+@media (max-width: 992px) {
     .container {
-        padding: 0 1rem; /* Mais padding nas laterais em telas menores */
+        padding: 0 1rem; /* Ajuste o padding do container para telas menores */
     }
-    .top-announcement {
-        font-size: 0.85em;
-        padding: 0.4rem 0.8rem; /* Ajuste para melhor visualização */
-    }
-    header {
-        padding: 0.8rem 0;
-    }
+
     .header-main-content {
-        padding: 0 1rem;
-        flex-direction: column; /* Garante que o logo e tagline fiquem em coluna */
-        align-items: center;
+        flex-direction: column; /* Empilha logo e navegação */
+        gap: 0.5rem; /* Reduz o espaçamento */
+        text-align: center;
+        padding: 0 1rem; /* Padding para evitar encostar nas bordas */
     }
     header .tagline {
         font-size: 0.9em;
         margin-bottom: 0.5rem;
+        text-align: center; /* Garante centralização */
     }
-    
-    /* REMOVIDO: nav ul { flex-direction: column; align-items: center; gap: 0.5rem; margin-top: 0.5rem; } */
-    /* ESSA SEÇÃO FOI COMENTADA/REMOVIDA PARA QUE A NAVEGAÇÃO FIQUE OCULTA NO MOBILE E SÓ APAREÇA COM MENU HAMBÚRGUER */
-
-    /* Garante que o botão Ligue Agora apareça */
-    .btn-hero-call { 
-        padding: 0.7rem 1.2rem;
-        font-size: 1em;
-        margin-top: 1.5rem; /* Margem extra no mobile para separar do texto */
-        display: inline-flex; /* Assegura que ele está sempre visível e inline */
+    nav ul {
+        /* Oculta a navegação principal no mobile. Requer menu hambúrguer no HTML/JS. */
+        display: none; 
     }
-    .btn-hero-call .whatsapp-icon { 
-        width: 1.2em;
-        height: 1.2em;
-        margin-right: 0.5rem;
+    .btn-whatsapp.header-whatsapp-btn {
+        display: none; /* Oculta o botão de WhatsApp no cabeçalho se ele não for o flutuante */
     }
 
+    /* Seção Hero */
     #hero.hero-section {
-        height: 380px; /* Um pouco mais de altura */
-        padding: 1.5rem 1rem; /* Mais padding */
+        height: auto; /* Altura flexível para mobile */
+        min-height: 350px; /* Garante uma altura mínima */
+        padding: 1.5rem 1rem;
     }
     #hero.hero-section h2 {
-        font-size: clamp(2em, 8vw, 3em);
+        font-size: clamp(2em, 7vw, 3em); /* Fonte responsiva */
     }
-    #hero.hero-section p { /* Correção da classe */
-        font-size: clamp(1em, 3vw, 1.2em);
-        max-width: 90%; /* Para garantir que ocupe mais espaço */
+    #hero.hero-section p {
+        font-size: clamp(1em, 2.5vw, 1.2em); /* Fonte responsiva */
+        margin-bottom: 1.5rem; /* Espaçamento para o botão */
     }
-
-    .services-section, .fleet-section, .contact-whatsapp-section {
-        padding: 3rem 0;
+    .btn-hero-call {
+        padding: 0.8rem 1.5rem;
+        font-size: 1.1em;
+        margin-top: 1rem; /* Espaçamento maior para o botão */
+        display: inline-flex; /* Assegura que ele está sempre visível e inline */
+    }
+    
+    .service-grid, .fleet-description {
+        gap: 1rem;
     }
     .service-item {
-        padding: 1.5rem;
-        min-width: unset; /* Remove min-width para mobile */
-        width: 100%; /* Ocupa a largura total (dentro do container) */
-        max-width: 400px; /* Limite para não ficar muito largo em telas maiores */
-        margin-bottom: 1rem; /* Espaço entre os cards empilhados */
+        min-width: unset; /* Remove min-width */
+        width: 100%; /* Ocupa largura total dentro do container */
+        max-width: 400px; /* Limite para não ficar muito largo em tablets maiores */
+        margin-bottom: 1rem; /* Espaçamento entre itens empilhados */
     }
     .service-grid {
         flex-direction: column; /* Empilha os itens de serviço */
@@ -717,21 +656,15 @@ footer a:hover {
     .fleet-description {
         flex-direction: column;
         align-items: center;
-        text-align: center; /* Centraliza o texto na coluna */
+        text-align: center;
     }
     .fleet-image {
         max-width: 90%;
         margin-right: 0;
         margin-bottom: 1rem;
     }
-    .contact-whatsapp-section .contact-intro {
-        font-size: 1.1em;
-    }
-    .contact-whatsapp-section .alt-contact,
-    .contact-whatsapp-section .address-info,
-    .contact-whatsapp-section .hours-info {
-        font-size: 0.9em;
-    }
+
+    /* Rodapé e Botão Flutuante */
     footer {
         padding: 1rem 0;
         font-size: 0.8em;
@@ -743,23 +676,46 @@ footer a:hover {
         padding: 0.3rem 0.8rem;
     }
     #botao-flutuante-whatsapp .whatsapp-icon {
-        width: 2.5rem; /* Ajustado um pouco para mobile */
+        width: 2.5rem;
         height: 2.5rem;
         margin-right: 0.4rem;
     }
 }
 
-@media (max-width: 480px) { /* Smartphones pequenos */
+/* Smartphones (até 767px) */
+@media (max-width: 767px) {
+    .container {
+        padding: 0 1rem; /* Padding consistente para mobile */
+    }
     .top-announcement {
-        font-size: 0.8em;
+        font-size: 0.85em;
+        padding: 0.4rem 0.8rem;
+        animation: none; /* Desativa a animação de rolagem */
+        white-space: normal; /* Permite quebra de linha */
+        height: auto;
+    }
+    .top-announcement .container {
+        flex-wrap: wrap; /* Garante que o conteúdo quebre linha no top announcement */
+        justify-content: center; /* Centraliza itens */
+    }
+
+    header {
+        padding: 0.8rem 0;
+    }
+    .header-main-content {
+        padding: 0 0.8rem;
+        flex-direction: column; /* Força empilhamento */
+        align-items: center;
     }
     header .tagline {
-        font-size: 0.8em;
+        font-size: 0.85em;
+        margin-bottom: 0.5rem;
     }
-    /* nav ul li a foi removido aqui, pois nav ul já está display:none; */
-    .btn-whatsapp {
-        padding: 0.5rem 0.8rem;
-        font-size: 0.8em;
+
+    /* Seção Hero */
+    #hero.hero-section {
+        min-height: 300px; /* Altura mínima para smartphones */
+        padding: 1rem 0.8rem;
     }
     #hero.hero-section h2 {
         font-size: clamp(1.8em, 9vw, 2.5em);
@@ -767,16 +723,13 @@ footer a:hover {
     #hero.hero-section p {
         font-size: clamp(0.9em, 3.5vw, 1.1em);
     }
-    .btn-hero-call { 
+    .btn-hero-call {
         padding: 0.6rem 1rem;
         font-size: 0.9em;
-    }
-    .btn-hero-call .whatsapp-icon { 
-        width: 1.1em;
-        height: 1.1em;
-        margin-right: 0.4rem;
+        margin-top: 1rem; /* Ajuste para não ficar colado no texto */
     }
 
+    /* Ajustes gerais de fonte e espaçamento */
     .services-section h2, .fleet-section h2, .contact-whatsapp-section h2 {
         font-size: clamp(1.8em, 7vw, 2.5em);
     }
@@ -789,6 +742,11 @@ footer a:hover {
     .contact-whatsapp-section .contact-intro {
         font-size: 1em;
     }
+    .contact-whatsapp-section .alt-contact,
+    .contact-whatsapp-section .address-info,
+    .contact-whatsapp-section .hours-info {
+        font-size: 0.85em;
+    }
     #botao-flutuante-whatsapp {
         font-size: 0.8em;
         padding: 0.2rem 0.6rem;
@@ -797,5 +755,34 @@ footer a:hover {
         width: 2rem;
         height: 2rem;
         margin-right: 0.3rem;
+    }
+}
+
+/* Telas muito pequenas (ex: iPhones 5/SE antigos - até 375px) */
+@media (max-width: 375px) {
+    .top-announcement {
+        font-size: 0.75em;
+    }
+    header .tagline {
+        font-size: 0.75em;
+    }
+    #hero.hero-section {
+        min-height: 280px;
+    }
+    #hero.hero-section h2 {
+        font-size: clamp(1.6em, 10vw, 2.2em);
+    }
+    #hero.hero-section p {
+        font-size: clamp(0.85em, 4vw, 1em);
+    }
+    .btn-hero-call {
+        font-size: 0.85em;
+        padding: 0.5rem 0.8rem;
+    }
+    .services-section h2, .fleet-section h2, .contact-whatsapp-section h2 {
+        font-size: clamp(1.6em, 8vw, 2.2em);
+    }
+    .service-item {
+        padding: 1rem;
     }
 }
