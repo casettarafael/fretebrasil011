@@ -180,18 +180,6 @@ nav ul li a {
     transition: color var(--transition-speed);
 }
 
-nav ul li a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    background-color: var(--primary-color);
-    left: 50%;
-    bottom: 0;
-    transform: translateX(-50%);
-    transition: width var(--transition-speed);
-}
-
 nav ul li a:hover::after {
     width: 100%;
 }
@@ -228,13 +216,14 @@ nav ul li a:hover {
     filter: none;
 }
 
-/* Estilo da Seção Hero (Banner Principal com imagem de fundo) - ATUALIZADO */
+/* Estilo da Seção Hero (Banner Principal com imagem de fundo) */
 #hero.hero-section {
     position: relative;
     height: 500px;
     background: url('../images/hr.jfif') no-repeat center center/cover; /* Sua imagem de fundo */
     color: var(--white); /* Cor do texto no hero */
     display: flex;
+    flex-direction: column; /* Para alinhar título, parágrafo e botão em coluna */
     align-items: center;
     justify-content: center;
     text-align: center;
@@ -249,8 +238,7 @@ nav ul li a:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    /* Aumentando a opacidade do overlay para escurecer mais o fundo */
-    background-color: rgba(0, 0, 0, 0.65); /* De 0.4 para 0.65 (mais escuro) */
+    background-color: rgba(0, 0, 0, 0.65); /* Overlay mais escuro */
     z-index: 1;
 }
 
@@ -259,29 +247,66 @@ nav ul li a:hover {
     z-index: 2;
     max-width: 900px;
     padding: 1.5rem;
+    display: flex; /* Adicionado para centralizar os itens internos do container Hero */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 #hero.hero-section h2 {
-    font-size: clamp(2.5em, 5vw, 4.5em); /* Aumentado um pouco o tamanho máximo */
+    font-size: clamp(2.5em, 5vw, 4.5em);
     margin-bottom: 1rem;
-    /* Aumentando a sombra do texto para mais destaque */
-    text-shadow: 3px 3px 8px rgba(0,0,0,0.8); /* Sombra mais forte */
-    font-weight: 700; /* Garante que esteja em negrito */
-    color: var(--white); /* Garante a cor branca pura */
+    text-shadow: 3px 3px 8px rgba(0,0,0,0.8);
+    font-weight: 700;
+    color: var(--white);
 }
 
-#hero.hero-section p { /* Isso se aplica ao parágrafo "Com a Frete Brasil..." */
+#hero.hero-section p {
     font-size: clamp(1.1em, 2vw, 1.4em);
     line-height: 1.6;
     text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
     max-width: 700px;
-    margin: 0 auto;
-    color: rgba(255, 255, 255, 0.9); /* Um branco um pouco mais forte para o parágrafo */
+    margin: 0 auto 2rem auto; /* Aumentado a margem inferior para o botão */
+    color: rgba(255, 255, 255, 0.9);
 }
+
+/* NOVO ESTILO PARA O BOTÃO "Ligue Agora" NA SEÇÃO HERO */
+.btn-hero-call {
+    background-color: var(--primary-color); /* Usando a cor primária (vermelho) */
+    color: var(--white);
+    padding: 1rem 2rem; /* Mais padding para ser maior */
+    border-radius: var(--border-radius-lg); /* Mais arredondado */
+    font-weight: 700; /* Mais negrito */
+    font-size: 1.2em; /* Fonte maior */
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    transition: all var(--transition-speed);
+    box-shadow: 0 5px 15px var(--shadow-medium); /* Sombra mais pronunciada */
+}
+
+.btn-hero-call:hover {
+    background-color: #c0392b; /* Tom mais escuro do vermelho no hover */
+    transform: translateY(-5px); /* Efeito de lift mais forte */
+    box-shadow: 0 8px 25px var(--shadow-strong); /* Sombra mais forte no hover */
+}
+
+.btn-hero-call svg { /* Estilo para ícone SVG (se usar) */
+    margin-right: 0.8rem;
+    width: 1.3em;
+    height: 1.3em;
+    fill: var(--white);
+}
+.btn-hero-call .whatsapp-icon { /* Se for um ícone de imagem (removido no HTML, mas mantido aqui como exemplo) */
+    width: 1.5em; /* Ajusta o tamanho do ícone */
+    height: 1.5em;
+    margin-right: 0.8rem;
+}
+
 
 /* Seção de Serviços */
 .services-section {
-    padding: 4rem 0; /* Ajustado */
+    padding: 4rem 0;
     background-color: var(--white);
     text-align: center;
 }
@@ -305,25 +330,25 @@ nav ul li a:hover {
 .service-grid {
     display: flex;
     justify-content: center;
-    gap: 1.5rem; /* Ajustado */
+    gap: 1.5rem;
     flex-wrap: wrap;
 }
 
 .service-item {
     background-color: var(--bg-light);
     border: 1px solid var(--border-light);
-    border-radius: var(--border-radius-lg); /* Mais arredondado */
-    padding: 2rem; /* Ajustado */
+    border-radius: var(--border-radius-lg);
+    padding: 2rem;
     flex: 1;
     min-width: 280px;
-    max-width: 380px; /* Levemente maior */
-    box-shadow: 0 8px 20px var(--shadow-light); /* Sombra mais pronunciada */
+    max-width: 380px;
+    box-shadow: 0 8px 20px var(--shadow-light);
     text-align: left;
     transition: all var(--transition-speed);
 }
 
 .service-item:hover {
-    transform: translateY(-8px); /* Efeito mais visível */
+    transform: translateY(-8px);
     box-shadow: 0 12px 30px var(--shadow-medium);
 }
 
@@ -353,7 +378,7 @@ nav ul li a:hover {
 /* Seção da Frota */
 .fleet-section {
     padding: 4rem 0;
-    background-color: var(--bg-medium); /* Cor de fundo diferente */
+    background-color: var(--bg-medium);
     text-align: center;
 }
 
@@ -377,22 +402,22 @@ nav ul li a:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2rem; /* Ajustado */
-    max-width: 1000px; /* Maior largura */
+    gap: 2rem;
+    max-width: 1000px;
     margin: 0 auto;
-    text-align: left; /* Alinha o texto dentro da descrição */
+    text-align: left;
 }
 
 .fleet-image {
     width: 100%;
-    max-width: 550px; /* Maior largura */
+    max-width: 550px;
     height: auto;
     border-radius: var(--border-radius-md);
-    box-shadow: 0 10px 25px var(--shadow-medium); /* Sombra mais suave e moderna */
+    box-shadow: 0 10px 25px var(--shadow-medium);
     transition: transform var(--transition-speed);
 }
 .fleet-image:hover {
-    transform: scale(1.02); /* Pequeno zoom no hover */
+    transform: scale(1.02);
 }
 
 .fleet-description h3 {
@@ -419,7 +444,7 @@ nav ul li a:hover {
     color: var(--text-dark);
     margin-bottom: 0.8rem;
     position: relative;
-    padding-left: 1.8rem; /* Espaço para o ícone */
+    padding-left: 1.8rem;
 }
 
 .fleet-description ul li::before {
@@ -504,25 +529,25 @@ footer a:hover {
     z-index: 1000;
     background-color: transparent;
     color: var(--text-dark); /* Texto preto */
-    padding: 0.5rem 1rem; /* Ajustado para dar um mínimo de área de clique, mas o background é transparente */
-    border-radius: var(--border-radius-md); /* Um leve arredondamento se o padding for visível */
-    font-size: 1.1em; /* Levemente menor para o texto */
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius-md);
+    font-size: 1.1em;
     text-decoration: none;
     display: inline-flex;
     align-items: center;
-    box-shadow: 0 4px 10px var(--shadow-medium); /* Adicionei uma sombra sutil ao ícone/área do link */
-    transition: all var(--transition-speed); /* Transição para todas as propriedades */
+    box-shadow: 0 4px 10px var(--shadow-medium);
+    transition: all var(--transition-speed);
 }
 
 #botao-flutuante-whatsapp:hover {
-    background-color: rgba(0, 0, 0, 0.05); /* Um leve fundo no hover para indicar interatividade */
-    transform: translateY(-5px) scale(1.05); /* Efeito de lift e zoom mais pronunciado */
-    box-shadow: 0 8px 15px var(--shadow-strong); /* Sombra mais forte no hover */
+    background-color: rgba(0, 0, 0, 0.05);
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 8px 15px var(--shadow-strong);
 }
 
 #botao-flutuante-whatsapp .whatsapp-icon {
-    width: 3rem; /* Ajustado para rem (48px) */
-    height: 3rem; /* Ajustado para rem (48px) */
+    width: 3rem;
+    height: 3rem;
     margin-right: 0.5rem;
     filter: none;
 }
@@ -530,6 +555,23 @@ footer a:hover {
 /* ========================================= */
 /* Media Queries para Responsividade */
 /* ========================================= */
+@media (min-width: 768px) {
+    /* Ajustes para telas maiores (desktop) */
+    .fleet-description {
+        flex-direction: row;
+        text-align: left;
+    }
+
+    .fleet-image {
+        max-width: 40%;
+        margin-right: 30px;
+    }
+
+    .fleet-description div {
+        flex: 1;
+    }
+}
+
 @media (max-width: 992px) { /* Tablets e desktops menores */
     .header-main-content {
         flex-direction: column;
@@ -550,6 +592,18 @@ footer a:hover {
     .btn-whatsapp.header-whatsapp-btn {
         margin-top: 1rem;
     }
+    /* Ajuste para o botão Ligue Agora na Hero em telas menores */
+    .btn-hero-call { /* Use a classe correta aqui */
+        padding: 0.8rem 1.5rem;
+        font-size: 1.1em;
+    }
+    .btn-hero-call .whatsapp-icon { /* Se você colocar um ícone WhatsApp nele */
+        width: 1.3em;
+        height: 1.3em;
+        margin-right: 0.6rem;
+    }
+    /* Se o ícone for o "📞" emoji, não precisa do .whatsapp-icon aqui */
+
     #hero.hero-section {
         height: 400px;
         padding: 1.5rem 1rem;
@@ -607,6 +661,18 @@ footer a:hover {
     #hero.hero.section p {
         font-size: clamp(1em, 3vw, 1.2em);
     }
+    /* Ajuste para o botão Ligue Agora na Hero em telas menores (mobile) */
+    .btn-hero-call { /* Use a classe correta aqui */
+        padding: 0.7rem 1.2rem;
+        font-size: 1em;
+        margin-top: 1.5rem; /* Margem extra no mobile para separar do texto */
+    }
+    .btn-hero-call .whatsapp-icon { /* Se você colocar um ícone WhatsApp nele */
+        width: 1.2em;
+        height: 1.2em;
+        margin-right: 0.5rem;
+    }
+
     .services-section, .fleet-section, .contact-whatsapp-section {
         padding: 3rem 0;
     }
@@ -638,12 +704,12 @@ footer a:hover {
     #botao-flutuante-whatsapp {
         bottom: 1rem;
         right: 1rem;
-        font-size: 0.9em; /* Ajuste para o texto do botão flutuante */
-        padding: 0.3rem 0.8rem; /* Ajuste sutil do padding para mobile */
+        font-size: 0.9em;
+        padding: 0.3rem 0.8rem;
     }
     #botao-flutuante-whatsapp .whatsapp-icon {
-        width: 2.5rem; /* 40px */
-        height: 2.5rem; /* 40px */
+        width: 2.5rem;
+        height: 2.5rem;
         margin-right: 0.4rem;
     }
 }
@@ -668,6 +734,17 @@ footer a:hover {
     #hero.hero.section p {
         font-size: clamp(0.9em, 3.5vw, 1.1em);
     }
+    /* Ajuste para o botão Ligue Agora na Hero em telas muito pequenas */
+    .btn-hero-call { /* Use a classe correta aqui */
+        padding: 0.6rem 1rem;
+        font-size: 0.9em;
+    }
+    .btn-hero-call .whatsapp-icon { /* Se você colocar um ícone WhatsApp nele */
+        width: 1.1em;
+        height: 1.1em;
+        margin-right: 0.4rem;
+    }
+
     .services-section h2, .fleet-section h2, .contact-whatsapp-section h2 {
         font-size: clamp(1.8em, 7vw, 2.5em);
     }
@@ -681,12 +758,12 @@ footer a:hover {
         font-size: 1em;
     }
     #botao-flutuante-whatsapp {
-        font-size: 0.8em; /* Ajuste ainda menor */
+        font-size: 0.8em;
         padding: 0.2rem 0.6rem;
     }
     #botao-flutuante-whatsapp .whatsapp-icon {
-        width: 2rem; /* 32px */
-        height: 2rem; /* 32px */
+        width: 2rem;
+        height: 2rem;
         margin-right: 0.3rem;
     }
 }
