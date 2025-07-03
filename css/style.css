@@ -533,22 +533,23 @@ footer a:hover {
     bottom: 1.5rem; /* Ajustado */
     right: 1.5rem; /* Ajustado */
     z-index: 1000;
-    background-color: var(--accent-color); /* Tornando o fundo verde padrão */
-    color: var(--white); /* Texto branco */
-    padding: 0.5rem 1rem;
-    border-radius: var(--border-radius-md);
+    /* MODIFICAÇÕES AQUI */
+    background-color: transparent; /* Fundo transparente */
+    color: var(--text-dark); /* Texto preto (usando a variável para consistência) */
+    padding: 0; /* Remover padding */
+    border-radius: 0; /* Remover border-radius */
     font-size: 1.1em;
     text-decoration: none;
     display: inline-flex;
     align-items: center;
-    box-shadow: 0 4px 10px var(--shadow-medium);
+    box-shadow: none; /* Remover sombra */
     transition: all var(--transition-speed);
 }
 
 #botao-flutuante-whatsapp:hover {
-    background-color: #1eaf53; /* Verde mais escuro no hover */
+    background-color: rgba(0, 0, 0, 0.05); /* Um leve fundo cinza no hover para indicar interatividade */
     transform: translateY(-5px) scale(1.05);
-    box-shadow: 0 8px 15px var(--shadow-strong);
+    box-shadow: none; /* Remover sombra no hover também */
 }
 
 #botao-flutuante-whatsapp .whatsapp-icon {
