@@ -1,153 +1,245 @@
+/* Importação de Fontes do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@300;400;600;700&display=swap');
+
+/* Variáveis CSS para um tema mais moderno */
+:root {
+    --primary-color: #e74c3c; /* Vermelho vibrante */
+    --secondary-color: #2c3e50; /* Azul escuro */
+    --accent-color: #25D366; /* Verde WhatsApp */
+    --text-dark: #212529; /* Preto quase absoluto para textos e títulos */
+    --text-light: #6c757d; /* Cinza suave para o corpo do texto */
+    --bg-light: #f8f9fa; /* Fundo muito claro para seções */
+    --bg-medium: #e9ecef; /* Fundo levemente mais escuro */
+    --bg-dark: #343a40; /* Fundo escuro para cabeçalho/rodapé */
+    --white: #ffffff;
+    --border-light: #dee2e6;
+
+    --border-radius-sm: 5px;
+    --border-radius-md: 10px;
+    --border-radius-lg: 15px;
+
+    --transition-speed: 0.3s ease-in-out;
+    --shadow-light: rgba(0, 0, 0, 0.08);
+    --shadow-medium: rgba(0, 0, 0, 0.15);
+    --shadow-strong: rgba(0, 0, 0, 0.25);
+}
+
 /* Estilos Gerais e Resets */
-body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Fonte mais limpa e moderna */
+*, *::before, *::after {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    line-height: 1.6;
-    color: #333; /* Cor de texto padrão */
-    background-color: #f4f4f4; /* Fundo suave para a página */
+}
+
+body {
+    font-family: 'Poppins', sans-serif; /* Usando Poppins como fonte principal */
+    line-height: 1.7; /* Mais espaçamento para leitura */
+    color: var(--text-light);
+    background-color: var(--bg-light);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden; /* Evita scroll horizontal */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif; /* Montserrat para títulos */
+    color: var(--text-dark);
+    line-height: 1.2;
+    margin-bottom: 0.8em;
+    font-weight: 700;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: all var(--transition-speed);
+}
+
+a:hover {
+    color: #c0392b; /* Tom mais escuro do vermelho */
+    text-decoration: none;
 }
 
 .container {
-    max-width: 1200px; /* Largura máxima para o conteúdo principal */
-    margin: 0 auto; /* Centraliza o container na página */
-    padding: 0 20px; /* Espaçamento interno nas laterais para evitar que o conteúdo encoste nas bordas */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem; /* Ajustado para rem */
 }
 
-/* Estilos para a Nova Faixa Superior (Top Announcement) - Simplificada */
+/* Animações genéricas (requer JS para ativar on-scroll) */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-on-scroll {
+    opacity: 0; /* Inicia oculto para a animação */
+}
+/* Exemplo de uso em JS:
+   IntersectionObserver para adicionar 'animated' ao elemento quando visível
+   .element.animated { animation: fadeInUp 0.8s forwards; }
+*/
+
+/* Faixa Superior (Top Announcement) */
 .top-announcement {
-    background-color: #e74c3c; /* Vermelho vibrante, similar à referência */
-    color: white;
-    padding: 8px 0;
-    font-size: 0.9em;
-    font-weight: bold;
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 0.5rem 0;
+    font-size: 0.95em;
+    font-weight: 600;
     text-align: center;
+    overflow: hidden;
+    position: relative;
+    white-space: nowrap; /* Impede que o texto quebre */
+    animation: slideIn 15s linear infinite; /* Animação de rolagem */
+}
+
+@keyframes slideIn {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
 }
 
 .top-announcement .container {
-    display: flex; /* Ativa Flexbox para alinhar ícone e texto */
-    align-items: center; /* Centraliza verticalmente */
-    justify-content: center; /* Centraliza horizontalmente */
-    padding: 0 15px;
-    flex-wrap: nowrap; /* Impede que os itens quebrem a linha */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10px;
 }
-
-/* Removido: .announcement-item e seus estilos, pois não são mais usados nesta versão do HTML */
 
 .top-announcement .icon {
-    width: 18px;
-    height: 18px;
-    margin-right: 6px;
-    filter: invert(100%); /* Se o seu ícone for preto e você quer ele branco */
+    width: 1.1em; /* Ajustado para em */
+    height: 1.1em; /* Ajustado para em */
+    margin-right: 0.5rem;
+    filter: invert(100%);
 }
 
-/* Estilos para o Cabeçalho Principal (onde está o menu e botão) */
+/* Cabeçalho Principal */
 header {
-    background-color: #2c3e50; /* Um azul escuro para o cabeçalho */
-    color: white;
-    padding: 15px 0;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra suave para profundidade */
+    background-color: var(--bg-dark); /* Azul escuro */
+    color: var(--white);
+    padding: 1rem 0; /* Ajustado */
+    box-shadow: 0 4px 15px var(--shadow-light); /* Sombra mais moderna */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 .header-main-content {
-    display: flex; /* Ativa Flexbox para alinhar os itens no cabeçalho */
-    justify-content: space-between; /* Espaça os itens: tagline, nav, botão */
-    align-items: center; /* Centraliza verticalmente os itens */
-    max-width: 1200px; /* Largura máxima do conteúdo */
-    margin: 0 auto; /* Centraliza o conteúdo */
-    padding: 0 20px; /* Espaçamento interno */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1.5rem;
 }
 
 /* Ajustes na tagline do cabeçalho */
 header .tagline {
-    margin: 0; /* Remove margens padrão */
-    font-size: 1.1em;
-    font-weight: 500;
-    flex-grow: 1; /* Permite que a tagline ocupe o espaço disponível */
-    text-align: left; /* Mantém a tagline alinhada à esquerda no desktop */
+    margin: 0;
+    font-size: 1.2em;
+    font-weight: 700;
+    flex-grow: 1;
+    color: #f39c12; /* Cor dourada */
+    text-align: left;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
-/* Esconde o antigo h1.logo (se ainda existir no HTML, o que não deveria) */
-header .logo {
-    display: none;
-}
-
-/* Estilos de Navegação */
+/* Navegação */
 nav ul {
     list-style: none;
     margin: 0;
     padding: 0;
-    display: flex; /* Para alinhar os itens da navegação horizontalmente no desktop */
+    display: flex;
+    gap: 1.5rem; /* Espaçamento com gap */
 }
 
 nav ul li {
-    margin-left: 25px; /* Espaçamento entre os itens do menu no desktop */
-    position: relative; /* Para posicionar o pseudo-elemento relativo ao li */
-    padding-left: 15px; /* Adiciona espaço à esquerda para o marcador no desktop */
+    position: relative;
+    padding: 0; /* Remove padding-left aqui */
 }
 
-/* Estilo para o marcador/bolinha no desktop */
 nav ul li::before {
-    content: '•'; /* Você pode usar '•' para uma bolinha, ou '★', '►', etc. */
-    color: gold; /* Cor da bolinha (dourado) */
-    font-size: 1.5em; /* Tamanho da bolinha */
-    position: absolute;
-    left: 0; /* Posição à esquerda do item */
-    top: 50%; /* Centraliza verticalmente */
-    transform: translateY(-50%); /* Ajuste fino para o centro */
-    line-height: 1; /* Garante que a bolinha não afete a linha */
+    display: none; /* Oculta o marcador padrão, vamos usar um underline animado */
 }
-
 
 nav ul li a {
-    color: white; /* Cor padrão dos links (será dourado no mobile) */
-    text-decoration: none;
-    font-weight: bold;
+    color: var(--white);
+    font-weight: 600;
     font-size: 1em;
-    transition: color 0.3s ease; /* Transição suave na cor */
+    position: relative;
+    padding-bottom: 5px; /* Espaço para o underline */
+    transition: color var(--transition-speed);
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    transition: width var(--transition-speed);
+}
+
+nav ul li a:hover::after {
+    width: 100%;
 }
 
 nav ul li a:hover {
-    color: #f39c12; /* Cor de destaque ao passar o mouse */
+    color: var(--primary-color);
 }
 
-/* Estilo do Botão de WhatsApp no Cabeçalho (original, pode ser oculto pelo flutuante) */
+/* Botão de WhatsApp no Cabeçalho */
 .btn-whatsapp {
-    background-color: #25D366; /* Verde WhatsApp */
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
+    background-color: var(--accent-color);
+    color: var(--white);
+    padding: 0.7rem 1.2rem; /* Ajustado */
+    border-radius: var(--border-radius-md);
     text-decoration: none;
     display: flex;
-    align-items: center; /* Alinha o ícone e o texto no centro vertical */
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-    white-space: nowrap; /* Evita que o texto quebre em várias linhas */
+    align-items: center;
+    font-weight: 600;
+    transition: all var(--transition-speed);
+    white-space: nowrap;
+    box-shadow: 0 4px 8px var(--shadow-light); /* Sombra suave */
 }
 
 .btn-whatsapp:hover {
-    background-color: #1DA851; /* Verde mais escuro no hover */
+    background-color: #1eaf53; /* Verde mais escuro no hover */
+    transform: translateY(-2px); /* Pequeno lift */
+    box-shadow: 0 6px 12px var(--shadow-medium);
 }
 
 .whatsapp-icon {
-    width: 20px;
-    height: 20px;
-    margin-right: 8px;
-    filter: none; /* O ícone aparecerá como ele é no arquivo PNG transparente. */
+    width: 1.2em;
+    height: 1.2em;
+    margin-right: 0.5rem;
+    filter: none;
 }
 
-/* Estilo da Seção Hero (Banner Principal com imagem de fundo) */
+/* Estilo da Seção Hero (Banner Principal com imagem de fundo) - ATUALIZADO */
 #hero.hero-section {
-    position: relative; /* Para posicionar texto sobre a imagem */
-    height: 450px; /* Altura da seção, ajuste conforme a necessidade */
-    background: url('../images/hr.jfif') no-repeat center center/cover; /* Imagem como background */
-    color: white;
+    position: relative;
+    height: 500px;
+    background: url('../images/hr.jfif') no-repeat center center/cover; /* Sua imagem de fundo */
+    color: var(--white); /* Cor do texto no hero */
     display: flex;
-    align-items: center; /* Alinha o conteúdo (texto) verticalmente ao centro */
-    justify-content: center; /* Centraliza o conteúdo (texto) horizontalmente */
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    overflow: hidden; /* Garante que a imagem não transborde */
-    padding: 20px; /* Adicionado padding para evitar que o texto encoste nas bordas em telas menores */
+    overflow: hidden;
+    padding: 2rem 1.5rem;
 }
 
 #hero.hero-section::before {
@@ -157,344 +249,444 @@ nav ul li a:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Overlay escuro para o texto se destacar */
-    z-index: 1; /* Garante que o overlay fique abaixo do texto */
+    /* Aumentando a opacidade do overlay para escurecer mais o fundo */
+    background-color: rgba(0, 0, 0, 0.65); /* De 0.4 para 0.65 (mais escuro) */
+    z-index: 1;
 }
 
 #hero.hero-section .container {
     position: relative;
-    z-index: 2; /* Garante que o conteúdo (texto) fique acima do overlay */
-    max-width: 800px; /* Largura máxima para o texto */
-    padding: 20px;
+    z-index: 2;
+    max-width: 900px;
+    padding: 1.5rem;
 }
 
 #hero.hero-section h2 {
-    font-size: 2.8em; /* Fonte maior para o título principal */
-    margin-bottom: 15px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.7); /* Sombra para o texto se destacar */
+    font-size: clamp(2.5em, 5vw, 4.5em); /* Aumentado um pouco o tamanho máximo */
+    margin-bottom: 1rem;
+    /* Aumentando a sombra do texto para mais destaque */
+    text-shadow: 3px 3px 8px rgba(0,0,0,0.8); /* Sombra mais forte */
+    font-weight: 700; /* Garante que esteja em negrito */
+    color: var(--white); /* Garante a cor branca pura */
 }
 
-#hero.hero.section p {
-    font-size: 1.3em; /* Fonte um pouco maior para o parágrafo */
+#hero.hero-section p { /* Isso se aplica ao parágrafo "Com a Frete Brasil..." */
+    font-size: clamp(1.1em, 2vw, 1.4em);
     line-height: 1.6;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    max-width: 700px;
+    margin: 0 auto;
+    color: rgba(255, 255, 255, 0.9); /* Um branco um pouco mais forte para o parágrafo */
 }
 
 /* Seção de Serviços */
 .services-section {
-    padding: 60px 0;
-    background-color: #fff;
+    padding: 4rem 0; /* Ajustado */
+    background-color: var(--white);
     text-align: center;
 }
 
 .services-section h2 {
-    font-size: 2.2em;
-    color: #2c3e50;
-    margin-bottom: 40px;
+    font-size: clamp(2em, 4vw, 3em);
+    color: var(--text-dark);
+    margin-bottom: 2.5rem;
+    position: relative;
+}
+.services-section h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: var(--primary-color);
+    margin: 0.5rem auto 0;
+    border-radius: 2px;
 }
 
 .service-grid {
     display: flex;
-    justify-content: center; /* Centraliza os itens de serviço */
-    gap: 30px; /* Espaçamento entre os itens do grid */
-    flex-wrap: wrap; /* Permite que os itens quebrem para a próxima linha em telas menores */
+    justify-content: center;
+    gap: 1.5rem; /* Ajustado */
+    flex-wrap: wrap;
 }
 
 .service-item {
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 30px;
-    flex: 1; /* Permite que os itens cresçam para ocupar o espaço disponível */
-    min-width: 280px; /* Largura mínima para cada item */
-    max-width: 350px; /* Largura máxima para evitar que fiquem muito largos */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    background-color: var(--bg-light);
+    border: 1px solid var(--border-light);
+    border-radius: var(--border-radius-lg); /* Mais arredondado */
+    padding: 2rem; /* Ajustado */
+    flex: 1;
+    min-width: 280px;
+    max-width: 380px; /* Levemente maior */
+    box-shadow: 0 8px 20px var(--shadow-light); /* Sombra mais pronunciada */
     text-align: left;
-    transition: transform 0.3s ease;
+    transition: all var(--transition-speed);
 }
 
 .service-item:hover {
-    transform: translateY(-5px); /* Efeito suave ao passar o mouse */
+    transform: translateY(-8px); /* Efeito mais visível */
+    box-shadow: 0 12px 30px var(--shadow-medium);
 }
 
 .service-item h3 {
-    color: #e74c3c;
-    font-size: 1.5em;
+    color: var(--primary-color);
+    font-size: 1.6em;
     margin-top: 0;
-    margin-bottom: 15px;
+    margin-bottom: 1rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+.service-item h3::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 3px;
+    background-color: var(--secondary-color);
+    margin-top: 0.5rem;
+    border-radius: 2px;
 }
 
 .service-item p {
     font-size: 1em;
-    color: #555;
+    color: var(--text-light);
 }
 
-/* Seção da Frota (que você me enviou por último com o título "Nossos Atendimentos") */
+/* Seção da Frota */
 .fleet-section {
-    padding: 60px 0;
-    background-color: #f4f4f4;
+    padding: 4rem 0;
+    background-color: var(--bg-medium); /* Cor de fundo diferente */
     text-align: center;
 }
 
 .fleet-section h2 {
-    font-size: 2.2em;
-    color: #2c3e50;
-    margin-bottom: 40px;
+    font-size: clamp(2em, 4vw, 3em);
+    color: var(--text-dark);
+    margin-bottom: 2.5rem;
+    position: relative;
+}
+.fleet-section h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: var(--primary-color);
+    margin: 0.5rem auto 0;
+    border-radius: 2px;
 }
 
 .fleet-description {
     display: flex;
-    flex-direction: column; /* Coloca imagem e texto em coluna em telas menores */
-    align-items: center; /* Centraliza os itens */
-    gap: 30px;
-    max-width: 900px;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem; /* Ajustado */
+    max-width: 1000px; /* Maior largura */
     margin: 0 auto;
+    text-align: left; /* Alinha o texto dentro da descrição */
 }
 
 .fleet-image {
     width: 100%;
-    max-width: 500px; /* Limita a largura da imagem */
+    max-width: 550px; /* Maior largura */
     height: auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: var(--border-radius-md);
+    box-shadow: 0 10px 25px var(--shadow-medium); /* Sombra mais suave e moderna */
+    transition: transform var(--transition-speed);
+}
+.fleet-image:hover {
+    transform: scale(1.02); /* Pequeno zoom no hover */
 }
 
 .fleet-description h3 {
     font-size: 1.8em;
-    color: #e74c3c;
-    margin-bottom: 15px;
+    color: var(--secondary-color);
+    margin-bottom: 0.8rem;
 }
 
 .fleet-description p {
     font-size: 1.1em;
-    color: #555;
-    text-align: justify; /* Justifica o texto para melhor leitura */
+    color: var(--text-light);
+    text-align: justify;
+    margin-bottom: 1rem;
 }
 
 .fleet-description ul {
     list-style: none;
     padding: 0;
-    text-align: left;
-    margin-top: 20px;
+    margin-top: 1.5rem;
 }
 
 .fleet-description ul li {
     font-size: 1em;
-    color: #555;
-    margin-bottom: 10px;
+    color: var(--text-dark);
+    margin-bottom: 0.8rem;
     position: relative;
-    padding-left: 25px; /* Espaço para o ícone */
+    padding-left: 1.8rem; /* Espaço para o ícone */
 }
 
 .fleet-description ul li::before {
-    content: '✅'; /* Ícone de checkmark */
+    content: '✅';
     position: absolute;
     left: 0;
-    color: #25D366; /* Verde */
+    color: var(--accent-color);
+    font-size: 1.2em;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 /* Contato e WhatsApp */
 .contact-whatsapp-section {
-    padding: 60px 0;
-    background-color: #2c3e50; /* Fundo escuro para a seção de contato */
-    color: white;
+    padding: 4rem 0;
+    background-color: var(--bg-dark);
+    color: var(--white);
     text-align: center;
 }
 
 .contact-whatsapp-section h2 {
-    font-size: 2.5em;
-    color: white;
-    margin-bottom: 20px;
+    font-size: clamp(2.2em, 4.5vw, 3.5em);
+    color: var(--white);
+    margin-bottom: 1.5rem;
+}
+.contact-whatsapp-section h2::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background-color: var(--primary-color);
+    margin: 0.5rem auto 0;
+    border-radius: 2px;
 }
 
 .contact-whatsapp-section .contact-intro {
-    font-size: 1.3em;
-    margin-bottom: 30px;
+    font-size: 1.2em;
+    margin-bottom: 2rem;
+    color: rgba(255, 255, 255, 0.9);
 }
 
-/* Oculta o botão da seção de contato para evitar duplicação com o flutuante */
 .contact-whatsapp-section .btn-whatsapp.main-whatsapp-btn {
-    display: none;
+    display: none; /* Mantido oculto como solicitado anteriormente */
 }
 
 .contact-whatsapp-section .alt-contact,
 .contact-whatsapp-section .address-info,
 .contact-whatsapp-section .hours-info {
-    font-size: 1em;
-    margin-bottom: 10px;
+    font-size: 1.05em;
+    margin-bottom: 0.8rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+.contact-whatsapp-section .alt-contact strong {
+    color: var(--primary-color);
+    font-weight: 700;
 }
 
 /* Footer */
 footer {
-    background-color: #333;
-    color: white;
+    background-color: #212529; /* Tom mais escuro para o rodapé */
+    color: rgba(255, 255, 255, 0.7); /* Texto mais suave */
     text-align: center;
-    padding: 25px 0;
+    padding: 1.5rem 0; /* Ajustado */
     font-size: 0.9em;
 }
 
 footer .container p {
-    margin: 5px 0;
+    margin: 0.3rem 0;
+}
+footer a {
+    color: var(--accent-color); /* Links no rodapé em verde WhatsApp */
+}
+footer a:hover {
+    color: #1eaf53;
 }
 
 /* ESTILOS PARA O BOTÃO FLUTUANTE (FIXO) */
 #botao-flutuante-whatsapp {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
+    bottom: 1.5rem; /* Ajustado */
+    right: 1.5rem; /* Ajustado */
     z-index: 1000;
     background-color: transparent;
-    /* ALTERAÇÃO AQUI: COR DO TEXTO PARA PRETO */
-    color: black; /* O texto "WhatsApp" será preto */
-    padding: 0;
-    border-radius: 0;
-    font-size: 1.2em;
+    color: var(--text-dark); /* Texto preto */
+    padding: 0.5rem 1rem; /* Ajustado para dar um mínimo de área de clique, mas o background é transparente */
+    border-radius: var(--border-radius-md); /* Um leve arredondamento se o padding for visível */
+    font-size: 1.1em; /* Levemente menor para o texto */
     text-decoration: none;
     display: inline-flex;
     align-items: center;
-    box-shadow: none;
-    transition: transform 0.2s ease;
+    box-shadow: 0 4px 10px var(--shadow-medium); /* Adicionei uma sombra sutil ao ícone/área do link */
+    transition: all var(--transition-speed); /* Transição para todas as propriedades */
 }
 
 #botao-flutuante-whatsapp:hover {
-    background-color: transparent;
-    transform: scale(1.05);
+    background-color: rgba(0, 0, 0, 0.05); /* Um leve fundo no hover para indicar interatividade */
+    transform: translateY(-5px) scale(1.05); /* Efeito de lift e zoom mais pronunciado */
+    box-shadow: 0 8px 15px var(--shadow-strong); /* Sombra mais forte no hover */
 }
 
 #botao-flutuante-whatsapp .whatsapp-icon {
-    width: 60px;
-    height: 60px;
-    margin-right: 10px;
+    width: 3rem; /* Ajustado para rem (48px) */
+    height: 3rem; /* Ajustado para rem (48px) */
+    margin-right: 0.5rem;
     filter: none;
 }
 
 /* ========================================= */
 /* Media Queries para Responsividade */
 /* ========================================= */
-@media (min-width: 768px) {
-    /* Ajustes para telas maiores (desktop) */
-    .fleet-description {
-        flex-direction: row;
-        text-align: left;
-    }
-
-    .fleet-image {
-        max-width: 40%;
-        margin-right: 30px;
-    }
-
-    .fleet-description div {
-        flex: 1;
-    }
-}
-
-@media (max-width: 767px) {
-    /* Ajustes para telas menores (celular/tablet) */
+@media (max-width: 992px) { /* Tablets e desktops menores */
     .header-main-content {
         flex-direction: column;
-        align-items: center;
-        padding: 10px 20px;
+        gap: 1rem;
+        text-align: center;
     }
-
     header .tagline {
         text-align: center;
-        width: 100%;
-        margin-bottom: 15px;
-        order: 1;
     }
-
-    nav {
-        width: 100%;
-        margin-top: 15px;
-        order: 2;
-    }
-
-    header nav ul {
-        flex-direction: row;
+    nav ul {
+        flex-wrap: wrap;
         justify-content: center;
-        width: 100%;
-        margin-bottom: 10px;
+        gap: 0.8rem;
     }
-
-    header nav ul li {
-        margin: 0 15px;
-        padding-left: 15px;
-        text-align: left;
-        position: relative;
-        width: auto;
+    nav ul li a {
+        font-size: 0.9em;
     }
-
-    header nav ul li::before {
-        left: 0;
-        color: gold;
-    }
-
-    header nav ul li a {
-        color: gold;
-    }
-
-    /* Oculta o botão do cabeçalho para não duplicar com o flutuante */
     .btn-whatsapp.header-whatsapp-btn {
-        display: none;
+        margin-top: 1rem;
     }
-
-    /* Seção Hero no mobile - ajuste de fonte para o título e parágrafo */
-    #hero.hero-section h2 {
-        font-size: 2em;
+    #hero.hero-section {
+        height: 400px;
+        padding: 1.5rem 1rem;
     }
-
-    #hero.hero.section p {
-        font-size: 1.1em;
+    .service-grid, .fleet-description {
+        gap: 1rem;
     }
-
-    .service-grid {
-        flex-direction: column;
-        align-items: center;
-    }
-
     .service-item {
-        margin-bottom: 20px;
-        max-width: 90%;
-    }
-
-    /* Ajuste para o botão flutuante em telas menores */
-    #botao-flutuante-whatsapp {
-        font-size: 1em;
-        padding: 0;
-        bottom: 10px;
-        right: 10px;
-    }
-    #botao-flutuante-whatsapp .whatsapp-icon {
-        width: 50px;
-        height: 50px;
-        margin-right: 5px;
+        min-width: 250px;
+        max-width: 90%; /* Ocupa quase a largura total em tablets */
     }
 }
 
-/* Ajustes adicionais para telas muito pequenas */
-@media (max-width: 480px) {
-    #hero.hero.section h2 {
-        font-size: 1.8em;
+@media (max-width: 767px) { /* Smartphones e tablets menores */
+    .top-announcement {
+        font-size: 0.85em;
+        padding: 0.4rem 0;
     }
-
+    header {
+        padding: 0.8rem 0;
+    }
+    .header-main-content {
+        padding: 0 1rem;
+    }
+    header .tagline {
+        font-size: 0.9em;
+        margin-bottom: 0.5rem;
+    }
+    nav ul {
+        flex-direction: column; /* Menu empilhado no mobile */
+        align-items: center;
+        gap: 0.5rem;
+        margin-top: 0.5rem;
+    }
+    nav ul li a {
+        color: gold; /* Mantendo a cor dourada para os links do menu no mobile */
+        font-size: 0.9em;
+    }
+    .btn-whatsapp {
+        padding: 0.6rem 1rem;
+        font-size: 0.9em;
+    }
+    .whatsapp-icon {
+        width: 1em;
+        height: 1em;
+        margin-right: 0.4rem;
+    }
+    #hero.hero-section {
+        height: 350px;
+        padding: 1rem 0.8rem;
+    }
+    #hero.hero-section h2 {
+        font-size: clamp(2em, 8vw, 3em);
+    }
     #hero.hero.section p {
-        font-size: 1em;
+        font-size: clamp(1em, 3vw, 1.2em);
     }
-
-    .top-announcement span {
+    .services-section, .fleet-section, .contact-whatsapp-section {
+        padding: 3rem 0;
+    }
+    .service-item {
+        padding: 1.5rem;
+    }
+    .fleet-description {
+        flex-direction: column;
+        align-items: center;
+        text-align: center; /* Centraliza o texto na coluna */
+    }
+    .fleet-image {
+        max-width: 90%;
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
+    .contact-whatsapp-section .contact-intro {
+        font-size: 1.1em;
+    }
+    .contact-whatsapp-section .alt-contact,
+    .contact-whatsapp-section .address-info,
+    .contact-whatsapp-section .hours-info {
+        font-size: 0.9em;
+    }
+    footer {
+        padding: 1rem 0;
         font-size: 0.8em;
     }
-
-    /* Ajuste para o botão flutuante em telas muito pequenas */
     #botao-flutuante-whatsapp {
-        font-size: 0.9em;
-        padding: 0;
-        bottom: 10px;
-        right: 10px;
+        bottom: 1rem;
+        right: 1rem;
+        font-size: 0.9em; /* Ajuste para o texto do botão flutuante */
+        padding: 0.3rem 0.8rem; /* Ajuste sutil do padding para mobile */
     }
     #botao-flutuante-whatsapp .whatsapp-icon {
-        width: 40px;
-        height: 40px;
-        margin-right: 3px;
+        width: 2.5rem; /* 40px */
+        height: 2.5rem; /* 40px */
+        margin-right: 0.4rem;
+    }
+}
+
+@media (max-width: 480px) { /* Smartphones pequenos */
+    .top-announcement {
+        font-size: 0.8em;
+    }
+    header .tagline {
+        font-size: 0.8em;
+    }
+    nav ul li a {
+        font-size: 0.8em;
+    }
+    .btn-whatsapp {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.8em;
+    }
+    #hero.hero-section h2 {
+        font-size: clamp(1.8em, 9vw, 2.5em);
+    }
+    #hero.hero.section p {
+        font-size: clamp(0.9em, 3.5vw, 1.1em);
+    }
+    .services-section h2, .fleet-section h2, .contact-whatsapp-section h2 {
+        font-size: clamp(1.8em, 7vw, 2.5em);
+    }
+    .service-item {
+        padding: 1.2rem;
+    }
+    .fleet-description ul li {
+        font-size: 0.9em;
+    }
+    .contact-whatsapp-section .contact-intro {
+        font-size: 1em;
+    }
+    #botao-flutuante-whatsapp {
+        font-size: 0.8em; /* Ajuste ainda menor */
+        padding: 0.2rem 0.6rem;
+    }
+    #botao-flutuante-whatsapp .whatsapp-icon {
+        width: 2rem; /* 32px */
+        height: 2rem; /* 32px */
+        margin-right: 0.3rem;
     }
 }
