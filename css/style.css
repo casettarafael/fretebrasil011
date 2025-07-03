@@ -111,7 +111,6 @@ a:hover {
     align-items: center;
     justify-content: center;
     padding: 0 10px;
-    /* Remover flex-wrap aqui no desktop para manter em linha */
 }
 
 .top-announcement .icon {
@@ -123,8 +122,7 @@ a:hover {
 
 /* Cabeçalho Principal */
 header {
-    /* MODIFICAÇÃO: Adicionado gradiente sutil */
-    background: linear-gradient(to right, var(--bg-dark), #2a333c); /* Gradiente de azul escuro para um tom ligeiramente mais claro/diferente */
+    background: linear-gradient(to right, var(--bg-dark), #2a333c);
     color: var(--white);
     padding: 1rem 0;
     box-shadow: 0 4px 15px var(--shadow-light);
@@ -138,10 +136,8 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 0 1.5rem;
-    /* Remover flex-wrap aqui para desktop */
 }
 
-/* Ajustes na tagline do cabeçalho */
 header .tagline {
     margin: 0;
     font-size: 1.2em;
@@ -218,8 +214,7 @@ nav ul li a:hover {
 /* Estilo da Seção Hero (Banner Principal com imagem de fundo) */
 #hero.hero-section {
     position: relative;
-    /* Altura fixa para desktop, será ajustada no mobile */
-    height: 500px; 
+    height: 500px; /* Considere mudar para 'auto' ou remover se o min-height resolver */
     background: url('../images/hr.jfif') no-repeat center center/cover;
     color: var(--white);
     display: flex;
@@ -227,12 +222,12 @@ nav ul li a:hover {
     align-items: center;
     justify-content: center;
     text-align: center;
-    overflow: hidden;
+    overflow: hidden; 
     padding: 2rem 1.5rem;
-    /* Ajuste para garantir que a seção comece logo abaixo do header */
     top: 0; 
     left: 0;
     width: 100%;
+    min-height: 600px; /* AUMENTADO: Garante mais espaço vertical para o conteúdo */
 }
 
 #hero.hero-section::before {
@@ -271,24 +266,42 @@ nav ul li a:hover {
     line-height: 1.6;
     text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
     max-width: 700px;
-    margin: 0 auto 2rem auto;
+    margin: 0 auto 1.5rem auto; /* Levemente reduzido o margin-bottom do parágrafo */
     color: rgba(255, 255, 255, 0.9);
     text-align: center;
+}
+
+/* NOVO ESTILO: Container para os botões na seção Hero */
+.hero-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px; /* Levemente reduzido o margin-top */
+    align-items: center;
+    width: 100%;
+    max-width: 600px; /* AUMENTADO SIGNIFICATIVAMENTE: Largura geral para os botões */
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* Estilo para o botão "Ligue Agora" na Seção Hero */
 .btn-hero-call {
     background-color: var(--primary-color);
     color: var(--white);
-    padding: 1rem 2rem;
+    padding: 0.9rem 1.8rem;
     border-radius: var(--border-radius-lg);
     font-weight: 700;
-    font-size: 1.2em;
+    font-size: 1.1em;
     text-decoration: none;
-    display: inline-flex; /* Garante que o botão sempre seja visível */
+    display: flex;
     align-items: center;
+    justify-content: center;
     transition: all var(--transition-speed);
     box-shadow: 0 5px 15px var(--shadow-medium);
+    width: 100%;
+    min-height: 50px;
+    line-height: 1.2;
+    box-sizing: border-box;
 }
 
 .btn-hero-call:hover {
@@ -303,10 +316,38 @@ nav ul li a:hover {
     height: 1.3em;
     fill: var(--white);
 }
-.btn-hero-call .whatsapp-icon {
+
+/* NOVO ESTILO: Botão "Fale pelo WhatsApp" na Seção Hero */
+.btn-hero-whatsapp {
+    background-color: var(--accent-color);
+    color: var(--white);
+    padding: 0.9rem 1.8rem;
+    border-radius: var(--border-radius-lg);
+    font-weight: 700;
+    font-size: 1.1em;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-speed);
+    box-shadow: 0 5px 15px var(--shadow-medium);
+    width: 100%;
+    min-height: 50px;
+    line-height: 1.2;
+    box-sizing: border-box;
+}
+
+.btn-hero-whatsapp:hover {
+    background-color: #1DA851;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px var(--shadow-strong);
+}
+
+.btn-hero-whatsapp .whatsapp-icon {
     width: 1.5em;
     height: 1.5em;
     margin-right: 0.8rem;
+    filter: none;
 }
 
 
@@ -350,10 +391,9 @@ nav ul li a:hover {
     max-width: 380px;
     box-shadow: 0 8px 20px var(--shadow-light);
     text-align: left;
-    /* MODIFICAÇÃO: Ajuste na transição para cobrir novas propriedades no hover */
     transition: all var(--transition-speed); 
-    position: relative; /* Necessário para z-index ou borda sobreposta */
-    overflow: hidden; /* Garante que a borda não saia da caixa */
+    position: relative;
+    overflow: hidden;
 }
 
 .service-item::before {
@@ -364,20 +404,19 @@ nav ul li a:hover {
     width: 100%;
     height: 100%;
     border-radius: var(--border-radius-lg);
-    border: 2px solid transparent; /* Borda transparente por padrão */
+    border: 2px solid transparent;
     transition: border-color var(--transition-speed) ease-out;
-    z-index: 0; /* Coloca a borda abaixo do conteúdo */
-    pointer-events: none; /* Não interfere com cliques */
+    z-index: 0;
+    pointer-events: none;
 }
 
 .service-item:hover {
     transform: translateY(-8px);
     box-shadow: 0 12px 30px var(--shadow-medium);
-    /* MODIFICAÇÃO: Efeito de borda e cor do texto no hover */
-    border-color: transparent; /* Remove a borda original */
+    border-color: transparent;
 }
 .service-item:hover::before {
-    border-color: var(--primary-color); /* A cor da borda que acende */
+    border-color: var(--primary-color);
 }
 
 .service-item h3 {
@@ -387,11 +426,11 @@ nav ul li a:hover {
     margin-bottom: 1rem;
     position: relative;
     padding-bottom: 0.5rem;
-    transition: color var(--transition-speed); /* Adiciona transição de cor */
-    z-index: 1; /* Garante que o texto esteja acima da borda */
+    transition: color var(--transition-speed);
+    z-index: 1;
 }
 .service-item:hover h3 {
-    color: var(--secondary-color); /* Muda a cor do título no hover */
+    color: var(--secondary-color);
 }
 
 .service-item h3::after {
@@ -407,11 +446,11 @@ nav ul li a:hover {
 .service-item p {
     font-size: 1em;
     color: var(--text-light);
-    transition: color var(--transition-speed); /* Adiciona transição de cor */
-    z-index: 1; /* Garante que o texto esteja acima da borda */
+    transition: color var(--transition-speed);
+    z-index: 1;
 }
 .service-item:hover p {
-    color: var(--text-dark); /* Muda a cor do parágrafo no hover */
+    color: var(--text-dark);
 }
 
 
@@ -545,10 +584,10 @@ nav ul li a:hover {
 
 /* Footer */
 footer {
-    background-color: #212529; /* Tom mais escuro para o rodapé */
-    color: rgba(255, 255, 255, 0.7); /* Texto mais suave */
+    background-color: #212529;
+    color: rgba(255, 255, 255, 0.7);
     text-align: center;
-    padding: 1.5rem 0; /* Ajustado */
+    padding: 1.5rem 0;
     font-size: 0.9em;
 }
 
@@ -556,7 +595,7 @@ footer .container p {
     margin: 0.3rem 0;
 }
 footer a {
-    color: var(--accent-color); /* Links no rodapé em verde WhatsApp */
+    color: var(--accent-color);
 }
 footer a:hover {
     color: #1eaf53;
@@ -565,26 +604,25 @@ footer a:hover {
 /* ESTILOS PARA O BOTÃO FLUTUANTE (FIXO) */
 #botao-flutuante-whatsapp {
     position: fixed;
-    bottom: 1.5rem; /* Ajustado */
-    right: 1.5rem; /* Ajustado */
+    bottom: 1.5rem;
+    right: 1.5rem;
     z-index: 1000;
-    /* MODIFICAÇÕES AQUI PARA REMOVER FUNDO/MOLDURA/SOMBRA E TEXTO PRETO */
-    background-color: transparent; /* Fundo transparente */
-    color: var(--text-dark); /* Texto preto (usando a variável para consistência) */
-    padding: 0; /* Remover padding para tirar a "moldura" */
-    border-radius: 0; /* Remover border-radius */
+    background-color: transparent;
+    color: var(--text-dark);
+    padding: 0;
+    border-radius: 0;
     font-size: 1.1em;
     text-decoration: none;
     display: inline-flex;
     align-items: center;
-    box-shadow: none; /* Remover sombra */
+    box-shadow: none;
     transition: all var(--transition-speed);
 }
 
 #botao-flutuante-whatsapp:hover {
-    background-color: rgba(0, 0, 0, 0.05); /* Um leve fundo cinza no hover para indicar interatividade */
+    background-color: rgba(0, 0, 0, 0.05);
     transform: translateY(-5px) scale(1.05);
-    box-shadow: none; /* Remover sombra no hover também */
+    box-shadow: none;
 }
 
 #botao-flutuante-whatsapp .whatsapp-icon {
@@ -604,18 +642,17 @@ footer a:hover {
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        padding: 0 1.5rem; /* Padding padrão para desktop */
+        padding: 0 1.5rem;
     }
     header .tagline {
         text-align: left;
         margin-right: 2rem;
     }
     nav ul {
-        display: flex; /* Mostra a navegação no desktop */
+        display: flex;
         flex-direction: row;
         gap: 1.5rem;
     }
-    /* Ocultar elementos específicos de mobile aqui, se existirem (ex: botão de hambúrguer) */
 
     .fleet-description {
         flex-direction: row;
@@ -633,60 +670,70 @@ footer a:hover {
 /* Tablets e Mobile Landscape (de 768px até 992px) */
 @media (max-width: 992px) {
     .container {
-        padding: 0 1rem; /* Ajuste o padding do container para telas menores */
+        padding: 0 1rem;
     }
 
     .header-main-content {
-        flex-direction: column; /* Empilha logo e navegação */
-        gap: 0.5rem; /* Reduz o espaçamento */
+        flex-direction: column;
+        gap: 0.5rem;
         text-align: center;
-        padding: 0 1rem; /* Padding para evitar encostar nas bordas */
+        padding: 0 1rem;
     }
     header .tagline {
         font-size: 0.9em;
         margin-bottom: 0.5rem;
-        text-align: center; /* Garante centralização */
+        text-align: center;
     }
     nav ul {
-        /* Oculta a navegação principal no mobile. Requer menu hambúrguer no HTML/JS. */
         display: none; 
     }
     .btn-whatsapp.header-whatsapp-btn {
-        display: none; /* Oculta o botão de WhatsApp no cabeçalho se ele não for o flutuante */
+        display: none;
     }
 
     /* Seção Hero */
     #hero.hero-section {
-        height: auto; /* Altura flexível para mobile */
-        min-height: 350px; /* Garante uma altura mínima */
+        height: auto;
+        min-height: 350px;
         padding: 1.5rem 1rem;
     }
     #hero.hero-section h2 {
-        font-size: clamp(2em, 7vw, 3em); /* Fonte responsiva */
+        font-size: clamp(2em, 7vw, 3em);
     }
     #hero.hero-section p {
-        font-size: clamp(1em, 2.5vw, 1.2em); /* Fonte responsiva */
-        margin-bottom: 1.5rem; /* Espaçamento para o botão */
+        font-size: clamp(1em, 2.5vw, 1.2em);
+        margin-bottom: 1.5rem;
     }
-    .btn-hero-call {
-        padding: 0.8rem 1.5rem;
-        font-size: 1.1em;
-        margin-top: 1rem; /* Espaçamento maior para o botão */
-        display: inline-flex; /* Assegura que ele está sempre visível e inline */
+    
+    /* AJUSTE AQUI: Container dos botões hero */
+    .hero-buttons {
+        gap: 10px;
+        margin-top: 20px;
+        max-width: 500px; /* AUMENTADO para tablets */
+    }
+
+    /* AJUSTE AQUI: Botões hero individuais */
+    .btn-hero-call,
+    .btn-hero-whatsapp {
+        padding: 0.6rem 1rem;
+        font-size: 1em;
+        min-height: 45px;
+        line-height: 1.2;
+        box-sizing: border-box;
     }
     
     .service-grid, .fleet-description {
         gap: 1rem;
     }
     .service-item {
-        min-width: unset; /* Remove min-width */
-        width: 100%; /* Ocupa largura total dentro do container */
-        max-width: 400px; /* Limite para não ficar muito largo em tablets maiores */
-        margin-bottom: 1rem; /* Espaçamento entre itens empilhados */
+        min-width: unset;
+        width: 100%;
+        max-width: 400px;
+        margin-bottom: 1rem;
     }
     .service-grid {
-        flex-direction: column; /* Empilha os itens de serviço */
-        align-items: center; /* Centraliza os itens empilhados */
+        flex-direction: column;
+        align-items: center;
     }
 
     .fleet-description {
@@ -721,18 +768,18 @@ footer a:hover {
 /* Smartphones (até 767px) */
 @media (max-width: 767px) {
     .container {
-        padding: 0 1rem; /* Padding consistente para mobile */
+        padding: 0 1rem;
     }
     .top-announcement {
         font-size: 0.85em;
         padding: 0.4rem 0.8rem;
-        animation: none; /* Desativa a animação de rolagem */
-        white-space: normal; /* Permite quebra de linha */
+        animation: none;
+        white-space: normal;
         height: auto;
     }
     .top-announcement .container {
-        flex-wrap: wrap; /* Garante que o conteúdo quebre linha no top announcement */
-        justify-content: center; /* Centraliza itens */
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
     header {
@@ -740,7 +787,7 @@ footer a:hover {
     }
     .header-main-content {
         padding: 0 0.8rem;
-        flex-direction: column; /* Força empilhamento */
+        flex-direction: column;
         align-items: center;
     }
     header .tagline {
@@ -750,7 +797,7 @@ footer a:hover {
 
     /* Seção Hero */
     #hero.hero-section {
-        min-height: 300px; /* Altura mínima para smartphones */
+        min-height: 300px;
         padding: 1rem 0.8rem;
     }
     #hero.hero-section h2 {
@@ -759,10 +806,22 @@ footer a:hover {
     #hero.hero-section p {
         font-size: clamp(0.9em, 3.5vw, 1.1em);
     }
-    .btn-hero-call {
-        padding: 0.6rem 1rem;
-        font-size: 0.9em;
-        margin-top: 1rem; /* Ajuste para não ficar colado no texto */
+    
+    /* AJUSTE AQUI: Container dos botões hero */
+    .hero-buttons {
+        gap: 8px;
+        margin-top: 15px;
+        max-width: 400px; /* AUMENTADO para smartphones */
+    }
+
+    /* AJUSTE AQUI: Botões hero individuais */
+    .btn-hero-call,
+    .btn-hero-whatsapp {
+        padding: 0.4rem 0.7rem;
+        font-size: 0.8em;
+        min-height: 40px;
+        line-height: 1.2;
+        box-sizing: border-box;
     }
 
     /* Ajustes gerais de fonte e espaçamento */
@@ -811,10 +870,21 @@ footer a:hover {
     #hero.hero-section p {
         font-size: clamp(0.85em, 4vw, 1em);
     }
-    .btn-hero-call {
-        font-size: 0.85em;
-        padding: 0.5rem 0.8rem;
+    
+    /* AJUSTE AQUI: Container dos botões hero */
+    .hero-buttons {
+        max-width: 300px; /* AUMENTADO para telas muito pequenas */
     }
+    /* AJUSTE AQUI: Botões hero individuais */
+    .btn-hero-call,
+    .btn-hero-whatsapp {
+        font-size: 0.75em;
+        padding: 0.35rem 0.6rem;
+        min-height: 35px;
+        line-height: 1.2;
+        box-sizing: border-box;
+    }
+    
     .services-section h2, .fleet-section h2, .contact-whatsapp-section h2 {
         font-size: clamp(1.6em, 8vw, 2.2em);
     }
