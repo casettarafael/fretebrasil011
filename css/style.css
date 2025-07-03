@@ -345,27 +345,27 @@ footer .container p {
     bottom: 20px; /* 20px da parte inferior da tela */
     right: 20px; /* 20px da parte direita da tela */
     z-index: 1000; /* Garante que o botão fique acima de outros elementos */
-    background-color: #2c3e50; /* Cor azul escuro do cabeçalho */
+    background-color: transparent; /* Alterado: Fundo transparente */
     color: white; /* Mantém as letras brancas */
-    padding: 15px 25px;
-    border-radius: 10px; /* Borda mais arredondada */
-    font-size: 1.2em;
+    padding: 0; /* Alterado: Remove padding para não ter fundo */
+    border-radius: 0; /* Alterado: Remove border-radius */
+    font-size: 1.2em; /* Mantido para o texto "Solicitar Orçamento" */
     text-decoration: none;
     display: inline-flex; /* Para alinhar ícone e texto */
     align-items: center;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Sombra para destacá-lo */
-    transition: background-color 0.3s ease, transform 0.2s ease; /* Transição suave no hover */
+    box-shadow: none; /* Alterado: Remove a sombra do container */
+    transition: transform 0.2s ease; /* Transição suave no hover */
 }
 
 #botao-flutuante-whatsapp:hover {
-    background-color: #1DA851; /* Verde mais escuro no hover */
+    background-color: transparent; /* Alterado: Fundo transparente no hover */
     transform: scale(1.05); /* Pequeno zoom no hover */
 }
 
 #botao-flutuante-whatsapp .whatsapp-icon {
-    width: 25px;
-    height: 25px;
-    margin-right: 10px;
+    width: 60px; /* Tamanho maior para o ícone, para que ele seja o "botão" visível */
+    height: 60px; /* Tamanho maior para o ícone */
+    margin-right: 10px; /* Mantém o espaçamento se houver texto */
     filter: none; /* O ícone aparecerá como ele é no arquivo PNG transparente. */
 }
 
@@ -457,6 +457,19 @@ footer .container p {
         margin-bottom: 20px;
         max-width: 90%; /* Ajusta a largura dos itens de serviço para ocupar mais espaço */
     }
+
+    /* Ajuste para o botão flutuante em telas menores */
+    #botao-flutuante-whatsapp {
+        font-size: 1em; /* Fonte um pouco menor para o texto */
+        padding: 0; /* Sem padding no botão flutuante */
+        bottom: 10px;
+        right: 10px;
+    }
+    #botao-flutuante-whatsapp .whatsapp-icon {
+        width: 50px; /* Tamanho do ícone para mobile */
+        height: 50px; /* Tamanho do ícone para mobile */
+        margin-right: 5px; /* Ajusta o espaçamento */
+    }
 }
 
 /* Ajustes adicionais para telas muito pequenas */
@@ -475,13 +488,14 @@ footer .container p {
 
     /* Ajuste para o botão flutuante em telas muito pequenas */
     #botao-flutuante-whatsapp {
-        font-size: 1em; /* Fonte um pouco menor */
-        padding: 12px 20px; /* Padding ajustado */
+        font-size: 0.9em; /* Fonte ainda menor */
+        padding: 0; /* Sem padding */
         bottom: 10px;
         right: 10px;
     }
     #botao-flutuante-whatsapp .whatsapp-icon {
-        width: 20px;
-        height: 20px;
+        width: 40px; /* Tamanho do ícone para telas muito pequenas */
+        height: 40px; /* Tamanho do ícone para telas muito pequenas */
+        margin-right: 3px; /* Espaçamento menor */
     }
 }
