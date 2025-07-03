@@ -337,36 +337,35 @@ footer .container p {
     margin: 5px 0;
 }
 
-/* ========================================= */
 /* ESTILOS PARA O BOTÃO FLUTUANTE (FIXO) */
-/* ========================================= */
 #botao-flutuante-whatsapp {
-    position: fixed; /* Fixa o botão na janela do navegador */
-    bottom: 20px; /* 20px da parte inferior da tela */
-    right: 20px; /* 20px da parte direita da tela */
-    z-index: 1000; /* Garante que o botão fique acima de outros elementos */
-    background-color: transparent; /* Alterado: Fundo transparente */
-    color: white; /* Mantém as letras brancas */
-    padding: 0; /* Alterado: Remove padding para não ter fundo */
-    border-radius: 0; /* Alterado: Remove border-radius */
-    font-size: 1.2em; /* Mantido para o texto "Solicitar Orçamento" */
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    background-color: transparent;
+    /* ALTERAÇÃO AQUI: COR DO TEXTO PARA PRETO */
+    color: black; /* O texto "WhatsApp" será preto */
+    padding: 0;
+    border-radius: 0;
+    font-size: 1.2em;
     text-decoration: none;
-    display: inline-flex; /* Para alinhar ícone e texto */
+    display: inline-flex;
     align-items: center;
-    box-shadow: none; /* Alterado: Remove a sombra do container */
-    transition: transform 0.2s ease; /* Transição suave no hover */
+    box-shadow: none;
+    transition: transform 0.2s ease;
 }
 
 #botao-flutuante-whatsapp:hover {
-    background-color: transparent; /* Alterado: Fundo transparente no hover */
-    transform: scale(1.05); /* Pequeno zoom no hover */
+    background-color: transparent;
+    transform: scale(1.05);
 }
 
 #botao-flutuante-whatsapp .whatsapp-icon {
-    width: 60px; /* Tamanho maior para o ícone, para que ele seja o "botão" visível */
-    height: 60px; /* Tamanho maior para o ícone */
-    margin-right: 10px; /* Mantém o espaçamento se houver texto */
-    filter: none; /* O ícone aparecerá como ele é no arquivo PNG transparente. */
+    width: 60px;
+    height: 60px;
+    margin-right: 10px;
+    filter: none;
 }
 
 /* ========================================= */
@@ -375,63 +374,63 @@ footer .container p {
 @media (min-width: 768px) {
     /* Ajustes para telas maiores (desktop) */
     .fleet-description {
-        flex-direction: row; /* Volta a ser linha em telas maiores */
+        flex-direction: row;
         text-align: left;
     }
 
     .fleet-image {
-        max-width: 40%; /* Ajusta a largura da imagem na linha */
-        margin-right: 30px; /* Espaçamento à direita da imagem */
+        max-width: 40%;
+        margin-right: 30px;
     }
 
     .fleet-description div {
-        flex: 1; /* Ocupa o restante do espaço */
+        flex: 1;
     }
 }
 
 @media (max-width: 767px) {
     /* Ajustes para telas menores (celular/tablet) */
     .header-main-content {
-        flex-direction: column; /* Empilha os itens do cabeçalho */
-        align-items: center; /* CENTRALIZA TODOS OS ITENS HORIZONTALMENTE */
-        padding: 10px 20px; /* Ajuste do padding */
+        flex-direction: column;
+        align-items: center;
+        padding: 10px 20px;
     }
 
     header .tagline {
-        text-align: center; /* Centraliza a tagline */
-        width: 100%; /* Ocupa toda a largura */
-        margin-bottom: 15px; /* Espaçamento abaixo da tagline */
-        order: 1; /* Garante que a tagline venha primeiro no layout empilhado */
+        text-align: center;
+        width: 100%;
+        margin-bottom: 15px;
+        order: 1;
     }
 
-    nav { /* Estiliza a navegação como um todo */
+    nav {
         width: 100%;
         margin-top: 15px;
-        order: 2; /* Garante que a navegação venha depois da tagline */
+        order: 2;
     }
 
     header nav ul {
-        flex-direction: row; /* Coloca os itens do menu um ao lado do outro no mobile */
-        justify-content: center; /* Centraliza os itens do menu horizontalmente */
+        flex-direction: row;
+        justify-content: center;
         width: 100%;
         margin-bottom: 10px;
     }
 
     header nav ul li {
-        margin: 0 15px; /* Espaçamento entre os itens */
-        padding-left: 15px; /* Ajusta o padding-left para o marcador */
-        text-align: left; /* Alinha o texto à esquerda do marcador */
-        position: relative; /* Mantém o posicionamento relativo para o before */
-        width: auto; /* Ajusta a largura do item para o conteúdo */
+        margin: 0 15px;
+        padding-left: 15px;
+        text-align: left;
+        position: relative;
+        width: auto;
     }
 
     header nav ul li::before {
-        left: 0; /* Ajusta a posição da bolinha no mobile */
-        color: gold; /* Cor da bolinha no mobile também */
+        left: 0;
+        color: gold;
     }
 
     header nav ul li a {
-        color: gold; /* Cor dos links no mobile para DOURADO OURO */
+        color: gold;
     }
 
     /* Oculta o botão do cabeçalho para não duplicar com o flutuante */
@@ -441,41 +440,41 @@ footer .container p {
 
     /* Seção Hero no mobile - ajuste de fonte para o título e parágrafo */
     #hero.hero-section h2 {
-        font-size: 2em; /* Reduz o tamanho da fonte do título principal */
+        font-size: 2em;
     }
 
     #hero.hero.section p {
-        font-size: 1.1em; /* Reduz o tamanho da fonte do parágrafo */
+        font-size: 1.1em;
     }
 
     .service-grid {
-        flex-direction: column; /* Empilha os itens de serviço em telas pequenas */
+        flex-direction: column;
         align-items: center;
     }
 
     .service-item {
         margin-bottom: 20px;
-        max-width: 90%; /* Ajusta a largura dos itens de serviço para ocupar mais espaço */
+        max-width: 90%;
     }
 
     /* Ajuste para o botão flutuante em telas menores */
     #botao-flutuante-whatsapp {
-        font-size: 1em; /* Fonte um pouco menor para o texto */
-        padding: 0; /* Sem padding no botão flutuante */
+        font-size: 1em;
+        padding: 0;
         bottom: 10px;
         right: 10px;
     }
     #botao-flutuante-whatsapp .whatsapp-icon {
-        width: 50px; /* Tamanho do ícone para mobile */
-        height: 50px; /* Tamanho do ícone para mobile */
-        margin-right: 5px; /* Ajusta o espaçamento */
+        width: 50px;
+        height: 50px;
+        margin-right: 5px;
     }
 }
 
 /* Ajustes adicionais para telas muito pequenas */
 @media (max-width: 480px) {
     #hero.hero.section h2 {
-        font-size: 1.8em; /* Ajuste ainda mais para telas menores */
+        font-size: 1.8em;
     }
 
     #hero.hero.section p {
@@ -483,19 +482,19 @@ footer .container p {
     }
 
     .top-announcement span {
-        font-size: 0.8em; /* Reduz o tamanho da fonte da faixa superior */
+        font-size: 0.8em;
     }
 
     /* Ajuste para o botão flutuante em telas muito pequenas */
     #botao-flutuante-whatsapp {
-        font-size: 0.9em; /* Fonte ainda menor */
-        padding: 0; /* Sem padding */
+        font-size: 0.9em;
+        padding: 0;
         bottom: 10px;
         right: 10px;
     }
     #botao-flutuante-whatsapp .whatsapp-icon {
-        width: 40px; /* Tamanho do ícone para telas muito pequenas */
-        height: 40px; /* Tamanho do ícone para telas muito pequenas */
-        margin-right: 3px; /* Espaçamento menor */
+        width: 40px;
+        height: 40px;
+        margin-right: 3px;
     }
 }
