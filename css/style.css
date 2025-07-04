@@ -1,6 +1,3 @@
-/* Importação de Fontes do Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@300;400;600;700&display=swap');
-
 /* Variáveis CSS para um tema mais moderno */
 :root {
     --primary-color: #e74c3c; /* Vermelho vibrante */
