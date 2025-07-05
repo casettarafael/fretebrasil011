@@ -50,19 +50,19 @@ h1, h2, h3, h4, h5, h6 {
 
 a {
     text-decoration: none;
-    color: var(--primary-color); /* Usará o novo azul */
+    color: var(--primary-color);
     transition: all var(--transition-speed);
 }
 
 a:hover {
-    color: #c0392b; /* Tom mais escuro do vermelho - considere usar um tom mais escuro do novo primary-color ou do highlight-color aqui */
+    color: #c0392b;
     text-decoration: none;
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 1.5rem; /* Ajustado para rem */
+    padding: 0 1.5rem;
 }
 
 /* Animações genéricas (requer JS para ativar on-scroll) */
@@ -83,21 +83,21 @@ a:hover {
 }
 
 .animate-on-scroll {
-    opacity: 0; /* Inicia oculto para a animação */
+    opacity: 0;
 }
 
 /* Faixa Superior (Top Announcement) */
 .top-announcement {
-    background-color: var(--primary-color); /* Usará o novo azul */
+    background-color: var(--primary-color);
     color: var(--white);
     padding: 0.5rem 0;
     font-size: 0.95em;
     font-weight: 600;
     text-align: center;
-    overflow: hidden; /* Mantido para a animação no desktop */
+    overflow: hidden;
     position: relative;
-    white-space: nowrap; /* Impede que o texto quebre no desktop */
-    animation: slideIn 15s linear infinite; /* Animação de rolagem */
+    white-space: nowrap;
+    animation: slideIn 15s linear infinite;
 }
 
 @keyframes slideIn {
@@ -121,7 +121,7 @@ a:hover {
 
 /* Cabeçalho Principal */
 header {
-    background: linear-gradient(to right, var(--bg-dark), #2a333c); /* var(--bg-dark) é o novo preto quase absoluto */
+    background: linear-gradient(to right, var(--bg-dark), #2a333c);
     color: var(--white);
     padding: 1rem 0;
     box-shadow: 0 4px 15px var(--shadow-light);
@@ -142,7 +142,7 @@ header .tagline {
     font-size: 1.2em;
     font-weight: 700;
     flex-grow: 1;
-    color: #f39c12; /* Cor laranja - considere usar var(--highlight-color) aqui */
+    color: #f39c12;
     text-align: left;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
@@ -179,12 +179,12 @@ nav ul li a:hover::after {
 }
 
 nav ul li a:hover {
-    color: var(--primary-color); /* Usará o novo azul */
+    color: var(--primary-color);
 }
 
 /* Botão de WhatsApp no Cabeçalho (se houver, para desktop) */
 .btn-whatsapp {
-    background-color: var(--accent-color); /* Verde WhatsApp */
+    background-color: var(--accent-color);
     color: var(--white);
     padding: 0.7rem 1.2rem;
     border-radius: var(--border-radius-md);
@@ -198,7 +198,7 @@ nav ul li a:hover {
 }
 
 .btn-whatsapp:hover {
-    background-color: #1eaf53; /* Tom mais escuro do verde */
+    background-color: #1eaf53;
     transform: translateY(-2px);
     box-shadow: 0 6px 12px var(--shadow-medium);
 }
@@ -276,16 +276,15 @@ nav ul li a:hover {
     flex-direction: column;
     gap: 15px;
     margin-top: 20px;
-    align-items: center;
+    align-items: center; /* Centraliza os botões */
     width: 100%;
-    max-width: 300px; /* REDUZIDO: Largura máxima para os botões */
     margin-left: auto;
     margin-right: auto;
 }
 
 /* Estilo para o botão "Ligue Agora" na Seção Hero */
 .btn-hero-call {
-    background-color: var(--primary-color); /* Usará o novo azul */
+    background-color: var(--primary-color);
     color: var(--white);
     padding: 0.9rem 1.8rem;
     border-radius: var(--border-radius-lg);
@@ -297,14 +296,15 @@ nav ul li a:hover {
     justify-content: center;
     transition: all var(--transition-speed);
     box-shadow: 0 5px 15px var(--shadow-medium);
-    width: 100%;
+    max-width: 280px; /* Largura máxima para o botão em telas maiores */
+    width: 90%; /* Ocupa 90% do espaço disponível até o max-width */
     min-height: 50px;
     line-height: 1.2;
     box-sizing: border-box;
 }
 
 .btn-hero-call:hover {
-    background-color: #c0392b; /* Tom mais escuro do vermelho - considere usar um tom mais escuro do novo primary-color ou do highlight-color aqui */
+    background-color: #c0392b;
     transform: translateY(-5px);
     box-shadow: 0 8px 25px var(--shadow-strong);
 }
@@ -318,7 +318,7 @@ nav ul li a:hover {
 
 /* NOVO ESTILO: Botão "Fale pelo WhatsApp" na Seção Hero */
 .btn-hero-whatsapp {
-    background-color: var(--accent-color); /* Verde WhatsApp */
+    background-color: var(--accent-color);
     color: var(--white);
     padding: 0.9rem 1.8rem;
     border-radius: var(--border-radius-lg);
@@ -330,14 +330,15 @@ nav ul li a:hover {
     justify-content: center;
     transition: all var(--transition-speed);
     box-shadow: 0 5px 15px var(--shadow-medium);
-    width: 100%;
+    max-width: 280px; /* Largura máxima para o botão em telas maiores */
+    width: 90%; /* Ocupa 90% do espaço disponível até o max-width */
     min-height: 50px;
     line-height: 1.2;
     box-sizing: border-box;
 }
 
 .btn-hero-whatsapp:hover {
-    background-color: #1DA851; /* Tom mais escuro do verde */
+    background-color: #1DA851;
     transform: translateY(-5px);
     box-shadow: 0 8px 25px var(--shadow-strong);
 }
@@ -359,7 +360,7 @@ nav ul li a:hover {
 
 .services-section h2 {
     font-size: clamp(2em, 4vw, 3em);
-    color: var(--text-dark); /* Usará o novo cinza escuro */
+    color: var(--text-dark);
     margin-bottom: 2.5rem;
     position: relative;
 }
@@ -368,7 +369,7 @@ nav ul li a:hover {
     display: block;
     width: 60px;
     height: 4px;
-    background-color: var(--primary-color); /* Usará o novo azul */
+    background-color: var(--primary-color);
     margin: 0.5rem auto 0;
     border-radius: 2px;
 }
@@ -415,11 +416,11 @@ nav ul li a:hover {
     border-color: transparent;
 }
 .service-item:hover::before {
-    border-color: var(--primary-color); /* Usará o novo azul */
+    border-color: var(--primary-color);
 }
 
 .service-item h3 {
-    color: var(--primary-color); /* Usará o novo azul */
+    color: var(--primary-color);
     font-size: 1.6em;
     margin-top: 0;
     margin-bottom: 1rem;
@@ -429,7 +430,7 @@ nav ul li a:hover {
     z-index: 1;
 }
 .service-item:hover h3 {
-    color: var(--secondary-color); /* Usará o novo azul marinho profundo */
+    color: var(--secondary-color);
 }
 
 .service-item h3::after {
@@ -437,19 +438,19 @@ nav ul li a:hover {
     display: block;
     width: 40px;
     height: 3px;
-    background-color: var(--secondary-color); /* Usará o novo azul marinho profundo */
+    background-color: var(--secondary-color);
     margin-top: 0.5rem;
     border-radius: 2px;
 }
 
 .service-item p {
     font-size: 1em;
-    color: var(--text-light); /* Usará o novo cinza médio */
+    color: var(--text-light);
     transition: color var(--transition-speed);
     z-index: 1;
 }
 .service-item:hover p {
-    color: var(--text-dark); /* Usará o novo cinza escuro */
+    color: var(--text-dark);
 }
 
 
@@ -457,33 +458,47 @@ nav ul li a:hover {
 .fleet-section {
     padding: 4rem 0;
     background-color: var(--bg-medium);
-    text-align: center;
+    /* Para centralizar verticalmente o conteúdo (incluindo o título) da seção
+       quando ela não tem altura definida. Se você quer o título verticalmente
+       no meio da tela, a seção precisaria ter uma altura de tela (ex: min-height: 100vh;),
+       o que pode não ser o desejado para uma seção de conteúdo fluida.
+       Mantenho text-align: center para centralização horizontal. */
+    text-align: center; /* Mantido para centralização horizontal de todo o conteúdo da seção que não é flex item */
 }
 
 .fleet-section h2 {
     font-size: clamp(2em, 4vw, 3em);
-    color: var(--text-dark); /* Usará o novo cinza escuro */
+    color: var(--text-dark);
     margin-bottom: 2.5rem;
     position: relative;
+    text-align: center; /* Centraliza o texto "Veiculos" horizontalmente */
 }
 .fleet-section h2::after {
     content: '';
     display: block;
     width: 60px;
     height: 4px;
-    background-color: var(--primary-color); /* Usará o novo azul */
-    margin: 0.5rem auto 0;
+    background-color: var(--primary-color);
+    margin: 0.5rem auto 0; /* 'auto' para centralizar a linha abaixo do título */
     border-radius: 2px;
+}
+
+/* Opcional: Centralizar o h3 "Hyundai HR com Baú Espaçoso" */
+.fleet-section h3 {
+    text-align: center;
+    font-size: 1.8em;
+    color: var(--secondary-color);
+    margin-bottom: 0.8rem;
 }
 
 .fleet-description {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center; /* Centraliza os itens dentro de fleet-description */
     gap: 2rem;
     max-width: 1000px;
     margin: 0 auto;
-    text-align: left;
+    text-align: left; /* Mantém o alinhamento do texto descritivo (p, ul) */
 }
 
 .fleet-image {
@@ -498,16 +513,10 @@ nav ul li a:hover {
     transform: scale(1.02);
 }
 
-.fleet-description h3 {
-    font-size: 1.8em;
-    color: var(--secondary-color); /* Usará o novo azul marinho profundo */
-    margin-bottom: 0.8rem;
-}
-
 .fleet-description p {
     font-size: 1.1em;
-    color: var(--text-light); /* Usará o novo cinza médio */
-    text-align: justify;
+    color: var(--text-light);
+    text-align: justify; /* Mantém justificado se houver texto suficiente */
     margin-bottom: 1rem;
 }
 
@@ -519,7 +528,7 @@ nav ul li a:hover {
 
 .fleet-description ul li {
     font-size: 1em;
-    color: var(--text-dark); /* Usará o novo cinza escuro */
+    color: var(--text-dark);
     margin-bottom: 0.8rem;
     position: relative;
     padding-left: 1.8rem;
@@ -529,7 +538,7 @@ nav ul li a:hover {
     content: '✅';
     position: absolute;
     left: 0;
-    color: var(--accent-color); /* Verde WhatsApp */
+    color: var(--accent-color);
     font-size: 1.2em;
     top: 50%;
     transform: translateY(-50%);
@@ -538,7 +547,7 @@ nav ul li a:hover {
 /* Contato e WhatsApp */
 .contact-whatsapp-section {
     padding: 4rem 0;
-    background-color: var(--bg-dark); /* Usará o novo preto quase absoluto */
+    background-color: var(--bg-dark);
     color: var(--white);
     text-align: center;
 }
@@ -553,7 +562,7 @@ nav ul li a:hover {
     display: block;
     width: 80px;
     height: 4px;
-    background-color: var(--primary-color); /* Usará o novo azul */
+    background-color: var(--primary-color);
     margin: 0.5rem auto 0;
     border-radius: 2px;
 }
@@ -577,13 +586,13 @@ nav ul li a:hover {
     color: rgba(255, 255, 255, 0.8);
 }
 .contact-whatsapp-section .alt-contact strong {
-    color: var(--primary-color); /* Usará o novo azul */
+    color: var(--primary-color);
     font-weight: 700;
 }
 
 /* Footer */
 footer {
-    background-color: #212529; /* Preto quase absoluto (mantido, mas agora alinhado com --bg-dark) */
+    background-color: #212529;
     color: rgba(255, 255, 255, 0.7);
     text-align: center;
     padding: 1.5rem 0;
@@ -594,10 +603,10 @@ footer .container p {
     margin: 0.3rem 0;
 }
 footer a {
-    color: var(--accent-color); /* Verde WhatsApp */
+    color: var(--accent-color);
 }
 footer a:hover {
-    color: #1eaf53; /* Tom mais escuro do verde */
+    color: #1eaf53;
 }
 
 /* ESTILOS PARA O BOTÃO FLUTUANTE (FIXO) */
@@ -607,7 +616,7 @@ footer a:hover {
     right: 1.5rem;
     z-index: 1000;
     background-color: transparent;
-    color: var(--text-dark); /* Usará o novo cinza escuro */
+    color: var(--text-dark);
     padding: 0;
     border-radius: 0;
     font-size: 1.1em;
@@ -646,7 +655,7 @@ footer a:hover {
     header .tagline {
         text-align: left;
         margin-right: 2rem;
-        color: var(--highlight-color); /* Sugestão de uso do novo highlight-color aqui */
+        color: var(--highlight-color);
     }
     nav ul {
         display: flex;
@@ -654,16 +663,38 @@ footer a:hover {
         gap: 1.5rem;
     }
 
-    .fleet-description {
-        flex-direction: row;
-        text-align: left;
+    /* Alterado: Flex para o container da seção Frota */
+    .fleet-section .container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px; /* Espaçamento entre descrição e slider */
+        align-items: flex-start; /* Alinha os conteúdos no topo */
+        /* REMOVIDO: text-align: left; aqui, pois o h2 já foi centralizado */
     }
+
+    /* Alterado: Definição de flex para a descrição do veículo */
+    .fleet-description {
+        flex: 1; /* Ocupa o espaço disponível */
+        min-width: 300px;
+        max-width: 45%; /* Ocupa 45% da largura do container em desktop */
+        margin: 0; /* Remove margem automática para não interferir com flex */
+    }
+
     .fleet-image {
-        max-width: 40%;
-        margin-right: 30px;
+        max-width: 100%; /* Garante que a imagem se ajuste ao container da descrição */
+        margin-right: 0;
+        margin-bottom: 1rem; /* Espaço abaixo da imagem dentro da descrição */
     }
     .fleet-description div {
         flex: 1;
+    }
+
+    /* NOVO: Estilos para o Swiper no Desktop */
+    .swiper.mySwiperFleet {
+        flex: 1; /* Ocupa o espaço disponível */
+        min-width: 300px;
+        max-width: 45%; /* Ocupa 45% da largura do container em desktop */
+        margin-top: 0; /* Alinha com o topo da descrição */
     }
 }
 
@@ -683,7 +714,7 @@ footer a:hover {
         font-size: 0.9em;
         margin-bottom: 0.5rem;
         text-align: center;
-        color: var(--highlight-color); /* Sugestão de uso do novo highlight-color aqui */
+        color: var(--highlight-color);
     }
     nav ul {
         display: none;
@@ -710,7 +741,7 @@ footer a:hover {
     .hero-buttons {
         gap: 10px;
         margin-top: 20px;
-        max-width: 300px; /* REDUZIDO: Largura máxima para tablets */
+        max-width: 300px;
     }
 
     /* AJUSTE AQUI: Botões hero individuais */
@@ -737,15 +768,28 @@ footer a:hover {
         align-items: center;
     }
 
+    /* Alterado: Flex para o container da seção Frota */
+    .fleet-section .container {
+        flex-direction: column; /* Colunas em telas menores */
+        align-items: center; /* Centraliza itens */
+        gap: 1.5rem; /* Espaçamento entre eles */
+    }
+    /* Alterado: Larguras para mobile/tablet */
     .fleet-description {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
+        max-width: 90%; /* Ocupa mais largura em telas menores */
+        text-align: center; /* Manter o texto de descrição centralizado em mobile/tablet */
+        margin-right: 0;
+        margin-bottom: 1rem;
     }
     .fleet-image {
         max-width: 90%;
         margin-right: 0;
         margin-bottom: 1rem;
+    }
+    /* NOVO: Estilos para o Swiper em Tablets/Mobile */
+    .swiper.mySwiperFleet {
+        max-width: 90%; /* Ocupa mais largura em telas menores */
+        margin-top: 1.5rem; /* Espaçamento da descrição */
     }
 
     /* Rodapé e Botão Flutuante */
@@ -794,7 +838,7 @@ footer a:hover {
     header .tagline {
         font-size: 0.85em;
         margin-bottom: 0.5rem;
-        color: var(--highlight-color); /* Sugestão de uso do novo highlight-color aqui */
+        color: var(--highlight-color);
     }
 
     /* Seção Hero */
@@ -813,7 +857,7 @@ footer a:hover {
     .hero-buttons {
         gap: 8px;
         margin-top: 15px;
-        max-width: 280px; /* REDUZIDO: Largura máxima para smartphones */
+        max-width: 250px;
     }
 
     /* AJUSTE AQUI: Botões hero individuais */
@@ -827,8 +871,13 @@ footer a:hover {
     }
 
     /* Ajustes gerais de fonte e espaçamento */
-    .services-section h2, .fleet-section h2, .contact-whatsapp-section h2 {
+    .services-section h2, .contact-whatsapp-section h2 {
         font-size: clamp(1.8em, 7vw, 2.5em);
+    }
+    /* Manter a centralização do h2 da frota também em mobile */
+    .fleet-section h2 {
+        font-size: clamp(1.8em, 7vw, 2.5em);
+        text-align: center; /* Garantir que permaneça centralizado */
     }
     .service-item {
         padding: 1.2rem;
@@ -862,7 +911,7 @@ footer a:hover {
     }
     header .tagline {
         font-size: 0.75em;
-        color: var(--highlight-color); /* Sugestão de uso do novo highlight-color aqui */
+        color: var(--highlight-color);
     }
     #hero.hero-section {
         min-height: 280px;
@@ -876,22 +925,116 @@ footer a:hover {
 
     /* AJUSTE AQUI: Container dos botões hero */
     .hero-buttons {
-        max-width: 240px; /* REDUZIDO: Largura máxima para telas muito pequenas */
+        max-width: 180px;
     }
     /* AJUSTE AQUI: Botões hero individuais */
     .btn-hero-call,
     .btn-hero-whatsapp {
-        font-size: 0.75em;
-        padding: 0.35rem 0.6rem;
-        min-height: 35px;
-        line-height: 1.2;
+        font-size: 0.7em;
+        padding: 0.3rem 0.5rem;
+        min-height: 30px;
+        line-height: 1.1;
         box-sizing: border-box;
     }
 
-    .services-section h2, .fleet-section h2, .contact-whatsapp-section h2 {
+    .services-section h2, .contact-whatsapp-section h2 {
         font-size: clamp(1.6em, 8vw, 2.2em);
+    }
+    /* Manter a centralização do h2 da frota também em telas muito pequenas */
+    .fleet-section h2 {
+        font-size: clamp(1.6em, 8vw, 2.2em);
+        text-align: center; /* Garantir que permaneça centralizado */
     }
     .service-item {
         padding: 1rem;
+    }
+}
+
+/* ========================================= */
+/* ESTILOS ESPECÍFICOS DO SWIPER.JS PARA A FROTA */
+/* ========================================= */
+
+.swiper.mySwiperFleet {
+    width: 100%; /* Garante que o swiper ocupe a largura do seu container pai */
+    height: auto; /* Altura automática baseada nas imagens */
+    margin-top: 2rem; /* Espaço entre a descrição principal e o carrossel */
+    padding-bottom: 2.5rem; /* Espaço para a paginação/pontos */
+}
+
+.swiper-wrapper {
+    align-items: center; /* Centraliza as imagens verticalmente dentro dos slides */
+}
+
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.swiper-slide img {
+    max-width: 100%; /* Garante que a imagem se ajuste ao slide */
+    height: 300px; /* Altura fixa para as imagens do carrossel */
+    object-fit: cover; /* Faz a imagem cobrir a área, cortando se necessário */
+    border-radius: var(--border-radius-md);
+    box-shadow: 0 8px 20px var(--shadow-medium); /* Sombra para destacar as imagens */
+}
+
+/* Estilos para os botões de navegação (setas) do Swiper */
+.swiper-button-next,
+.swiper-button-prev {
+    color: var(--primary-color) !important; /* Use a primary-color para as setas, ou outra cor */
+    font-size: 2.5rem !important; /* Tamanho maior para as setas */
+    top: 50%; /* Centraliza verticalmente */
+    transform: translateY(-50%);
+    opacity: 0.8;
+    transition: opacity var(--transition-speed);
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    opacity: 1;
+}
+
+/* Posicionamento dos botões (opcional, para afastá-los das bordas) */
+.swiper-button-prev {
+    left: 10px; /* Afasta da borda esquerda */
+}
+.swiper-button-next {
+    right: 10px; /* Afasta da borda direita */
+}
+
+/* Estilos para a paginação (pontos na parte inferior) do Swiper */
+.swiper-pagination-bullet {
+    background-color: var(--text-light) !important; /* Cor dos pontos inativos */
+    opacity: 0.6;
+    margin: 0 5px !important; /* Espaçamento entre os pontos */
+    width: 12px; /* Tamanho do ponto */
+    height: 12px; /* Tamanho do ponto */
+    transition: background-color var(--transition-speed), opacity var(--transition-speed);
+}
+
+.swiper-pagination-bullet-active {
+    background-color: var(--primary-color) !important; /* Cor do ponto ativo */
+    opacity: 1;
+}
+
+/* Estilos Responsivos para o Swiper */
+@media (max-width: 767px) {
+    .swiper.mySwiperFleet {
+        margin-top: 1.5rem;
+    }
+    .swiper-slide img {
+        height: 250px; /* Diminui a altura das imagens do carrossel em mobile */
+    }
+    .swiper-button-next,
+    .swiper-button-prev {
+        font-size: 1.8rem !important; /* Diminui o tamanho das setas em mobile */
+        padding: 0 5px;
+    }
+}
+
+@media (max-width: 480px) {
+    .swiper-slide img {
+        height: 200px; /* Diminui ainda mais a altura em telas muito pequenas */
     }
 }

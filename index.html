@@ -12,15 +12,17 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link rel="stylesheet" href="css/style.css">
-    
-    <link rel="icon" href="images/logo05.png" type="image/png"> 
-    
+
+    <link rel="icon" href="images/logo05.png" type="image/png">
+
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 
     <meta property="og:title" content="Frete Brasil 011 | Fretes e Mudanças em SP - Agilidade e Segurança!">
     <meta property="og:description" content="Frete Brasil 011 oferece serviços de fretes e mudanças em São Paulo, Baixada e Interior. Transporte seguro, eficiente e atendimento 24 horas para suas necessidades de carga.">
-    <meta property="og:image" content="https://fretebrasil011.com.br/images/logo05.png"> 
-    <meta property="og:url" content="https://fretebrasil011.com.br/"> 
+    <meta property="og:image" content="https://fretebrasil011.com.br/images/logo05.png">
+    <meta property="og:url" content="https://fretebrasil011.com.br/">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Frete Brasil 011">
 
@@ -32,7 +34,7 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Organization", 
+      "@type": "Organization",
       "name": "Frete Brasil 011",
       "url": "https://fretebrasil011.com.br/",
       "logo": "https://fretebrasil011.com.br/images/logo05.png",
@@ -72,7 +74,7 @@
             <div class="container">
                 <h2>Transporte Seguro e Eficiente para Suas necessidades!</h2>
                 <p>Com a Frete Brasil 011, sua mudança ou carga chega ao destino com agilidade e cuidado que você merece. **Atendimento 24 horas!**</p>
-                
+
                 <div class="hero-buttons">
                     <a href="https://api.whatsapp.com/send?phone=5511939353246&text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20os%20serviços%20de%20frete." class="btn-hero-whatsapp" target="_blank">
                         📱 Fale pelo WhatsApp
@@ -106,11 +108,9 @@
 
         <section id="frota" class="fleet-section">
             <div class="container">
-                <h2>Veiculos</h2> 
-                <div class="fleet-description">
-                    <img src="images/BUA01.jfif" alt="Detalhes da HR com Baú" class="fleet-image" loading="lazy" width="600" height="400"> 
-                    <div>
-                        <h3>Hyundai HR com Baú Espaçoso</h3> 
+                <h2>Veiculos</h2>
+                
+                       
                         <p>Contamos com uma <strong>frota diversificada de veículos</strong>, desde pequeno, médio a grande porte, prontos para atender a qualquer tipo de frete ou mudança. Nossos veículos são especialmente preparados e nossa equipe é altamente capacitada para o transporte e a acomodação segura de mobílias e cargas de todos os tipos, garantindo que seus bens cheguem ao destino com total segurança e integridade.</p>
                         <ul>
                             <li>Vários veículos disponíveis (Pequeno, Médio, Grande Porte)</li>
@@ -119,7 +119,33 @@
                         </ul>
                     </div>
                 </div>
-            </div>
+
+                <div class="swiper mySwiperFleet">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="images/1.jpg" alt="Caminhão Pequeno para fretes" loading="lazy" width="800" height="600">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="images/9.jpg" alt="Vans para Cargas Leves e rápidas" loading="lazy" width="800" height="600">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="images/ft (2).jpg" alt="Caminhão Médio Porte para mudanças" loading="lazy" width="800" height="600">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="images/ft (4).jpg" alt="Caminhão Grande Porte para fretes pesados" loading="lazy" width="800" height="600">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="images/ft (6).jpg" alt="Interior de Caminhão Baú com espaço" loading="lazy" width="800" height="600">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="images/ft (5).jpg" alt="Equipamento de Carga e segurança" loading="lazy" width="800" height="600">
+                        </div>
+                        </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-pagination"></div>
+                </div>
+                </div>
         </section>
 
         <section id="contato" class="contact-whatsapp-section">
@@ -146,7 +172,44 @@
     </footer>
 
     <a id="botao-flutuante-whatsapp" href="https://api.whatsapp.com/send?phone=5511939353246&text=Ol%C3%A1!%20Gostaria%20de%20solicitar%C3%A7amento%20para%20frete/mudan%C3%A7a." class="btn-whatsapp" target="_blank">
-        <img src="images/zzp.png" alt="WhatsApp" class="whatsapp-icon" loading="lazy" width="50" height="50"> 
+        <img src="images/zzp.png" alt="WhatsApp" class="whatsapp-icon" loading="lazy" width="50" height="50">
     </a>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script>
+        var swiperFleet = new Swiper(".mySwiperFleet", {
+            slidesPerView: 1, // Exibe 1 slide por vez em telas pequenas
+            spaceBetween: 20, // Espaço entre os slides
+            loop: true, // Permite loop infinito no carrossel
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            autoplay: {
+                delay: 4000, // Tempo de espera entre os slides (4 segundos)
+                disableOnInteraction: false, // Não para o autoplay se o usuário interagir
+            },
+            breakpoints: {
+                // Configurações para telas maiores
+                640: {
+                    slidesPerView: 1.5, // 1.5 slides em telas a partir de 640px
+                    spaceBetween: 30,
+                },
+                768: {
+                    slidesPerView: 2, // 2 slides em telas a partir de 768px
+                    spaceBetween: 30,
+                },
+                1024: {
+                    slidesPerView: 2.5, // 2.5 slides em telas a partir de 1024px
+                    spaceBetween: 40,
+                },
+            },
+        });
+    </script>
 </body>
 </html>
