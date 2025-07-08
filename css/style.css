@@ -167,7 +167,7 @@ nav ul li::before {
 
 nav ul li a {
     color: var(--white);
-    font-weight: 600;
+    font-weight: 1500;
     font-size: 1em;
     position: relative;
     padding-bottom: 5px;
@@ -191,7 +191,7 @@ nav ul li a:hover {
     text-decoration: none;
     display: flex;
     align-items: center;
-    font-weight: 600;
+    font-weight: 750;
     transition: all var(--transition-speed);
     white-space: nowrap;
     box-shadow: 0 4px 8px var(--shadow-light);
