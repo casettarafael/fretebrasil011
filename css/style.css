@@ -1037,4 +1037,1117 @@ footer a:hover {
     .swiper-slide img {
         height: 200px; /* Diminui ainda mais a altura em telas muito pequenas */
     }
+}/* Variáveis CSS para um tema mais moderno e harmonioso */
+:root {
+    --primary-color: #0056b3; /* Um azul mais institucional/confiável (originalmente vermelho) */
+    --secondary-color: #003366; /* Azul Marinho profundo, para contraste e títulos (originalmente azul escuro) */
+    --accent-color: #25D366; /* Verde WhatsApp (mantido) */
+    --highlight-color: #e74c3c; /* Novo: Um tom de vermelho/laranja para destaques pontuais (ex: tagline ou selos), mantendo a energia do seu original */
+
+    --text-dark: #343a40; /* Cinza escuro para títulos e textos principais, mais suave que o preto absoluto */
+    --text-light: #6c757d; /* Cinza médio para o corpo do texto */
+    --bg-light: #f8f9fa; /* Fundo muito claro (mantido) */
+    --bg-medium: #e9ecef; /* Fundo levemente mais escuro (mantido) */
+    --bg-dark: #212529; /* Fundo escuro para cabeçalho/rodapé, um preto quase absoluto (originalmente um azul escuro) */
+    --white: #ffffff; /* Mantido */
+    --border-light: #dee2e6; /* Mantido */
+
+    --border-radius-sm: 5px;
+    --border-radius-md: 10px;
+    --border-radius-lg: 15px;
+
+    --transition-speed: 0.3s ease-in-out;
+    --shadow-light: rgba(0, 0, 0, 0.08);
+    --shadow-medium: rgba(0, 0, 0, 0.15);
+    --shadow-strong: rgba(0, 0, 0, 0.25);
+}
+
+/* Estilos Gerais e Resets */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif; /* Usando Poppins como fonte principal */
+    line-height: 1.7; /* Mais espaçamento para leitura */
+    color: var(--text-light);
+    background-color: var(--bg-light);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden; /* Evita scroll horizontal */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif; /* Montserrat para títulos */
+    color: var(--text-dark);
+    line-height: 1.2;
+    margin-bottom: 0.8em;
+    font-weight: 700;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: all var(--transition-speed);
+}
+
+a:hover {
+    /* Mudei de um '#c0392b' que não estava em variáveis para 'secondary-color' ou 'highlight-color' */
+    color: var(--secondary-color); /* Ou var(--highlight-color) se quiser um vermelho/laranja */
+    text-decoration: none;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* Animações genéricas (requer JS para ativar on-scroll) */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-on-scroll {
+    opacity: 0;
+}
+
+/* Faixa Superior (Top Announcement) */
+.top-announcement {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 0.5rem 0;
+    font-size: 0.95em;
+    font-weight: 600;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+    white-space: nowrap;
+    /* Considere se quer a animação infinita de slideIn. Para SEO, pode ser distrativa. */
+    /* Se for manter, certifique-se de que o conteúdo é legível e acessível */
+    animation: slideIn 15s linear infinite; /* Pode ser removido se for muito distrativo */
+}
+
+@keyframes slideIn {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+.top-announcement .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10px;
+}
+
+.top-announcement .icon {
+    width: 1.1em;
+    height: 1.1em;
+    margin-right: 0.5rem;
+    filter: invert(100%); /* Inverte a cor do ícone para branco */
+}
+
+/* Cabeçalho Principal */
+header {
+    background: linear-gradient(to right, var(--bg-dark), #2a333c);
+    color: var(--white);
+    padding: 1rem 0;
+    box-shadow: 0 4px 15px var(--shadow-light);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-main-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1.5rem;
+}
+
+/* Adicionei um estilo para o H1 aqui, pois é novo no HTML */
+header h1 {
+    font-size: 1.5em; /* Tamanho adequado para um logo/título principal */
+    margin: 0; /* Remove margem padrão do h1 */
+    color: var(--white); /* Cor branca para o título no cabeçalho escuro */
+    font-weight: 700;
+    line-height: 1.2;
+    /* Remover text-align: left; se for ter um logo imagem */
+}
+
+header .tagline {
+    margin: 0;
+    font-size: 1.2em;
+    font-weight: 700;
+    flex-grow: 1;
+    color: var(--highlight-color); /* Usando a nova variável highlight-color */
+    text-align: left;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Navegação */
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 1.5rem;
+}
+
+nav ul li {
+    position: relative;
+    padding: 0;
+}
+
+nav ul li::before {
+    display: none; /* Mantido, parece um reset */
+}
+
+nav ul li a {
+    color: var(--white);
+    font-weight: 600;
+    font-size: 1em;
+    position: relative;
+    padding-bottom: 5px;
+    transition: color var(--transition-speed);
+}
+
+/* Efeito de underline animado para links de navegação */
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--primary-color);
+    transition: width var(--transition-speed);
+}
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+nav ul li a:hover {
+    color: var(--primary-color);
+}
+
+/* Botões Gerais (WhatsApp) - Reorganizado para evitar duplicação */
+.btn-whatsapp {
+    background-color: var(--accent-color);
+    color: var(--white);
+    padding: 0.7rem 1.2rem;
+    border-radius: var(--border-radius-md);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    transition: all var(--transition-speed);
+    white-space: nowrap;
+    box-shadow: 0 4px 8px var(--shadow-light);
+}
+
+.btn-whatsapp:hover {
+    background-color: #1eaf53; /* Um tom um pouco mais escuro de verde */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px var(--shadow-medium);
+}
+
+.whatsapp-icon {
+    width: 1.2em;
+    height: 1.2em;
+    margin-right: 0.5rem;
+    filter: none; /* Garante que a cor original do ícone seja mantida */
+}
+
+/* Estilo da Seção Hero (Banner Principal com imagem de fundo) */
+#hero.hero-section {
+    position: relative;
+    /* Ajuste para logo05.png - Se for um logo pequeno, NÃO use como background grande */
+    /* Se logo05.png é uma imagem de caminhão/fundo, OK. Caso contrário, mude para uma imagem adequada de background */
+    background: url('../images/fundo-frete.jpg') no-repeat center center/cover; /* Exemplo: mudar para uma imagem de fundo real */
+    color: var(--white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    padding: 2rem 1.5rem;
+    width: 100%;
+    min-height: 600px; /* Minha altura para seção hero */
+    /* Removi 'top: 0; left: 0;' pois já está em position: relative */
+}
+
+#hero.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.65); /* Escurece a imagem de fundo */
+    z-index: 1;
+}
+
+#hero.hero-section .container {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#hero.hero-section h2 {
+    font-size: clamp(2.5em, 5vw, 4.5em);
+    margin-bottom: 1rem;
+    text-shadow: 3px 3px 8px rgba(0,0,0,0.8);
+    font-weight: 700;
+    color: var(--white);
+    text-align: center;
+}
+
+#hero.hero-section p {
+    font-size: clamp(1.1em, 2vw, 1.4em);
+    line-height: 1.6;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    max-width: 700px;
+    margin: 0 auto 1.5rem auto;
+    color: rgba(255, 255, 255, 0.9);
+    text-align: center;
+}
+
+/* Container para os botões na seção Hero */
+.hero-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+    align-items: center;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Estilo para o botão "Ligue Agora" na Seção Hero */
+.btn-hero-call {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 0.9rem 1.8rem;
+    border-radius: var(--border-radius-lg);
+    font-weight: 700;
+    font-size: 1.1em;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-speed);
+    box-shadow: 0 5px 15px var(--shadow-medium);
+    max-width: 280px;
+    width: 90%;
+    min-height: 50px;
+    line-height: 1.2;
+    box-sizing: border-box;
+}
+
+.btn-hero-call:hover {
+    background-color: var(--secondary-color); /* Alterado para uma cor da sua paleta */
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px var(--shadow-strong);
+}
+
+.btn-hero-call svg {
+    margin-right: 0.8rem;
+    width: 1.3em;
+    height: 1.3em;
+    fill: var(--white);
+}
+
+/* Botão "Fale pelo WhatsApp" na Seção Hero */
+.btn-hero-whatsapp {
+    background-color: var(--accent-color);
+    color: var(--white);
+    padding: 0.9rem 1.8rem;
+    border-radius: var(--border-radius-lg);
+    font-weight: 700;
+    font-size: 1.1em;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-speed);
+    box-shadow: 0 5px 15px var(--shadow-medium);
+    max-width: 280px;
+    width: 90%;
+    min-height: 50px;
+    line-height: 1.2;
+    box-sizing: border-box;
+}
+
+.btn-hero-whatsapp:hover {
+    background-color: #1DA851; /* Um tom um pouco mais escuro de verde */
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px var(--shadow-strong);
+}
+
+.btn-hero-whatsapp .whatsapp-icon {
+    width: 1.5em;
+    height: 1.5em;
+    margin-right: 0.8rem;
+    filter: none;
+}
+
+/* NOVO ESTILO: Seção de Cotação Online */
+.cotacao-section {
+    padding: 4rem 0;
+    background-color: var(--bg-medium); /* Uma cor de fundo que a diferencia de outras seções */
+    text-align: center;
+}
+
+.cotacao-section h2 {
+    font-size: clamp(2em, 4vw, 3em);
+    color: var(--text-dark);
+    margin-bottom: 2.5rem;
+    position: relative;
+}
+
+.cotacao-section h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: var(--highlight-color); /* Usando a cor de destaque aqui */
+    margin: 0.5rem auto 0;
+    border-radius: 2px;
+}
+
+.cotacao-section p {
+    font-size: 1.1em;
+    color: var(--text-light);
+    max-width: 800px;
+    margin: 0 auto 2rem auto;
+}
+
+/* Estilo para o botão de cotação dentro da seção */
+.btn-cotacao-whatsapp {
+    background-color: var(--primary-color); /* Usando o azul primário */
+    color: var(--white);
+    padding: 0.9rem 1.8rem;
+    border-radius: var(--border-radius-lg);
+    font-weight: 700;
+    font-size: 1.1em;
+    text-decoration: none;
+    display: inline-flex; /* Para centralizar com text-align: center no pai */
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-speed);
+    box-shadow: 0 5px 15px var(--shadow-medium);
+    max-width: 350px;
+    width: 90%;
+    min-height: 50px;
+    line-height: 1.2;
+    box-sizing: border-box;
+    margin-top: 1rem; /* Espaço do parágrafo acima */
+}
+
+.btn-cotacao-whatsapp:hover {
+    background-color: var(--secondary-color); /* Azul marinho no hover */
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px var(--shadow-strong);
+}
+
+
+/* Seção de Serviços */
+.services-section {
+    padding: 4rem 0;
+    background-color: var(--white);
+    text-align: center;
+}
+
+.services-section h2 {
+    font-size: clamp(2em, 4vw, 3em);
+    color: var(--text-dark);
+    margin-bottom: 2.5rem;
+    position: relative;
+}
+.services-section h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: var(--primary-color);
+    margin: 0.5rem auto 0;
+    border-radius: 2px;
+}
+
+.service-grid {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.service-item {
+    background-color: var(--bg-light);
+    border: 1px solid var(--border-light);
+    border-radius: var(--border-radius-lg);
+    padding: 2rem;
+    flex: 1;
+    min-width: 280px;
+    max-width: 380px;
+    box-shadow: 0 8px 20px var(--shadow-light);
+    text-align: left;
+    transition: all var(--transition-speed);
+    position: relative;
+    overflow: hidden;
+}
+
+.service-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: var(--border-radius-lg);
+    border: 2px solid transparent;
+    transition: border-color var(--transition-speed) ease-out;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.service-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px var(--shadow-medium);
+    border-color: transparent;
+}
+.service-item:hover::before {
+    border-color: var(--primary-color);
+}
+
+.service-item h3 {
+    color: var(--primary-color);
+    font-size: 1.6em;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+    transition: color var(--transition-speed);
+    z-index: 1;
+}
+.service-item:hover h3 {
+    color: var(--secondary-color);
+}
+
+.service-item h3::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 3px;
+    background-color: var(--secondary-color);
+    margin-top: 0.5rem;
+    border-radius: 2px;
+}
+
+.service-item p {
+    font-size: 1em;
+    color: var(--text-light);
+    transition: color var(--transition-speed);
+    z-index: 1;
+}
+.service-item:hover p {
+    color: var(--text-dark);
+}
+
+
+/* Seção da Frota */
+.fleet-section {
+    padding: 4rem 0;
+    background-color: var(--bg-medium);
+    text-align: center;
+}
+
+.fleet-section h2 {
+    font-size: clamp(2em, 4vw, 3em);
+    color: var(--text-dark);
+    margin-bottom: 2.5rem;
+    position: relative;
+    text-align: center;
+}
+.fleet-section h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: var(--primary-color);
+    margin: 0.5rem auto 0;
+    border-radius: 2px;
+}
+
+/* Opcional: Centralizar o h3 "Hyundai HR com Baú Espaçoso" */
+/* Removido o h3 pois não existe mais no HTML que te passei */
+/* .fleet-section h3 {
+    text-align: center;
+    font-size: 1.8em;
+    color: var(--secondary-color);
+    margin-bottom: 0.8rem;
+} */
+
+.fleet-description {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    max-width: 1000px; /* Isso pode estar limitando o conteúdo em telas maiores */
+    margin: 0 auto;
+    text-align: left;
+}
+
+/* Removido .fleet-image e .fleet-description div, pois a estrutura do HTML mudou na seção frota */
+/* e as imagens agora estão dentro do Swiper */
+
+.fleet-description p {
+    font-size: 1.1em;
+    color: var(--text-light);
+    text-align: justify;
+    margin-bottom: 1rem;
+}
+
+.fleet-description ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 1.5rem;
+    text-align: left; /* Garante que a lista também alinhe à esquerda na descrição */
+}
+
+.fleet-description ul li {
+    font-size: 1em;
+    color: var(--text-dark);
+    margin-bottom: 0.8rem;
+    position: relative;
+    padding-left: 1.8rem;
+}
+
+.fleet-description ul li::before {
+    content: '✅';
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+    font-size: 1.2em;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Contato e WhatsApp */
+.contact-whatsapp-section {
+    padding: 4rem 0;
+    background-color: var(--bg-dark);
+    color: var(--white);
+    text-align: center;
+}
+
+.contact-whatsapp-section h2 {
+    font-size: clamp(2.2em, 4.5vw, 3.5em);
+    color: var(--white);
+    margin-bottom: 1.5rem;
+}
+.contact-whatsapp-section h2::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background-color: var(--primary-color);
+    margin: 0.5rem auto 0;
+    border-radius: 2px;
+}
+
+.contact-whatsapp-section .contact-intro {
+    font-size: 1.2em;
+    margin-bottom: 2rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Ocultado no desktop ou em telas maiores, pois você tem o botão no Hero */
+/* Se quiser este botão, pode reativar, mas evite duplicidade excessiva */
+.contact-whatsapp-section .btn-whatsapp.main-whatsapp-btn {
+    /* display: none; */ /* Mantido, pois o hero já tem botões de contato */
+    /* Você pode ajustar isso se quiser um botão de destaque aqui também */
+}
+
+.contact-whatsapp-section .alt-contact,
+.contact-whatsapp-section .address-info,
+.contact-whatsapp-section .hours-info {
+    font-size: 1.05em;
+    margin-bottom: 0.8rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+.contact-whatsapp-section .alt-contact strong {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+/* Footer */
+footer {
+    background-color: var(--bg-dark); /* Usando variável para consistência */
+    color: rgba(255, 255, 255, 0.7);
+    text-align: center;
+    padding: 1.5rem 0;
+    font-size: 0.9em;
+}
+
+footer .container p {
+    margin: 0.3rem 0;
+}
+footer a {
+    color: var(--accent-color);
+}
+footer a:hover {
+    color: #1eaf53;
+}
+
+/* ESTILOS PARA O BOTÃO FLUTUANTE (FIXO) */
+#botao-flutuante-whatsapp {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    z-index: 1000;
+    background-color: transparent; /* Transparente para manter só o ícone */
+    color: var(--text-dark); /* Removido, pois a cor é do ícone */
+    padding: 0;
+    border-radius: 0;
+    font-size: 1.1em; /* Tamanho do texto, mas aqui não tem texto */
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    box-shadow: none; /* Removido box-shadow no estado normal */
+    transition: all var(--transition-speed);
+}
+
+#botao-flutuante-whatsapp:hover {
+    background-color: rgba(0, 0, 0, 0.05); /* Um leve fundo no hover se quiser */
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 5px 15px var(--shadow-medium); /* Adicionado sombra no hover */
+}
+
+#botao-flutuante-whatsapp .whatsapp-icon {
+    width: 3rem;
+    height: 3rem;
+    margin-right: 0.5rem;
+    filter: none;
+}
+
+/* ========================================= */
+/* Media Queries para Responsividade */
+/* ========================================= */
+
+/* Desktop e Telas Maiores (acima de 993px) */
+@media (min-width: 993px) {
+    .header-main-content {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 1.5rem;
+    }
+    header .tagline {
+        text-align: left;
+        margin-right: 2rem;
+        color: var(--highlight-color);
+    }
+    nav ul {
+        display: flex;
+        flex-direction: row;
+        gap: 1.5rem;
+    }
+
+    /* Alterado: Flex para o container da seção Frota */
+    .fleet-section .container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        align-items: flex-start;
+    }
+
+    /* Alterado: Definição de flex para a descrição do veículo */
+    .fleet-description {
+        flex: 1;
+        min-width: 300px;
+        max-width: 45%;
+        margin: 0;
+    }
+
+    /* Removido .fleet-image - as imagens estão no Swiper */
+    /* .fleet-image {
+        max-width: 100%;
+        margin-right: 0;
+        margin-bottom: 1rem;
+    } */
+    /* Removido, pois não é mais necessário */
+    /* .fleet-description div {
+        flex: 1;
+    } */
+
+    /* NOVO: Estilos para o Swiper no Desktop */
+    .swiper.mySwiperFleet {
+        flex: 1;
+        min-width: 300px;
+        max-width: 45%;
+        margin-top: 0;
+    }
+}
+
+/* Tablets e Mobile Landscape (de 768px até 992px) */
+@media (max-width: 992px) {
+    .container {
+        padding: 0 1rem;
+    }
+
+    .header-main-content {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+        padding: 0 1rem;
+    }
+    header .tagline {
+        font-size: 0.9em;
+        margin-bottom: 0.5rem;
+        text-align: center;
+        color: var(--highlight-color);
+    }
+    nav ul {
+        display: none; /* Navegação oculta em mobile, presumindo um menu hamburger JS */
+    }
+    /* Removido .btn-whatsapp.header-whatsapp-btn pois não existe mais */
+
+    /* Seção Hero */
+    #hero.hero-section {
+        height: auto;
+        min-height: 350px;
+        padding: 1.5rem 1rem;
+    }
+    #hero.hero-section h2 {
+        font-size: clamp(2em, 7vw, 3em);
+    }
+    #hero.hero-section p {
+        font-size: clamp(1em, 2.5vw, 1.2em);
+        margin-bottom: 1.5rem;
+    }
+
+    /* Container dos botões hero */
+    .hero-buttons {
+        gap: 10px;
+        margin-top: 20px;
+        max-width: 300px;
+    }
+
+    /* Botões hero individuais */
+    .btn-hero-call,
+    .btn-hero-whatsapp {
+        padding: 0.6rem 1rem;
+        font-size: 1em;
+        min-height: 45px;
+        line-height: 1.2;
+        box-sizing: border-box;
+    }
+
+    .service-grid, .fleet-description {
+        gap: 1rem;
+    }
+    .service-item {
+        min-width: unset;
+        width: 100%;
+        max-width: 400px;
+        margin-bottom: 1rem;
+    }
+    .service-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Alterado: Flex para o container da seção Frota */
+    .fleet-section .container {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+    }
+    /* Alterado: Larguras para mobile/tablet */
+    .fleet-description {
+        max-width: 90%;
+        text-align: center;
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
+    /* Removido .fleet-image, já que as imagens estão no Swiper */
+    /* .fleet-image {
+        max-width: 90%;
+        margin-right: 0;
+        margin-bottom: 1rem;
+    } */
+    /* NOVO: Estilos para o Swiper em Tablets/Mobile */
+    .swiper.mySwiperFleet {
+        max-width: 90%;
+        margin-top: 1.5rem;
+    }
+
+    /* Rodapé e Botão Flutuante */
+    footer {
+        padding: 1rem 0;
+        font-size: 0.8em;
+    }
+    #botao-flutuante-whatsapp {
+        bottom: 1rem;
+        right: 1rem;
+        font-size: 0.9em;
+        padding: 0.3rem 0.8rem; /* Ajustado para ícone */
+    }
+    #botao-flutuante-whatsapp .whatsapp-icon {
+        width: 2.5rem;
+        height: 2.5rem;
+        margin-right: 0; /* Removido margem pois não tem texto no botão flutuante */
+    }
+}
+
+/* Smartphones (até 767px) */
+@media (max-width: 767px) {
+    .container {
+        padding: 0 1rem;
+    }
+    .top-announcement {
+        font-size: 0.85em;
+        padding: 0.4rem 0.8rem;
+        animation: none; /* Removendo animação de slide em telas pequenas */
+        white-space: normal; /* Permite que o texto quebre linha */
+        height: auto;
+    }
+    .top-announcement .container {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    header {
+        padding: 0.8rem 0;
+    }
+    .header-main-content {
+        padding: 0 0.8rem;
+        flex-direction: column;
+        align-items: center;
+    }
+    header .tagline {
+        font-size: 0.85em;
+        margin-bottom: 0.5rem;
+        color: var(--highlight-color);
+    }
+
+    /* Seção Hero */
+    #hero.hero-section {
+        min-height: 300px;
+        padding: 1rem 0.8rem;
+    }
+    #hero.hero-section h2 {
+        font-size: clamp(1.8em, 9vw, 2.5em);
+    }
+    #hero.hero-section p {
+        font-size: clamp(0.9em, 3.5vw, 1.1em);
+    }
+
+    /* Container dos botões hero */
+    .hero-buttons {
+        gap: 8px;
+        margin-top: 15px;
+        max-width: 250px;
+    }
+
+    /* Botões hero individuais */
+    .btn-hero-call,
+    .btn-hero-whatsapp {
+        padding: 0.4rem 0.7rem;
+        font-size: 0.8em;
+        min-height: 40px;
+        line-height: 1.2;
+        box-sizing: border-box;
+    }
+
+    /* Ajustes gerais de fonte e espaçamento */
+    .services-section h2, .contact-whatsapp-section h2, .cotacao-section h2 { /* Adicionado .cotacao-section h2 */
+        font-size: clamp(1.8em, 7vw, 2.5em);
+    }
+    /* Manter a centralização do h2 da frota também em mobile */
+    .fleet-section h2 {
+        font-size: clamp(1.8em, 7vw, 2.5em);
+        text-align: center;
+    }
+    .service-item {
+        padding: 1.2rem;
+    }
+    .fleet-description ul li {
+        font-size: 0.9em;
+    }
+    .contact-whatsapp-section .contact-intro {
+        font-size: 1em;
+    }
+    .contact-whatsapp-section .alt-contact,
+    .contact-whatsapp-section .address-info,
+    .contact-whatsapp-section .hours-info {
+        font-size: 0.85em;
+    }
+    #botao-flutuante-whatsapp {
+        font-size: 0.8em;
+        padding: 0; /* removi padding para manter só o ícone */
+    }
+    #botao-flutuante-whatsapp .whatsapp-icon {
+        width: 2rem;
+        height: 2rem;
+        margin-right: 0;
+    }
+}
+
+/* Telas muito pequenas (ex: iPhones 5/SE antigos - até 375px) */
+@media (max-width: 375px) {
+    .top-announcement {
+        font-size: 0.75em;
+    }
+    header .tagline {
+        font-size: 0.75em;
+        color: var(--highlight-color);
+    }
+    #hero.hero-section {
+        min-height: 280px;
+    }
+    #hero.hero-section h2 {
+        font-size: clamp(1.6em, 10vw, 2.2em);
+    }
+    #hero.hero-section p {
+        font-size: clamp(0.85em, 4vw, 1em);
+    }
+
+    /* Container dos botões hero */
+    .hero-buttons {
+        max-width: 180px;
+    }
+    /* Botões hero individuais */
+    .btn-hero-call,
+    .btn-hero-whatsapp {
+        font-size: 0.7em;
+        padding: 0.3rem 0.5rem;
+        min-height: 30px;
+        line-height: 1.1;
+        box-sizing: border-box;
+    }
+
+    .services-section h2, .contact-whatsapp-section h2, .cotacao-section h2 { /* Adicionado .cotacao-section h2 */
+        font-size: clamp(1.6em, 8vw, 2.2em);
+    }
+    /* Manter a centralização do h2 da frota também em telas muito pequenas */
+    .fleet-section h2 {
+        font-size: clamp(1.6em, 8vw, 2.2em);
+        text-align: center;
+    }
+    .service-item {
+        padding: 1rem;
+    }
+}
+
+/* ========================================= */
+/* ESTILOS ESPECÍFICOS DO SWIPER.JS PARA A FROTA */
+/* ========================================= */
+
+.swiper.mySwiperFleet {
+    width: 100%;
+    height: auto;
+    margin-top: 2rem;
+    padding-bottom: 2.5rem;
+}
+
+.swiper-wrapper {
+    align-items: center;
+}
+
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.swiper-slide img {
+    max-width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: var(--border-radius-md);
+    box-shadow: 0 8px 20px var(--shadow-medium);
+}
+
+/* Estilos para os botões de navegação (setas) do Swiper */
+.swiper-button-next,
+.swiper-button-prev {
+    color: var(--primary-color) !important;
+    font-size: 2.5rem !important;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.8;
+    transition: opacity var(--transition-speed);
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    opacity: 1;
+}
+
+/* Posicionamento dos botões (opcional, para afastá-los das bordas) */
+.swiper-button-prev {
+    left: 10px;
+}
+.swiper-button-next {
+    right: 10px;
+}
+
+/* Estilos para a paginação (pontos na parte inferior) do Swiper */
+.swiper-pagination-bullet {
+    background-color: var(--text-light) !important;
+    opacity: 0.6;
+    margin: 0 5px !important;
+    width: 12px;
+    height: 12px;
+    transition: background-color var(--transition-speed), opacity var(--transition-speed);
+}
+
+.swiper-pagination-bullet-active {
+    background-color: var(--primary-color) !important;
+    opacity: 1;
+}
+
+/* Estilos Responsivos para o Swiper */
+@media (max-width: 767px) {
+    .swiper.mySwiperFleet {
+        margin-top: 1.5rem;
+    }
+    .swiper-slide img {
+        height: 250px;
+    }
+    .swiper-button-next,
+    .swiper-button-prev {
+        font-size: 1.8rem !important;
+        padding: 0 5px;
+    }
+}
+
+@media (max-width: 480px) {
+    .swiper-slide img {
+        height: 200px;
+    }
 }
