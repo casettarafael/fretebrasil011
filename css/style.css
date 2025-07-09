@@ -88,7 +88,7 @@ a:hover {
 
 /* --- Faixa Superior (Top Announcement) --- */
 .top-announcement {
-    background-color: var(--primary-color);
+    background-color: var(--secondary-color); /* MODIFICAÇÃO AQUI: Agora usa o azul marinho profundo */
     color: var(--white);
     padding: 0.3rem 0; /* Diminuído para um padding mais sutil */
     font-size: 0.8em; /* Fonte menor para ser mais discreta */
@@ -128,7 +128,7 @@ a:hover {
 
 /* --- Cabeçalho Principal --- */
 header {
-    background: linear-gradient(to right, var(--bg-dark), #2a333c);
+    background: var(--bg-dark); /* MODIFICAÇÃO AQUI: Fundo escuro sólido */
     color: var(--white);
     padding: 1rem 0;
     box-shadow: 0 4px 15px var(--shadow-medium); /* Sombra mais pronunciada */
@@ -298,8 +298,8 @@ nav ul.main-nav li a:hover {
     height: 1.1em;
     margin-right: 0.5rem;
     /* Para a imagem PNG que você usa no HTML (`images/zzp.png` e `images/Gemini_Generated_Image_fo581efo581efo58.png`),
-       remova `fill: currentColor;` e o `filter: invert(100%);` do `.top-announcement .icon` se aplicar ao WhatsApp,
-       pois PNGs já têm cores fixas. Se você substituir por SVG, o `fill: currentColor;` é o ideal. */
+        remova `fill: currentColor;` e o `filter: invert(100%);` do `.top-announcement .icon` se aplicar ao WhatsApp,
+        pois PNGs já têm cores fixas. Se você substituir por SVG, o `fill: currentColor;` é o ideal. */
 }
 
 /* Seção Hero (Banner Principal) */
