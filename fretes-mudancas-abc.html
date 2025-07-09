@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fretes e Mudanças no ABC - Santo André, SBC, SCS | Frete Brasil 011</title>
+    
+    <link rel="stylesheet" href="css/style.css">
+    <meta name="description" content="Sua solução completa para fretes e mudanças no ABC Paulista: Santo André, São Bernardo do Campo, São Caetano do Sul, Diadema, Mauá, Ribeirão Pires e Rio Grande da Serra. Oferecemos carretos, mudanças residenciais, comerciais, transporte de cargas e serviço 24h. Cotação rápida e segura para todo o Grande ABC e SP.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Frete Brasil 011</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="#servicos">Serviços</a></li>
+                    <li><a href="#cobertura">Cobertura</a></li>
+                    <li><a href="#orcamento">Orçamento</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-section"> <div class="container">
+                <h2>Fretes e Mudanças no ABC, São Paulo e Região!</h2>
+                <p>Sua transportadora de confiança para cargas e mudanças, com agilidade, segurança e atendimento 24 horas.</p>
+                <div class="hero-buttons"> <a href="#orcamento" class="btn">Solicite seu Orçamento Grátis!</a>
+                    </div>
+            </div>
+        </section>
+
+        <section id="servicos" class="services-section container"> <h2>Nossos Serviços Completos</h2>
+            <div class="service-grid">
+                <div class="service-item">
+                    <h3>Fretes Residenciais e Comerciais</h3>
+                    <p>Transporte de pequenas, médias e grandes cargas para sua casa ou empresa. Cuidamos de tudo, da coleta à entrega.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Mudanças Residenciais</h3>
+                    <p>Planejamento e execução de mudanças residenciais com embalagem, desmontagem e montagem de móveis, garantindo a segurança dos seus bens.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Mudanças Comerciais</h3>
+                    <p>Soluções logísticas para a mudança da sua empresa, minimizando o tempo de inatividade e garantindo a organização do processo.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Carretos e Entregas Rápidas</h3>
+                    <p>Serviço ágil para entregas urgentes e transporte de itens avulsos em São Paulo e Grande ABC.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Atendimento 24 Horas</h3>
+                    <p>Disponibilidade para cotações e emergências a qualquer hora, garantindo flexibilidade e prontidão no atendimento.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Embalagens e Içamento</h3>
+                    <p>Oferecemos serviços de embalagem profissional e içamento de móveis e objetos pesados, quando necessário.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="cobertura" class="coverage-section container"> <h2>Nossa Área de Atendimento</h2>
+            <p>Atendemos com excelência as seguintes regiões:</p>
+            <div class="coverage-grid">
+                <div class="coverage-item">ABC Paulista</div>
+                <div class="coverage-item">São Paulo (Capital)</div>
+                <div class="coverage-item">Baixada Santista</div>
+                <div class="coverage-item">Interior de São Paulo</div>
+                <div class="coverage-item">Todo o Brasil (Consultar Rotas)</div>
+            </div>
+            <p>Para outras localidades, entre em contato para verificar a disponibilidade.</p>
+        </section>
+
+        <section id="orcamento" class="orcamento-section container"> <h2>Peça seu Orçamento Online</h2>
+            <p>Preencha o formulário abaixo para solicitar um orçamento personalizado para seu frete ou mudança.</p>
+            <form id="formOrcamentoABC"> <label for="tipo_servico">Tipo de Serviço:</label>
+                <select id="tipo_servico" name="tipo_servico" required>
+                    <option value="">Selecione o serviço</option>
+                    <option value="Frete Residencial">Frete Residencial</option>
+                    <option value="Frete Comercial">Frete Comercial</option>
+                    <option value="Mudança Residencial">Mudança Residencial</option>
+                    <option value="Mudança Comercial">Mudança Comercial</option>
+                    <option value="Carreto">Carreto/Entrega Rápida</option>
+                    <option value="Outros">Outros</option>
+                </select>
+
+                <label for="origem">Local de Origem:</label>
+                <input type="text" id="origem" name="origem" placeholder="Cidade, Bairro, CEP" required>
+
+                <label for="destino">Local de Destino:</label>
+                <input type="text" id="destino" name="destino" placeholder="Cidade, Bairro, CEP" required>
+
+                <label for="itens">Itens a Serem Transportados (Ex: 3 caixas, 1 geladeira, 1 sofá):</label>
+                <textarea id="itens" name="itens" rows="4" placeholder="Descreva os principais itens ou o volume aproximado" required></textarea>
+
+                <label for="data">Data Preferencial:</label>
+                <input type="date" id="data" name="data">
+
+                <label for="nome_contato">Seu Nome:</label>
+                <input type="text" id="nome_contato" name="nome_contato" required>
+
+                <label for="email_contato">Seu E-mail:</label>
+                <input type="email" id="email_contato" name="email_contato" required>
+
+                <label for="telefone_contato">Seu Telefone/WhatsApp:</label>
+                <input type="tel" id="telefone_contato" name="telefone_contato" placeholder="(XX) XXXXX-XXXX">
+
+                <button type="submit" class="btn">Enviar Solicitação de Orçamento</button>
+            </form>
+            <p class="whatsapp-contact-text">Você também pode nos contatar via WhatsApp para um orçamento rápido!</p>
+            <p><a href="https://wa.me/5511939353246?text=Olá! Gostaria de um orçamento rápido para frete/mudança." target="_blank" class="btn whatsapp-button-bottom whatsapp-bg">Orçamento Rápido via WhatsApp</a></p>
+        </section>
+
+        <section id="contato" class="contact-section container"> <h2>Fale Conosco</h2>
+            <div class="contact-info">
+                <p>Estamos disponíveis 24 horas por dia para atender suas necessidades!</p>
+                <p><strong>Telefone:</strong> (11) 93935-3246</p>
+                <p><strong>WhatsApp:</strong> (11) 93935-3246 (Ou use o botão acima)</p>
+                <p><strong>E-mail:</strong> contato@fretebrasil011.com.br</p>
+                <p><strong>Endereço:</strong> (Se você quiser incluir um endereço físico ou apenas a área de atuação)</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Frete Brasil 011. Todos os direitos reservados.</p>
+            <div class="redes-sociais">
+                <a href="#">Facebook</a>
+                <a href="#">Instagram</a>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/5511939353246?text=Olá! Gostaria de um orçamento." target="_blank" id="botao-flutuante-whatsapp">
+        <svg class="whatsapp-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M380.9 97.1C339.4 55.6 283.8 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 222-99.6 222-222 0-60.1-23.3-115-61.6-157.1zM223.9 448h.1c34.2 0 68.3-9.3 97.5-27L431 465l-37.1-109.8c27.5-39.7 44.2-86.4 44.2-136.3 0-101.8-82.4-184.2-184.2-184.2-101.7 0-184.1 82.4-184.1 184.2 0 101.8 82.4 184.2 184.1 184.2zM348.2 272c-2.9-1.5-17.4-8.5-20.3-9.5s-5.2-1.5-7.4 1.5c-2.2 2.9-8.6 9.5-10.9 11.4-2.2 2.9-4.3 3.2-8 1s-16.6-6.1-20.9-9.7c-3.6-3.2-7.9-8.5-10.9-14-2.9-5.2-.3-4.8 2.2-7.2 2.7-2.7 5.2-6.5 7.8-9.5s2.9-5.2 4.3-8c1.5-2.9.7-5.5-.2-7.8s-2.9-5.5-4.3-8c-1.5-2.5-10.9-26.1-14.9-35.7-3.6-8.6-7.3-7.9-10.2-7.9-.9 0-2.2-.1-3.6-.1s-3.8.1-5.8.1c-2.5 0-6.5 1.2-9.5 4.3-3 3-11.5 11.4-11.5 27.8s11.7 32.3 13.2 34.2c1.5 1.9 22.9 35.7 56.4 49.9 2.7 1.2 4.9 1.9 6.7 2.5 10.7 3.6 20.4 3.9 28.3 2.8 6.9-.9 17.4-7.1 20-11.5s2.9-8.6 2.9-16.1c-.1-11.7-1.5-26.1-2.9-28.9zm-96.1 93.1l-.1-1.2c-.5-.8-1.5-1.4-1.5-1.4s-.8-.5-1.4-.5h-.2c-.4 0-.8-.1-1.2-.1c-.4-.1-.8-.1-1.2-.1h-.2s-.4 0-.6-.1c-.2-.1-.4-.1-.6-.1h-.2c-.4 0-.8-.1-1.2-.1l-.1-.1c-.1-.1-.2-.1-.2-.1l-.2-.1h-.1c-.1-.1-.2-.1-.3-.1h-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1l-.1-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1l-.1-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1l-.1-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1l-.1-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1l-.1-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1l-.1-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1l-.1-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1l-.1-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1l-.1-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1l-.1-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1l-.1-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1l-.1-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1l-.1-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1l-.1-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1l-.1-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1l-.1-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1l-.1-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1l-.1-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1l-.1-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1l-.1-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1l-.1-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1l-.1-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1l-.1-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1l-.1-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1l-.1-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1l-.1-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1l-.1-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1l-.1-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1l-.1-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1l-.1-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1l-.1-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1l-.1-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1l-.1-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1l-.1-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.
