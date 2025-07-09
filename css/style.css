@@ -118,41 +118,35 @@ a:hover {
 
 /* --- Cabeçalho Principal --- */
 header {
-    /* MODIFICADO: Fundo do cabeçalho para branco */
     background: var(--white);
-    /* MODIFICADO: Cor de texto padrão para preto */
     color: var(--text-dark); 
     padding: 1rem 0;
     box-shadow: 0 4px 15px var(--shadow-medium);
-    /* MODIFICADO AQUI: Removido 'position: sticky;' para que o cabeçalho role com a página */
     position: static; 
-    top: 0; /* Pode ser removido, não tem efeito com static */
+    top: 0;
     z-index: 1000;
 }
 
-/* MODIFICADO: Estilo Padrão (Mobile First) para o Header Main Content - AGORA CENTRALIZADO EM TODAS TELAS */
 .header-main-content {
     display: flex;
-    flex-direction: column; /* SEMPRE em coluna para centralizar o logo no topo */
-    align-items: center;    /* Centraliza horizontalmente todos os itens (logo, texto, navegação) */
-    text-align: center;     /* Centraliza o texto dentro dos itens */
-    gap: 15px; /* Espaçamento entre os principais elementos do cabeçalho */
-    justify-content: center; /* Centraliza verticalmente se o espaço permitir */
+    flex-direction: column; 
+    align-items: center;    
+    text-align: center;     
+    gap: 15px; 
+    justify-content: center; 
 }
 
-/* MODIFICADO: Estilo Padrão (Mobile First) para o Logotipo (AGORA UMA DIV) */
 .header-logo {
-    background-image: url('../images/logo05.png'); /* Caminho da imagem via CSS */
-    background-size: contain; /* Redimensiona a imagem para caber sem cortar */
-    background-repeat: no-repeat; /* Evita que a imagem se repita */
-    background-position: center; /* Centraliza a imagem na div */
-    width: 250px; /* Largura inicial da div para o logo (ajuste se precisar) */
-    height: 80px; /* Altura inicial da div para o logo (ajuste conforme a proporção do seu logo) */
-    margin-bottom: 0; /* O gap do flexbox já cuidará do espaçamento */
-    display: block; /* Garante que a div se comporte como um bloco */
+    background-image: url('../images/logo05.png'); 
+    background-size: contain; 
+    background-repeat: no-repeat; 
+    background-position: center; 
+    width: 250px; 
+    height: 80px; 
+    margin-bottom: 0; 
+    display: block; 
 }
 
-/* ADICIONADO: Classe para esconder texto visualmente, mas mantê-lo para leitores de tela */
 .visually-hidden {
     position: absolute;
     width: 1px;
@@ -164,53 +158,47 @@ header {
     border: 0;
 }
 
-/* ADICIONADO: Estilo para o novo contêiner de texto no cabeçalho */
 .header-text-content {
     display: flex;
-    flex-direction: column; /* Título e tagline empilhados */
-    align-items: center; /* Centraliza título e tagline horizontalmente */
-    text-align: center; /* Centraliza o texto */
-    margin-bottom: 0; /* O gap do flex-container pai já cuida do espaçamento */
+    flex-direction: column; 
+    align-items: center; 
+    text-align: center; 
+    margin-bottom: 0; 
 }
 
 header .site-title {
-    font-size: 1.5em; /* Tamanho do título em mobile */
-    margin: 0; /* Removido margem, o gap do pai e do .header-text-content cuidam disso */
-    /* MODIFICADO: Cor do título para preto */
+    font-size: 1.5em; 
+    margin: 0; 
     color: var(--text-dark);
     font-weight: 700;
     line-height: 1.2;
 }
 
-/* CORRIGIDO: Use 'tagline' conforme o HTML */
 header .tagline {
-    font-size: 0.8em; /* Tamanho da tagline em mobile */
+    font-size: 0.8em; 
     font-weight: 400;
-    /* MODIFICADO: Cor da tagline para preto */
     color: var(--text-dark);
-    margin: 0; /* Removido margem, o gap do pai e do .header-text-content cuidam disso */
+    margin: 0; 
     line-height: 1.4;
     max-width: 100%;
 }
 
-/* MODIFICADO: Navegação para Mobile (garantindo que se centralize bem) */
-nav { /* Adiciona display flex para a nav em si, para que a ul seja centralizada */
-    width: 100%; /* Ocupa a largura total para centralizar o ul */
+nav { 
+    width: 100%; 
     display: flex;
-    justify-content: center; /* Centraliza o ul.main-nav */
+    justify-content: center; 
 }
 
-/* CORRIGIDO: Removido margin-left: auto; daqui para mobile, e corrigido margin para 0 */
 nav ul {
-    list-style: none; /* Remove os bullet points */
-    margin: 0; /* Centraliza a lista inteira via flex do pai */
+    list-style: none; 
+    margin: 0; 
     padding: 0;
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 colunas para mobile/tablet */
+    grid-template-columns: repeat(2, 1fr); 
     gap: 0.8rem;
-    justify-items: center; /* Centraliza os itens horizontalmente nas células de grid */
+    justify-items: center; 
     align-items: center;
-    max-width: 550px; /* Limita a largura da navegação em mobile */
+    max-width: 550px; 
 }
 
 nav ul li {
@@ -221,7 +209,6 @@ nav ul li {
 }
 
 nav ul li a {
-    /* MODIFICADO: Cor dos links da navegação para preto */
     color: var(--text-dark);
     font-weight: 600;
     font-size: 0.85em;
@@ -238,7 +225,6 @@ nav ul li a {
     line-height: 1.2;
 }
 
-/* Efeito de underline animado para links de navegação */
 nav ul li a::after {
     content: '';
     position: absolute;
@@ -256,14 +242,13 @@ nav ul li a:hover::after {
 
 nav ul li a:hover {
     color: var(--primary-color);
-    background-color: rgba(0, 0, 0, 0.05); /* Cinza bem claro ao passar o mouse */
+    background-color: rgba(0, 0, 0, 0.05); 
     border-radius: var(--border-radius-sm);
 }
 
 .nav-icon {
     width: 28px;
     height: 28px;
-    /* MODIFICADO: Cor dos ícones da navegação para preto (inicialmente) */
     fill: var(--text-dark);
     transition: fill var(--transition-speed);
 }
@@ -275,7 +260,6 @@ nav ul li a:hover {
 .nav-icon-text {
     font-size: 0.8em;
     line-height: 1.2;
-    /* MODIFICADO: Cor do texto dos ícones da navegação para preto */
     color: var(--text-dark);
     transition: color var(--transition-speed);
 }
@@ -831,27 +815,29 @@ footer .redes-sociais a:hover {
     bottom: 1.5rem;
     right: 1.5rem;
     z-index: 1000;
-    background-color: var(--accent-color);
-    border-radius: 50%;
-    padding: 0.8rem;
+    /* MODIFICADO: Cor de fundo para transparente */
+    background-color: transparent; 
+    /* MODIFICADO: Removido border-radius para tirar o círculo */
+    border-radius: 0; /* ou remova a linha se não quiser nenhum arredondamento */
+    padding: 0.8rem; /* Mantenha o padding para dar espaço ao ícone, ajuste se necessário */
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 5px 15px var(--shadow-medium);
+    box-shadow: none; /* MODIFICADO: Removido a sombra para que não apareça ao fundo */
     transition: all var(--transition-speed);
 }
 
 #botao-flutuante-whatsapp:hover {
-    background-color: #1DA851;
+    background-color: transparent; /* Mantenha transparente no hover se não quiser fundo */
     transform: translateY(-5px) scale(1.1);
-    box-shadow: 0 8px 25px var(--shadow-strong);
+    box-shadow: none; /* Mantenha sem sombra no hover */
 }
 
 #botao-flutuante-whatsapp .whatsapp-icon {
-    width: 2.5rem; /* Tamanho do ícone */
-    height: 2.5rem;
-    margin-right: 0; /* Remove margem se não houver texto */
-    fill: var(--white);
+    width: 3rem; /* MODIFICADO: Aumento do tamanho do ícone */
+    height: 3rem; /* MODIFICADO: Aumento do tamanho do ícone */
+    margin-right: 0; 
+    fill: var(--white); /* Se o seu ícone PNG tiver fundo branco, isso não terá efeito. */
 }
 
 /* ========================================= */
@@ -860,63 +846,59 @@ footer .redes-sociais a:hover {
 
 /* Desktop e Telas Maiores (acima de 993px) */
 @media (min-width: 993px) {
-    /* MODIFICADO AQUI: Removido flex-direction: row e justify-content: flex-start */
-    .header-main-content { /* Cabeçalho centralizado em todas as telas */
-        /* display: flex; (já herdado da regra padrão) */
-        flex-direction: column; /* Força comportamento de coluna */
-        align-items: center;    /* Centraliza horizontalmente */
-        text-align: center;     /* Centraliza o texto */
-        gap: 30px; /* Espaçamento entre logo, texto e nav */
+    .header-main-content {
+        flex-direction: column;
+        align-items: center;    
+        text-align: center;     
+        gap: 30px; 
     }
     
     .header-logo {
-        max-width: 280px; /* Aumentei um pouco o tamanho para desktop */
-        height: 90px; /* Ajustei a altura para desktop */
+        max-width: 280px; 
+        height: 90px; 
         margin-right: 0;
         margin-bottom: 0;
     }
 
-    /* ADICIONADO/MODIFICADO: Estilo para o novo contêiner de texto do cabeçalho */
     .header-text-content {
-        flex-grow: unset; /* Não ocupa todo o espaço, centraliza o conteúdo */
-        align-items: center; /* Alinha o título e tagline ao centro dentro deste bloco */
-        text-align: center; /* Alinha o texto dentro deste bloco ao centro */
-        margin-bottom: 0; /* Removido margem inferior definida para mobile */
+        flex-grow: unset; 
+        align-items: center; 
+        text-align: center; 
+        margin-bottom: 0; 
     }
 
     header .site-title {
-        font-size: 2.2em; /* Aumentei um pouco o tamanho do título para desktop */
-        margin-bottom: 0.2rem; /* Pequena margem para separar da tagline */
-        text-align: center; /* Centraliza o título */
+        font-size: 2.2em; 
+        margin-bottom: 0.2rem; 
+        text-align: center; 
     }
     
-    header .tagline { /* CORRIGIDO: Use 'tagline' para a tagline */
-        font-size: 1.05em; /* Aumentei um pouco o tamanho da tagline para desktop */
+    header .tagline { 
+        font-size: 1.05em; 
         margin: 0;
-        text-align: center; /* Centraliza a tagline */
+        text-align: center; 
     }
 
-    /* MODIFICADO: Navegação para Desktop (centralizada) */
     nav { 
-        width: 100%; /* Ocupa a largura total para centralizar o ul */
+        width: 100%; 
         display: flex;
-        justify-content: center; /* Centraliza o ul.main-nav */
-        margin-left: 0; /* Remove o margin-left: auto que empurrava para a direita */
+        justify-content: center; 
+        margin-left: 0; 
     }
     
     nav ul {
-        grid-template-columns: repeat(3, 1fr); /* 3 colunas para desktop */
-        max-width: 700px; /* Defina uma largura máxima para a navegação em desktop para que ela não se espalhe muito */
-        justify-content: center; /* Centraliza os itens da navegação dentro da ul */
-        margin: 0 auto; /* Centraliza a ul dentro da nav */
+        grid-template-columns: repeat(3, 1fr); 
+        max-width: 700px; 
+        justify-content: center; 
+        margin: 0 auto; 
     }
     nav ul li {
         width: auto;
         max-width: unset;
     }
     nav ul li a {
-        font-size: 0.95em; /* Ajustei o tamanho do link para ser legível */
-        padding: 10px 15px; /* Aumentei o padding para área de clique */
+        font-size: 0.95em; 
+        padding: 10px 15px; 
     }
     .nav-icon {
         width: 28px;
@@ -943,8 +925,7 @@ footer .redes-sociais a:hover {
         white-space: normal;
     }
 
-    /* MODIFICADO: Header Main Content para Tablets - Agora com gap consistente */
-    header .header-main-content {
+    .header-main-content {
         flex-direction: column;
         align-items: center;
         text-align: center;
@@ -952,29 +933,27 @@ footer .redes-sociais a:hover {
     }
 
     .header-logo {
-        width: 220px; /* Largura para tablets */
-        height: 70px; /* Altura para tablets */
+        width: 220px; 
+        height: 70px; 
         margin-bottom: 15px;
     }
 
-    /* MODIFICADO: Estilo do novo contêiner de texto para tablet */
     .header-text-content {
-        margin-bottom: 1rem; /* Espaço entre o bloco de texto e a navegação */
+        margin-bottom: 1rem; 
         align-items: center;
         text-align: center;
     }
     header .site-title {
-        font-size: 1.8em; /* Ajuste o tamanho do título para tablets */
+        font-size: 1.8em; 
     }
     header .tagline {
-        font-size: 0.9em; /* Ajuste o tamanho da tagline para tablets */
+        font-size: 0.9em; 
         margin-bottom: 0;
     }
 
-    /* MODIFICADO: Navegação para Tablets (centralizada) */
     nav ul {
         grid-template-columns: repeat(2, 1fr);
-        max-width: 480px; /* Limita a largura para centralizar a nav */
+        max-width: 480px; 
         margin: 0 auto;
     }
 }
@@ -995,27 +974,24 @@ footer .redes-sociais a:hover {
         margin-right: 0.3rem;
     }
 
-    /* ESTILO DO LOGOTIPO PARA SMARTPHONE */
     .header-logo {
-        width: 180px; /* Largura para smartphones */
-        height: 60px; /* Altura para smartphones */
+        width: 180px; 
+        height: 60px; 
         margin-bottom: 10px;
     }
 
-    /* MODIFICADO: Estilo do novo contêiner de texto para smartphone */
     .header-text-content {
         margin-bottom: 0.8rem;
     }
 
     header .site-title {
-        font-size: 1.4em; /* Ajustei um pouco o tamanho */
+        font-size: 1.4em; 
     }
     header .tagline {
-        font-size: 0.8em; /* Ajustei um pouco o tamanho */
+        font-size: 0.8em; 
         margin-bottom: 0;
     }
     
-    /* Hero Section */
     .hero-section {
         min-height: 300px;
         padding: 1.5rem 0.8rem;
@@ -1043,7 +1019,6 @@ footer .redes-sociais a:hover {
         margin-right: 0.4rem;
     }
 
-    /* Seções com h2 */
     .services-section h2,
     .coverage-section h2,
     .orcamento-section h2,
@@ -1072,7 +1047,6 @@ footer .redes-sociais a:hover {
         font-size: 0.9em;
     }
 
-    /* Formulário de Orçamento (seções que não existem no HTML que você enviou) */
     #formOrcamentoABC {
         padding: 15px;
     }
@@ -1094,7 +1068,7 @@ footer .redes-sociais a:hover {
     }
     .orcamento-section .btn.whatsapp-button-bottom {
         font-size: 0.85em;
-        padding: 0.5rem 1rem;
+        padding: 0.6rem 1.2rem;
     }
 
     .contact-whatsapp-section .contact-intro {
@@ -1133,10 +1107,9 @@ footer .redes-sociais a:hover {
     .top-announcement {
         font-size: 0.65em;
     }
-    /* ESTILO DO LOGOTIPO PARA TELAS MUITO PEQUENAS */
     .header-logo {
-        width: 140px; /* Ajuste o tamanho do logo para telas muito pequenas */
-        height: 45px; /* Ajuste a altura para telas muito pequenas */
+        width: 140px; 
+        height: 45px; 
         margin-bottom: 8px;
     }
 
