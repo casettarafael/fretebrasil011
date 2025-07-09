@@ -5,17 +5,13 @@
     --accent-color: #25D366; /* Verde WhatsApp */
     --highlight-color: #e74c3c; /* Um tom de vermelho/laranja para destaques pontuais */
 
-    --text-dark: #343a40; /* Cinza escuro para títulos e textos principais */
+    --text-dark: #343a40; /* Cinza escuro para títulos e textos principais (ideal para texto no fundo branco) */
     --text-light: #6c757d; /* Cinza médio para o corpo do texto */
     --bg-light: #f8f9fa; /* Fundo muito claro */
     --bg-medium: #e9ecef; /* Fundo levemente mais escuro */
     --bg-dark: #212529; /* Fundo escuro para cabeçalho/rodapé */
-    --white: #ffffff;
+    --white: #ffffff; /* Braco puro */
     --border-light: #dee2e6;
-
-    --border-radius-sm: 5px;
-    --border-radius-md: 10px;
-    --border-radius-lg: 15px;
 
     --transition-speed: 0.3s ease-in-out;
     --shadow-light: rgba(0, 0, 0, 0.08);
@@ -122,19 +118,22 @@ a:hover {
 
 /* --- Cabeçalho Principal --- */
 header {
-    background: var(--bg-dark);
-    color: var(--white);
+    /* MODIFICADO: Fundo do cabeçalho para branco */
+    background: var(--white);
+    /* MODIFICADO: Cor de texto padrão para preto */
+    color: var(--text-dark); 
     padding: 1rem 0;
     box-shadow: 0 4px 15px var(--shadow-medium);
-    position: sticky;
-    top: 0;
+    /* MODIFICADO AQUI: Removido 'position: sticky;' para que o cabeçalho role com a página */
+    position: static; 
+    top: 0; /* Pode ser removido, não tem efeito com static */
     z-index: 1000;
 }
 
 /* MODIFICADO: Estilo Padrão (Mobile First) para o Header Main Content - AGORA CENTRALIZADO EM TODAS TELAS */
 .header-main-content {
     display: flex;
-    flex-direction: column; /* Sempre em coluna para centralizar o logo no topo */
+    flex-direction: column; /* SEMPRE em coluna para centralizar o logo no topo */
     align-items: center;    /* Centraliza horizontalmente todos os itens (logo, texto, navegação) */
     text-align: center;     /* Centraliza o texto dentro dos itens */
     gap: 15px; /* Espaçamento entre os principais elementos do cabeçalho */
@@ -177,7 +176,8 @@ header {
 header .site-title {
     font-size: 1.5em; /* Tamanho do título em mobile */
     margin: 0; /* Removido margem, o gap do pai e do .header-text-content cuidam disso */
-    color: var(--white);
+    /* MODIFICADO: Cor do título para preto */
+    color: var(--text-dark);
     font-weight: 700;
     line-height: 1.2;
 }
@@ -186,7 +186,8 @@ header .site-title {
 header .tagline {
     font-size: 0.8em; /* Tamanho da tagline em mobile */
     font-weight: 400;
-    color: rgba(255, 255, 255, 0.7);
+    /* MODIFICADO: Cor da tagline para preto */
+    color: var(--text-dark);
     margin: 0; /* Removido margem, o gap do pai e do .header-text-content cuidam disso */
     line-height: 1.4;
     max-width: 100%;
@@ -220,7 +221,8 @@ nav ul li {
 }
 
 nav ul li a {
-    color: var(--white);
+    /* MODIFICADO: Cor dos links da navegação para preto */
+    color: var(--text-dark);
     font-weight: 600;
     font-size: 0.85em;
     position: relative;
@@ -254,15 +256,15 @@ nav ul li a:hover::after {
 
 nav ul li a:hover {
     color: var(--primary-color);
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(0, 0, 0, 0.05); /* Cinza bem claro ao passar o mouse */
     border-radius: var(--border-radius-sm);
 }
 
 .nav-icon {
     width: 28px;
     height: 28px;
-    margin-bottom: 5px;
-    fill: var(--white);
+    /* MODIFICADO: Cor dos ícones da navegação para preto (inicialmente) */
+    fill: var(--text-dark);
     transition: fill var(--transition-speed);
 }
 
@@ -273,7 +275,8 @@ nav ul li a:hover {
 .nav-icon-text {
     font-size: 0.8em;
     line-height: 1.2;
-    color: var(--white);
+    /* MODIFICADO: Cor do texto dos ícones da navegação para preto */
+    color: var(--text-dark);
     transition: color var(--transition-speed);
 }
 
@@ -857,65 +860,67 @@ footer .redes-sociais a:hover {
 
 /* Desktop e Telas Maiores (acima de 993px) */
 @media (min-width: 993px) {
-    .header-main-content { /* MODIFICADO: Cabeçalho em linha para desktop */
-        flex-direction: row; /* Itens em linha no desktop */
-        justify-content: flex-start; /* Alinha tudo ao início do container */
-        align-items: center;
-        text-align: left;
+    /* MODIFICADO AQUI: Removido flex-direction: row e justify-content: flex-start */
+    .header-main-content { /* Cabeçalho centralizado em todas as telas */
+        /* display: flex; (já herdado da regra padrão) */
+        flex-direction: column; /* Força comportamento de coluna */
+        align-items: center;    /* Centraliza horizontalmente */
+        text-align: center;     /* Centraliza o texto */
         gap: 30px; /* Espaçamento entre logo, texto e nav */
     }
     
     .header-logo {
-        max-width: 180px; /* Tamanho do logo em desktop, ajuste se preferir maior */
+        max-width: 280px; /* Aumentei um pouco o tamanho para desktop */
+        height: 90px; /* Ajustei a altura para desktop */
         margin-right: 0;
         margin-bottom: 0;
     }
 
     /* ADICIONADO/MODIFICADO: Estilo para o novo contêiner de texto do cabeçalho */
     .header-text-content {
-        flex-grow: 1; /* Permite que o bloco de texto ocupe o espaço restante */
-        align-items: flex-start; /* Alinha o título e tagline à esquerda dentro deste bloco */
-        text-align: left; /* Alinha o texto dentro deste bloco à esquerda */
-        margin-bottom: 0; /* Remove margem inferior definida para mobile */
+        flex-grow: unset; /* Não ocupa todo o espaço, centraliza o conteúdo */
+        align-items: center; /* Alinha o título e tagline ao centro dentro deste bloco */
+        text-align: center; /* Alinha o texto dentro deste bloco ao centro */
+        margin-bottom: 0; /* Removido margem inferior definida para mobile */
     }
 
     header .site-title {
-        font-size: 2em; /* Tamanho do título em desktop */
+        font-size: 2.2em; /* Aumentei um pouco o tamanho do título para desktop */
         margin-bottom: 0.2rem; /* Pequena margem para separar da tagline */
-        text-align: left; /* Garante alinhamento à esquerda */
+        text-align: center; /* Centraliza o título */
     }
     
-    /* CORRIGIDO: Use 'tagline' para a tagline */
-    header .tagline {
-        font-size: 0.95em; /* Tamanho da tagline em desktop */
+    header .tagline { /* CORRIGIDO: Use 'tagline' para a tagline */
+        font-size: 1.05em; /* Aumentei um pouco o tamanho da tagline para desktop */
         margin: 0;
-        text-align: left; /* Garante alinhamento à esquerda */
+        text-align: center; /* Centraliza a tagline */
     }
 
-    /* MODIFICADO: Navegação para Desktop */
-    nav { /* Remove display flex e justify-content, a nav agora é um item flex no header-main-content */
-        width: auto; /* Deixa a largura se ajustar ao conteúdo */
-        margin-left: auto; /* Empurra a navegação para a direita */
+    /* MODIFICADO: Navegação para Desktop (centralizada) */
+    nav { 
+        width: 100%; /* Ocupa a largura total para centralizar o ul */
+        display: flex;
+        justify-content: center; /* Centraliza o ul.main-nav */
+        margin-left: 0; /* Remove o margin-left: auto que empurrava para a direita */
     }
     
-    /* CORRIGIDO: Removido margin-left: auto; daqui para desktop, e ajustado margin para 0 */
     nav ul {
         grid-template-columns: repeat(3, 1fr); /* 3 colunas para desktop */
-        max-width: unset; /* Remove limitação de largura */
-        justify-content: flex-end; /* Alinha os itens da navegação à direita dentro da nav */
-        margin: 0; /* Importante para o posicionamento com margin-left: auto na nav pai */
+        max-width: 700px; /* Defina uma largura máxima para a navegação em desktop para que ela não se espalhe muito */
+        justify-content: center; /* Centraliza os itens da navegação dentro da ul */
+        margin: 0 auto; /* Centraliza a ul dentro da nav */
     }
     nav ul li {
         width: auto;
         max-width: unset;
     }
     nav ul li a {
-        font-size: 0.85em;
-        padding: 10px 5px;
+        font-size: 0.95em; /* Ajustei o tamanho do link para ser legível */
+        padding: 10px 15px; /* Aumentei o padding para área de clique */
     }
     .nav-icon {
-        width: 25px;
-        height: 25px;
+        width: 28px;
+        height: 28px;
     }
 
     /* Rodapé volta a ser em linha */
@@ -938,16 +943,17 @@ footer .redes-sociais a:hover {
         white-space: normal;
     }
 
-    /* MODIFICADO: Header Main Content para Tablets */
+    /* MODIFICADO: Header Main Content para Tablets - Agora com gap consistente */
     header .header-main-content {
-        flex-direction: column; /* Continua em coluna */
+        flex-direction: column;
         align-items: center;
         text-align: center;
-        gap: 15px; /* Ajustei o gap para tablets */
+        gap: 15px;
     }
 
     .header-logo {
-        max-width: 200px; /* Ajuste o tamanho do logo para tablets */
+        width: 220px; /* Largura para tablets */
+        height: 70px; /* Altura para tablets */
         margin-bottom: 15px;
     }
 
@@ -958,19 +964,18 @@ footer .redes-sociais a:hover {
         text-align: center;
     }
     header .site-title {
-        font-size: 1.6em; /* Ajuste o tamanho do título para tablets */
+        font-size: 1.8em; /* Ajuste o tamanho do título para tablets */
     }
-    /* CORRIGIDO: Use 'tagline' para a tagline */
     header .tagline {
-        font-size: 0.85em; /* Ajuste o tamanho da tagline para tablets */
-        margin-bottom: 0; /* Margem já está no .header-text-content */
+        font-size: 0.9em; /* Ajuste o tamanho da tagline para tablets */
+        margin-bottom: 0;
     }
 
     /* MODIFICADO: Navegação para Tablets (centralizada) */
     nav ul {
-        grid-template-columns: repeat(2, 1fr); /* 2 colunas para tablets */
-        max-width: 450px; /* Limita a largura para centralizar a nav */
-        margin: 0 auto; /* Centraliza a navegação */
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 480px; /* Limita a largura para centralizar a nav */
+        margin: 0 auto;
     }
 }
 
@@ -992,22 +997,22 @@ footer .redes-sociais a:hover {
 
     /* ESTILO DO LOGOTIPO PARA SMARTPHONE */
     .header-logo {
-        max-width: 180px; /* Ajuste o tamanho do logo para smartphones */
+        width: 180px; /* Largura para smartphones */
+        height: 60px; /* Altura para smartphones */
         margin-bottom: 10px;
     }
 
     /* MODIFICADO: Estilo do novo contêiner de texto para smartphone */
     .header-text-content {
-        margin-bottom: 0.8rem; /* Espaço entre o bloco de texto e a navegação */
+        margin-bottom: 0.8rem;
     }
 
     header .site-title {
-        font-size: 1.3em;
+        font-size: 1.4em; /* Ajustei um pouco o tamanho */
     }
-    /* CORRIGIDO: Use 'tagline' para a tagline */
     header .tagline {
-        font-size: 0.75em;
-        margin-bottom: 0; /* Margem já está no .header-text-content */
+        font-size: 0.8em; /* Ajustei um pouco o tamanho */
+        margin-bottom: 0;
     }
     
     /* Hero Section */
@@ -1040,16 +1045,16 @@ footer .redes-sociais a:hover {
 
     /* Seções com h2 */
     .services-section h2,
-    .coverage-section h2, /* Seções que não existem no HTML que você enviou */
-    .orcamento-section h2, /* Seções que não existem no HTML que você enviou */
-    .contact-section h2 { /* Seções que não existem no HTML que você enviou */
+    .coverage-section h2,
+    .orcamento-section h2,
+    .contact-section h2 {
         font-size: clamp(1.6em, 8vw, 2.2em);
         margin-bottom: 1.5rem;
     }
     .services-section h2::after,
-    .coverage-section h2::after, /* Seções que não existem no HTML que você enviou */
-    .orcamento-section h2::after, /* Seções que não existem no HTML que você enviou */
-    .contact-section h2::after { /* Seções que não existem no HTML que você enviou */
+    .coverage-section h2::after,
+    .orcamento-section h2::after,
+    .contact-section h2::after {
         width: 50px;
     }
 
@@ -1130,14 +1135,14 @@ footer .redes-sociais a:hover {
     }
     /* ESTILO DO LOGOTIPO PARA TELAS MUITO PEQUENAS */
     .header-logo {
-        max-width: 140px; /* Ajuste o tamanho do logo para telas muito pequenas */
+        width: 140px; /* Ajuste o tamanho do logo para telas muito pequenas */
+        height: 45px; /* Ajuste a altura para telas muito pequenas */
         margin-bottom: 8px;
     }
 
     header .site-title {
         font-size: 1.1em;
     }
-    /* CORRIGIDO: Use 'tagline' para a tagline */
     header .tagline {
         font-size: 0.7em;
     }
