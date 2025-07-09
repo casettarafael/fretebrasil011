@@ -11,17 +11,21 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 
 </head>
 <body>
     <header>
-        <div class="container">
+        <div class="header-main-content container"> 
+            <div class="header-logo">
+                <span class="visually-hidden">Logotipo Frete Brasil 011</span>
+            </div>
             <h1>Frete Brasil 011</h1>
             <nav>
                 <ul>
                     <li><a href="index.html">Início</a></li>
-                   
-                   
+                    
+                    
                 </ul>
             </nav>
         </div>
@@ -36,35 +40,42 @@
             </div>
         </section>
 
-        <section id="servicos" class="services-section container"> <h2>Nossos Serviços Completos</h2>
-            <div class="service-grid">
-                <div class="service-item">
-                    <h3>Fretes Residenciais e Comerciais</h3>
-                    <p>Transporte de pequenas, médias e grandes cargas para sua casa ou empresa. Cuidamos de tudo, da coleta à entrega.</p>
-                </div>
-                <div class="service-item">
-                    <h3>Mudanças Residenciais</h3>
-                    <p>Planejamento e execução de mudanças residenciais com embalagem, desmontagem e montagem de móveis, garantindo a segurança dos seus bens.</p>
-                </div>
-                <div class="service-item">
-                    <h3>Mudanças Comerciais</h3>
-                    <p>Soluções logísticas para a mudança da sua empresa, minimizando o tempo de inatividade e garantindo a organização do processo.</p>
-                </div>
-                <div class="service-item">
-                    <h3>Carretos e Entregas Rápidas</h3>
-                    <p>Serviço ágil para entregas urgentes e transporte de itens avulsos em São Paulo e Grande ABC.</p>
-                </div>
-                <div class="service-item">
-                    <h3>Atendimento 24 Horas</h3>
-                    <p>Disponibilidade para cotações e emergências a qualquer hora, garantindo flexibilidade e prontidão no atendimento.</p>
-                </div>
-                <div class="service-item">
-                    <h3>Embalagens e Içamento</h3>
-                    <p>Oferecemos serviços de embalagem profissional e içamento de móveis e objetos pesados, quando necessário.</p>
+        <section id="servicos" class="services-section"> 
+            <div class="container"> 
+                <h2>Nossos Serviços Completos</h2>
+                
+                <div class="swiper mySwiperServicesABC"> <div class="swiper-wrapper">
+                        <div class="service-item swiper-slide">
+                            <h3>Fretes Residenciais e Comerciais</h3>
+                            <p>Transporte de pequenas, médias e grandes cargas para sua casa ou empresa. Cuidamos de tudo, da coleta à entrega.</p>
+                        </div>
+                        <div class="service-item swiper-slide">
+                            <h3>Mudanças Residenciais</h3>
+                            <p>Planejamento e execução de mudanças residenciais com embalagem, desmontagem e montagem de móveis, garantindo a segurança dos seus bens.</p>
+                        </div>
+                        <div class="service-item swiper-slide">
+                            <h3>Mudanças Comerciais</h3>
+                            <p>Soluções logísticas para a mudança da sua empresa, minimizando o tempo de inatividade e garantindo a organização do processo.</p>
+                        </div>
+                        <div class="service-item swiper-slide">
+                            <h3>Carretos e Entregas Rápidas</h3>
+                            <p>Serviço ágil para entregas urgentes e transporte de itens avulsos em São Paulo e Grande ABC.</p>
+                        </div>
+                        <div class="service-item swiper-slide">
+                            <h3>Atendimento 24 Horas</h3>
+                            <p>Disponibilidade para cotações e emergências a qualquer hora, garantindo flexibilidade e prontidão no atendimento.</p>
+                        </div>
+                        <div class="service-item swiper-slide">
+                            <h3>Embalagens e Içamento</h3>
+                            <p>Oferecemos serviços de embalagem profissional e içamento de móveis e objetos pesados, quando necessário.</p>
+                        </div>
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-pagination"></div>
                 </div>
             </div>
         </section>
-
         <section id="cobertura" class="coverage-section container"> <h2>Nossa Área de Atendimento</h2>
             <p>Atendemos com excelência as seguintes regiões:</p>
             <div class="coverage-grid">
@@ -78,9 +89,10 @@
         </section>
 
         <section id="orcamento" class="orcamento-section container"> <h2>Peça seu Orçamento Online</h2>
-            <p>Preencha o formulário abaixo para solicitar um orçamento personalizado para seu frete ou mudança.</p>
-            <form id="formOrcamentoABC"> <label for="tipo_servico">Tipo de Serviço:</label>
-                <select id="tipo_servico" name="tipo_servico" required>
+            <p style="text-align: center;">Preencha o formulário abaixo para solicitar um orçamento personalizado para seu frete ou mudança.</p>
+            <form id="formOrcamentoABC" style="max-width: 600px; margin: 0 auto; padding: 20px; background: #f9f9f9; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                <label for="tipo_servico" style="display: block; margin-bottom: 5px; font-weight: bold;">Tipo de Serviço:</label>
+                <select id="tipo_servico" name="tipo_servico" style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 4px;" required>
                     <option value="">Selecione o serviço</option>
                     <option value="Frete Residencial">Frete Residencial</option>
                     <option value="Frete Comercial">Frete Comercial</option>
@@ -90,31 +102,31 @@
                     <option value="Outros">Outros</option>
                 </select>
 
-                <label for="origem">Local de Origem:</label>
-                <input type="text" id="origem" name="origem" placeholder="Cidade, Bairro, CEP" required>
+                <label for="origem" style="display: block; margin-bottom: 5px; font-weight: bold;">Local de Origem:</label>
+                <input type="text" id="origem" name="origem" placeholder="Cidade, Bairro, CEP" style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 4px;" required>
 
-                <label for="destino">Local de Destino:</label>
-                <input type="text" id="destino" name="destino" placeholder="Cidade, Bairro, CEP" required>
+                <label for="destino" style="display: block; margin-bottom: 5px; font-weight: bold;">Local de Destino:</label>
+                <input type="text" id="destino" name="destino" placeholder="Cidade, Bairro, CEP" style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 4px;" required>
 
-                <label for="itens">Itens a Serem Transportados (Ex: 3 caixas, 1 geladeira, 1 sofá):</label>
-                <textarea id="itens" name="itens" rows="4" placeholder="Descreva os principais itens ou o volume aproximado" required></textarea>
+                <label for="itens" style="display: block; margin-bottom: 5px; font-weight: bold;">Itens a Serem Transportados (Ex: 3 caixas, 1 geladeira, 1 sofá):</label>
+                <textarea id="itens" name="itens" rows="4" placeholder="Descreva os principais itens ou o volume aproximado" style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 4px;" required></textarea>
 
-                <label for="data">Data Preferencial:</label>
-                <input type="date" id="data" name="data">
+                <label for="data" style="display: block; margin-bottom: 5px; font-weight: bold;">Data Preferencial:</label>
+                <input type="date" id="data" name="data" style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 4px;">
 
-                <label for="nome_contato">Seu Nome:</label>
-                <input type="text" id="nome_contato" name="nome_contato" required>
+                <label for="nome_contato" style="display: block; margin-bottom: 5px; font-weight: bold;">Seu Nome:</label>
+                <input type="text" id="nome_contato" name="nome_contato" style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 4px;" required>
 
-                <label for="email_contato">Seu E-mail:</label>
-                <input type="email" id="email_contato" name="email_contato" required>
+                <label for="email_contato" style="display: block; margin-bottom: 5px; font-weight: bold;">Seu E-mail:</label>
+                <input type="email" id="email_contato" name="email_contato" style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 4px;" required>
 
-                <label for="telefone_contato">Seu Telefone/WhatsApp:</label>
-                <input type="tel" id="telefone_contato" name="telefone_contato" placeholder="(XX) XXXXX-XXXX">
+                <label for="telefone_contato" style="display: block; margin-bottom: 5px; font-weight: bold;">Seu Telefone/WhatsApp:</label>
+                <input type="tel" id="telefone_contato" name="telefone_contato" placeholder="(XX) XXXXX-XXXX" style="width: 100%; padding: 10px; margin-bottom: 20px; border: 1px solid #ddd; border-radius: 4px;">
 
-                <button type="submit" class="btn">Enviar Solicitação de Orçamento</button>
+                <button type="submit" class="btn" style="display: block; width: 100%; padding: 15px; font-size: 1.2em;">Enviar Solicitação de Orçamento</button>
             </form>
-            <p class="whatsapp-contact-text">Você também pode nos contatar via WhatsApp para um orçamento rápido!</p>
-            <p><a href="https://wa.me/5511939353246?text=Olá! Gostaria de um orçamento rápido para frete/mudança." target="_blank" class="btn whatsapp-button-bottom whatsapp-bg">Orçamento Rápido via WhatsApp</a></p>
+            <p style="text-align: center; margin-top: 20px;">Você também pode nos contatar via WhatsApp para um orçamento rápido!</p>
+            <p style="text-align: center;"><a href="https://wa.me/5511939353246?text=Olá! Gostaria de um orçamento rápido para frete/mudança." target="_blank" class="btn" style="background: #25D366;">Orçamento Rápido via WhatsApp</a></p>
         </section>
 
         <section id="contato" class="contact-section container"> <h2>Fale Conosco</h2>
@@ -130,7 +142,7 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 Frete Brasil 011. Todos os direitos reservados.</p>
+            <p>&copy; 2025 Frete Brasil 011. Todos os direitos reservados. Sua <strong>empresa de fretes e mudanças</strong> em São Bernardo do Campo, ABC, SP e todo o Brasil.</p>
             <div class="redes-sociais">
                 <a href="#">Facebook</a>
                 <a href="#">Instagram</a>
@@ -138,5 +150,88 @@
         </div>
     </footer>
 
-    <a href="https://wa.me/5511939353246?text=Olá! Gostaria de um orçamento." target="_blank" id="botao-flutuante-whatsapp">
-        <svg class="whatsapp-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M380.9 97.1C339.4 55.6 283.8 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 222-99.6 222-222 0-60.1-23.3-115-61.6-157.1zM223.9 448h.1c34.2 0 68.3-9.3 97.5-27L431 465l-37.1-109.8c27.5-39.7 44.2-86.4 44.2-136.3 0-101.8-82.4-184.2-184.2-184.2-101.7 0-184.1 82.4-184.1 184.2 0 101.8 82.4 184.2 184.1 184.2zM348.2 272c-2.9-1.5-17.4-8.5-20.3-9.5s-5.2-1.5-7.4 1.5c-2.2 2.9-8.6 9.5-10.9 11.4-2.2 2.9-4.3 3.2-8 1s-16.6-6.1-20.9-9.7c-3.6-3.2-7.9-8.5-10.9-14-2.9-5.2-.3-4.8 2.2-7.2 2.7-2.7 5.2-6.5 7.8-9.5s2.9-5.2 4.3-8c1.5-2.9.7-5.5-.2-7.8s-2.9-5.5-4.3-8c-1.5-2.5-10.9-26.1-14.9-35.7-3.6-8.6-7.3-7.9-10.2-7.9-.9 0-2.2-.1-3.6-.1s-3.8.1-5.8.1c-2.5 0-6.5 1.2-9.5 4.3-3 3-11.5 11.4-11.5 27.8s11.7 32.3 13.2 34.2c1.5 1.9 22.9 35.7 56.4 49.9 2.7 1.2 4.9 1.9 6.7 2.5 10.7 3.6 20.4 3.9 28.3 2.8 6.9-.9 17.4-7.1 20-11.5s2.9-8.6 2.9-16.1c-.1-11.7-1.5-26.1-2.9-28.9zm-96.1 93.1l-.1-1.2c-.5-.8-1.5-1.4-1.5-1.4s-.8-.5-1.4-.5h-.2c-.4 0-.8-.1-1.2-.1c-.4-.1-.8-.1-1.2-.1h-.2s-.4 0-.6-.1c-.2-.1-.4-.1-.6-.1h-.2c-.4 0-.8-.1-1.2-.1l-.1-.1c-.1-.1-.2-.1-.2-.1l-.2-.1h-.1c-.1-.1-.2-.1-.3-.1h-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1l-.1-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1l-.1-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1l-.1-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1l-.1-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1l-.1-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1l-.1-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1l-.1-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1l-.1-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1l-.1-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1l-.1-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1l-.1-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1l-.1-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1l-.1-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1l-.1-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1l-.1-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1l-.1-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1l-.1-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1l-.1-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1l-.1-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1l-.1-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1l-.1-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1l-.1-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1l-.1-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1l-.1-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1l-.1-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1l-.1-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1l-.1-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1l-.1-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1l-.1-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1l-.1-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1l-.1-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1l-.1-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1l-.1-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1l-.1-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.2-.1-.3-.1c-.1-.1-.
+    <a id="botao-flutuante-whatsapp" href="https://api.whatsapp.com/send?phone=5511939353246&text=Olá! Gostaria de solicitar um orçamento para frete/mudança." class="btn-whatsapp" target="_blank">
+        <img src="images/zzp.png" alt="WhatsApp Flutuante - Solicite seu Frete ou Mudança" class="whatsapp-icon" loading="lazy" width="50" height="50">
+    </a>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script>
+        // Script do formulário de orçamento (já existente e mantido)
+        document.getElementById('formOrcamentoABC').addEventListener('submit', function(event) {
+            event.preventDefault(); // Impede o envio padrão do formulário
+
+            const tipoServico = document.getElementById('tipo_servico').value;
+            const origem = document.getElementById('origem').value;
+            const destino = document.getElementById('destino').value;
+            const itens = document.getElementById('itens').value;
+            const data = document.getElementById('data').value;
+            const nome = document.getElementById('nome_contato').value;
+            const email = document.getElementById('email_contato').value;
+            const telefone = document.getElementById('telefone_contato').value;
+
+            // Número do WhatsApp da Frete Brasil 011 (o mesmo que você usa)
+            const whatsappNumber = '5511939353246'; // DDD + Número, sem símbolos ou espaços
+
+            let message = `*SOLICITAÇÃO DE ORÇAMENTO - FRETE/MUDANÇA ABC*%0A%0A`;
+            message += `*Tipo de Serviço:* ${tipoServico}%0A`;
+            message += `*Origem:* ${origem}%0A`;
+            if (destino) { // Apenas adiciona destino se preenchido
+                message += `*Destino:* ${destino}%0A`;
+            }
+            message += `*Itens/Volume:* ${itens}%0A`;
+            if (data) { // Apenas adiciona data se preenchida
+                message += `*Data Preferencial:* ${data}%0A`;
+            }
+            message += `*Nome:* ${nome}%0A`;
+            message += `*E-mail:* ${email}%0A`;
+            message += `*Telefone/WhatsApp:* ${telefone}%0A%0A`;
+            message += `_Mensagem enviada do formulário de Orçamento da página "Fretes e Mudanças ABC"._`;
+
+            // Abre o WhatsApp com a mensagem pré-preenchida
+            window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, '_blank');
+
+            // Opcional: Limpar o formulário após o envio
+            // this.reset();
+            // Opcional: Mostrar uma mensagem de sucesso para o usuário
+            // alert('Sua solicitação de orçamento foi enviada para o WhatsApp da Frete Brasil 011!');
+        });
+
+        // Inicialização do Swiper para a seção de serviços da página ABC
+        var swiperServicesABC = new Swiper(".mySwiperServicesABC", {
+            slidesPerView: 1.2, // Mostra 1.2 slides por vez (para indicar que tem mais)
+            spaceBetween: 20, // Espaço entre os slides
+            loop: true, // Loop infinito
+            // centeredSlides: true, // Removido para evitar conflitos com slidesPerView fracionário
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            autoplay: {
+                delay: 4000,
+                disableOnInteraction: false,
+            },
+            breakpoints: {
+                // Configurações para telas maiores
+                640: {
+                    slidesPerView: 2.2, // Mostra 2.2 slides em telas a partir de 640px
+                    spaceBetween: 30,
+                },
+                993: {
+                    slidesPerView: 3.2, // Mostra 3.2 slides em telas a partir de 993px (desktop)
+                    spaceBetween: 30,
+                },
+                1200: {
+                    slidesPerView: 3.5, // Ajuste para telas muito grandes
+                    spaceBetween: 40,
+                },
+            },
+        });
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -130,8 +130,8 @@ header {
 .header-main-content {
     display: flex;
     flex-direction: column; 
-    align-items: center;    
-    text-align: center;     
+    align-items: center; 
+    text-align: center; 
     gap: 15px; 
     justify-content: center; 
 }
@@ -529,29 +529,38 @@ nav ul li a:hover {
     border-radius: 2px;
 }
 
+/* Removido: .service-grid não é mais necessário com Swiper */
+/*
 .service-grid {
     display: flex;
     justify-content: center;
     gap: 1.5rem;
     flex-wrap: wrap;
 }
+*/
 
 .service-item {
     background-color: var(--bg-light);
     border: 1px solid var(--border-light);
     border-radius: var(--border-radius-lg);
     padding: 2rem;
-    flex: 1;
-    min-width: 280px;
-    max-width: 380px;
+    /* Removido flex: 1; para que o Swiper controle o tamanho e proporção */
+    /* flex: 1; */ 
+    /* Removido min-width/max-width para que o Swiper controle o tamanho */
+    /* min-width: 280px; */ 
+    /* max-width: 380px; */ 
     box-shadow: 0 8px 20px var(--shadow-light);
-    text-align: left;
+    text-align: left; /* Garante que o texto dentro do card esteja alinhado à esquerda */
     transition: all var(--transition-speed);
     position: relative;
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start; /* Alinha o conteúdo ao topo do card */
+    align-items: flex-start; /* Alinha o conteúdo à esquerda do card */
+    height: auto; /* Permite que a altura do card se ajuste ao conteúdo */
+    /* Removido margin: 0 auto; ou qualquer margem lateral para evitar conflito com Swiper's spaceBetween */
+    margin: 0; /* Garante que não haja margem externa */
 }
 
 .service-item::before {
@@ -586,6 +595,7 @@ nav ul li a:hover {
     padding-bottom: 0.5rem;
     transition: color var(--transition-speed);
     z-index: 1;
+    text-align: left; /* Garante alinhamento à esquerda no título do card */
 }
 .service-item:hover h3 {
     color: var(--secondary-color);
@@ -608,6 +618,7 @@ nav ul li a:hover {
     z-index: 1;
     flex-grow: 1;
     line-height: 1.6;
+    text-align: left; /* Garante alinhamento à esquerda no parágrafo do card */
 }
 .service-item:hover p {
     color: var(--text-dark);
@@ -815,29 +826,27 @@ footer .redes-sociais a:hover {
     bottom: 1.5rem;
     right: 1.5rem;
     z-index: 1000;
-    /* MODIFICADO: Cor de fundo para transparente */
     background-color: transparent; 
-    /* MODIFICADO: Removido border-radius para tirar o círculo */
-    border-radius: 0; /* ou remova a linha se não quiser nenhum arredondamento */
-    padding: 0.8rem; /* Mantenha o padding para dar espaço ao ícone, ajuste se necessário */
+    border-radius: 0; 
+    padding: 0.8rem; 
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: none; /* MODIFICADO: Removido a sombra para que não apareça ao fundo */
+    box-shadow: none; 
     transition: all var(--transition-speed);
 }
 
 #botao-flutuante-whatsapp:hover {
-    background-color: transparent; /* Mantenha transparente no hover se não quiser fundo */
+    background-color: transparent; 
     transform: translateY(-5px) scale(1.1);
-    box-shadow: none; /* Mantenha sem sombra no hover */
+    box-shadow: none; 
 }
 
 #botao-flutuante-whatsapp .whatsapp-icon {
-    width: 3rem; /* MODIFICADO: Aumento do tamanho do ícone */
-    height: 3rem; /* MODIFICADO: Aumento do tamanho do ícone */
+    width: 3rem; 
+    height: 3rem; 
     margin-right: 0; 
-    fill: var(--white); /* Se o seu ícone PNG tiver fundo branco, isso não terá efeito. */
+    fill: var(--white); 
 }
 
 /* ========================================= */
@@ -848,8 +857,8 @@ footer .redes-sociais a:hover {
 @media (min-width: 993px) {
     .header-main-content {
         flex-direction: column;
-        align-items: center;    
-        text-align: center;     
+        align-items: center; 
+        text-align: center; 
         gap: 30px; 
     }
     
@@ -1193,10 +1202,10 @@ footer .redes-sociais a:hover {
     .contact-whatsapp-section .alt-contact,
     .contact-whatsapp-section .address-info,
     .contact-whatsapp-section .hours-info {
-        font-size: 0.8em;
+        font-size: 0.85em;
     }
     footer {
-        font-size: 0.65em;
+        padding: 0.65em;
     }
     #botao-flutuante-whatsapp {
         bottom: 0.5rem;
