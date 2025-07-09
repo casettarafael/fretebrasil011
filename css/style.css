@@ -88,126 +88,156 @@ a:hover {
 
 /* --- Faixa Superior (Top Announcement) --- */
 .top-announcement {
-    background-color: var(--secondary-color); /* MODIFICAÇÃO AQUI: Agora usa o azul marinho profundo */
+    background-color: var(--secondary-color);
     color: var(--white);
-    padding: 0.3rem 0; /* Diminuído para um padding mais sutil */
-    font-size: 0.8em; /* Fonte menor para ser mais discreta */
-    font-weight: 400; /* Peso normal da fonte, para não competir */
-    text-align: center; /* Centraliza o texto */
+    padding: 0.3rem 0;
+    font-size: 0.8em;
+    font-weight: 400;
+    text-align: center;
     overflow: hidden;
     position: relative;
-    white-space: normal; /* Permite que o texto quebre linha em telas menores */
-    /* animation: slideIn 15s linear infinite; REMOVIDO: Animação de texto correndo pode ser distrativa */
+    white-space: normal;
 }
-
-/* @keyframes slideIn {
-    0% { transform: translateX(100%); }
-    100% { transform: translateX(-100%); }
-} */
 
 .top-announcement .container {
     display: flex;
     align-items: center;
-    justify-content: center; /* Garante a centralização do conteúdo interno */
+    justify-content: center;
     padding: 0 10px;
 }
 
-.top-announcement .announcement-item { /* Para estilizar o item dentro da faixa, caso haja mais de um */
+.top-announcement .announcement-item {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.top-announcement .icon { /* Ícone de localização */
-    width: 0.9em; /* Ícone um pouco menor */
+.top-announcement .icon {
+    width: 0.9em;
     height: 0.9em;
-    margin-right: 0.4rem; /* Espaço entre o ícone e o texto */
-    filter: invert(100%); /* Mantém o ícone branco em fundo escuro */
-    vertical-align: middle; /* Alinha o ícone com o texto */
+    margin-right: 0.4rem;
+    filter: invert(100%);
+    vertical-align: middle;
 }
 
 /* --- Cabeçalho Principal --- */
 header {
-    background: var(--bg-dark); /* MODIFICAÇÃO AQUI: Fundo escuro sólido */
+    background: var(--bg-dark);
     color: var(--white);
     padding: 1rem 0;
-    box-shadow: 0 4px 15px var(--shadow-medium); /* Sombra mais pronunciada */
+    box-shadow: 0 4px 15px var(--shadow-medium);
     position: sticky;
     top: 0;
     z-index: 1000;
 }
 
-.header-main-content.container { /* Usa a classe .container para controle de largura/padding */
+/* MODIFICADO: Estilo Padrão (Mobile First) para o Header Main Content - AGORA CENTRALIZADO EM TODAS TELAS */
+.header-main-content {
     display: flex;
-    flex-wrap: wrap; /* Permite que os itens quebrem linha */
-    justify-content: space-between; /* Espaço entre os principais blocos (título/tagline e navegação) */
-    align-items: center;
-    /* padding já vem de .container */
+    flex-direction: column; /* Sempre em coluna para centralizar o logo no topo */
+    align-items: center;    /* Centraliza horizontalmente todos os itens (logo, texto, navegação) */
+    text-align: center;     /* Centraliza o texto dentro dos itens */
+    gap: 15px; /* Espaçamento entre os principais elementos do cabeçalho */
+    justify-content: center; /* Centraliza verticalmente se o espaço permitir */
 }
 
-header .site-title { /* H1 do site: "Frete Brasil 011: Fretes, Mudanças e Carretos no ABC e SP" */
-    font-size: 1.5em; /* Reduz o tamanho do título principal para caber melhor */
-    margin: 0 0 0.5rem 0; /* Margem inferior para separar da tagline */
+/* MODIFICADO: Estilo Padrão (Mobile First) para o Logotipo (AGORA UMA DIV) */
+.header-logo {
+    background-image: url('../images/logo05.png'); /* Caminho da imagem via CSS */
+    background-size: contain; /* Redimensiona a imagem para caber sem cortar */
+    background-repeat: no-repeat; /* Evita que a imagem se repita */
+    background-position: center; /* Centraliza a imagem na div */
+    width: 250px; /* Largura inicial da div para o logo (ajuste se precisar) */
+    height: 80px; /* Altura inicial da div para o logo (ajuste conforme a proporção do seu logo) */
+    margin-bottom: 0; /* O gap do flexbox já cuidará do espaçamento */
+    display: block; /* Garante que a div se comporte como um bloco */
+}
+
+/* ADICIONADO: Classe para esconder texto visualmente, mas mantê-lo para leitores de tela */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+/* ADICIONADO: Estilo para o novo contêiner de texto no cabeçalho */
+.header-text-content {
+    display: flex;
+    flex-direction: column; /* Título e tagline empilhados */
+    align-items: center; /* Centraliza título e tagline horizontalmente */
+    text-align: center; /* Centraliza o texto */
+    margin-bottom: 0; /* O gap do flex-container pai já cuida do espaçamento */
+}
+
+header .site-title {
+    font-size: 1.5em; /* Tamanho do título em mobile */
+    margin: 0; /* Removido margem, o gap do pai e do .header-text-content cuidam disso */
     color: var(--white);
     font-weight: 700;
     line-height: 1.2;
-    flex-shrink: 0; /* Não permite que o título encolha */
-    text-align: left; /* Mantém alinhado à esquerda dentro do container */
-    /* Em telas maiores, podemos aumentar um pouco no media query */
 }
 
-header .tagline-header { /* A tagline longa: "Sua transportadora de confiança para..." */
-    font-size: 0.8em; /* Reduz o tamanho da tagline para ser mais discreta */
-    font-weight: 400; /* Menos negrito para ser mais leve e fluído */
-    color: rgba(255, 255, 255, 0.7); /* Cor mais suave */
-    flex-grow: 1; /* Permite que o texto ocupe espaço */
-    text-align: left; /* Mantém alinhado à esquerda */
-    margin: 0 0 1rem 0; /* Margem inferior para separar da navegação */
-    line-height: 1.4; /* Aumenta a altura da linha para melhor legibilidade */
-    padding-left: 15px; /* Adiciona um pouco de padding à esquerda se houver espaço */
-    max-width: 65%; /* Limita a largura para o texto não esticar demais */
+/* CORRIGIDO: Use 'tagline' conforme o HTML */
+header .tagline {
+    font-size: 0.8em; /* Tamanho da tagline em mobile */
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0; /* Removido margem, o gap do pai e do .header-text-content cuidam disso */
+    line-height: 1.4;
+    max-width: 100%;
 }
 
-/* Navegação - LAYOUT DE 3 FILEIRAS DE 2 ITENS E RESPONSIVIDADE CORRIGIDA */
-nav ul.main-nav {
-    list-style: none;
-    margin: 0 auto; /* Centraliza o bloco da navegação */
+/* MODIFICADO: Navegação para Mobile (garantindo que se centralize bem) */
+nav { /* Adiciona display flex para a nav em si, para que a ul seja centralizada */
+    width: 100%; /* Ocupa a largura total para centralizar o ul */
+    display: flex;
+    justify-content: center; /* Centraliza o ul.main-nav */
+}
+
+/* CORRIGIDO: Removido margin-left: auto; daqui para mobile, e corrigido margin para 0 */
+nav ul {
+    list-style: none; /* Remove os bullet points */
+    margin: 0; /* Centraliza a lista inteira via flex do pai */
     padding: 0;
-    display: grid; /* Usa grid para o layout */
-    grid-template-columns: repeat(2, 1fr); /* Padrão: 2 colunas para mobile/tablet */
-    gap: 0.8rem; /* Espaçamento entre os itens */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 colunas para mobile/tablet */
+    gap: 0.8rem;
     justify-items: center; /* Centraliza os itens horizontalmente nas células de grid */
-    align-items: center; /* Centraliza os itens verticalmente nas células de grid */
-    max-width: 550px; /* Largura máxima para o grid da navegação, para controle */
-    padding: 0; /* Remove padding lateral do grid */
+    align-items: center;
+    max-width: 550px; /* Limita a largura da navegação em mobile */
 }
 
-nav ul.main-nav li {
+nav ul li {
     position: relative;
     padding: 0;
-    width: 100%; /* Faz o item ocupar a largura da sua célula no grid */
-    text-align: center; /* Centraliza o texto dentro de cada item */
+    width: 100%;
+    text-align: center;
 }
 
-nav ul.main-nav li a {
+nav ul li a {
     color: var(--white);
     font-weight: 600;
-    font-size: 0.85em; /* Links de navegação um pouco menores para caberem melhor */
+    font-size: 0.85em;
     position: relative;
-    padding: 8px 5px; /* Ajustei o padding interno para a área clicável */
-    transition: color var(--transition-speed), background-color var(--transition-speed); /* Adicionado transição para background */
-    display: flex; /* Usa flexbox para o conteúdo interno (ícone e texto) */
-    flex-direction: column; /* Ícone acima do texto */
-    align-items: center; /* Centraliza o ícone e o texto horizontalmente */
-    justify-content: center; /* Centraliza verticalmente se houver espaço */
-    height: 100%; /* Garante que o link ocupe toda a altura do li */
-    text-align: center; /* Centraliza o texto dentro do link */
-    white-space: normal; /* Permite que o texto quebre em várias linhas para se ajustar */
-    line-height: 1.2; /* Ajusta a altura da linha para o texto do item */
+    padding: 8px 5px;
+    transition: color var(--transition-speed), background-color var(--transition-speed);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    text-align: center;
+    white-space: normal;
+    line-height: 1.2;
 }
 
 /* Efeito de underline animado para links de navegação */
-nav ul.main-nav li a::after {
+nav ul li a::after {
     content: '';
     position: absolute;
     width: 0;
@@ -218,48 +248,48 @@ nav ul.main-nav li a::after {
     background-color: var(--primary-color);
     transition: width var(--transition-speed);
 }
-nav ul.main-nav li a:hover::after {
+nav ul li a:hover::after {
     width: 100%;
 }
 
-nav ul.main-nav li a:hover {
-    color: var(--primary-color); /* Cor do texto no hover */
-    background-color: rgba(255, 255, 255, 0.1); /* Fundo levemente visível no hover */
-    border-radius: var(--border-radius-sm); /* Borda leve para o hover */
+nav ul li a:hover {
+    color: var(--primary-color);
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius-sm);
 }
 
-.nav-icon { /* Ícone SVG dentro do link de navegação */
-    width: 28px; /* Tamanho do ícone, maior para se destacar */
+.nav-icon {
+    width: 28px;
     height: 28px;
-    margin-bottom: 5px; /* Espaço entre o ícone e o texto */
-    fill: var(--white); /* Cor padrão do ícone */
+    margin-bottom: 5px;
+    fill: var(--white);
     transition: fill var(--transition-speed);
 }
 
 .main-nav li a:hover .nav-icon {
-    fill: var(--primary-color); /* Muda a cor do ícone no hover */
+    fill: var(--primary-color);
 }
 
-.nav-icon-text { /* O texto do link de navegação */
-    font-size: 0.8em; /* Fonte do texto do link */
+.nav-icon-text {
+    font-size: 0.8em;
     line-height: 1.2;
-    color: var(--white); /* Cor do texto */
+    color: var(--white);
     transition: color var(--transition-speed);
 }
 
 .main-nav li a:hover .nav-icon-text {
-    color: var(--primary-color); /* Muda a cor do texto no hover */
+    color: var(--primary-color);
 }
 
 
 /* Botões Gerais (base) */
-.btn { /* Estilo base para todos os botões que usam a classe 'btn' */
+.btn {
     background-color: var(--primary-color);
     color: var(--white);
-    padding: 0.8rem 1.6rem; /* Padding ligeiramente menor para botões mais compactos */
+    padding: 0.8rem 1.6rem;
     border-radius: var(--border-radius-lg);
     font-weight: 700;
-    font-size: 1em; /* Fonte um pouco menor */
+    font-size: 1em;
     text-decoration: none;
     display: inline-flex;
     align-items: center;
@@ -268,7 +298,7 @@ nav ul.main-nav li a:hover {
     box-shadow: 0 5px 15px var(--shadow-medium);
     cursor: pointer;
     border: none;
-    white-space: nowrap; /* Impede que o texto do botão quebre, mantendo a linha única */
+    white-space: nowrap;
 }
 
 .btn:hover {
@@ -287,25 +317,22 @@ nav ul.main-nav li a:hover {
 }
 
 /* Ícones SVG ou PNG dentro de botões ou links */
-.icon { /* Estilo geral para todos os SVGs/PNGs usados como ícones */
+.icon {
     display: inline-block;
-    vertical-align: middle; /* Alinha o ícone com o texto adjacente */
-    fill: currentColor; /* Padrão para SVGs, herda a cor do pai. Se for PNG, remova esta linha. */
+    vertical-align: middle;
+    fill: currentColor;
 }
 
-.whatsapp-icon { /* Ícone específico do WhatsApp */
-    width: 1.1em; /* Tamanho do ícone ajustado à fonte do botão */
+.whatsapp-icon {
+    width: 1.1em;
     height: 1.1em;
     margin-right: 0.5rem;
-    /* Para a imagem PNG que você usa no HTML (`images/zzp.png` e `images/Gemini_Generated_Image_fo581efo581efo58.png`),
-        remova `fill: currentColor;` e o `filter: invert(100%);` do `.top-announcement .icon` se aplicar ao WhatsApp,
-        pois PNGs já têm cores fixas. Se você substituir por SVG, o `fill: currentColor;` é o ideal. */
 }
 
 /* Seção Hero (Banner Principal) */
 .hero-section {
     position: relative;
-    background: url('../images/fundo-generico.jpg') no-repeat center center/cover; /* Mude para sua imagem de fundo apropriada */
+    background: url('../images/fundo-generico.jpg') no-repeat center center/cover;
     color: var(--white);
     display: flex;
     flex-direction: column;
@@ -313,11 +340,11 @@ nav ul.main-nav li a:hover {
     justify-content: center;
     text-align: center;
     overflow: hidden;
-    padding: 4rem 1.5rem; /* Aumenta o padding vertical para mais respiro */
-    min-height: 550px; /* Altura mínima para a seção hero */
+    padding: 4rem 1.5rem;
+    min-height: 550px;
 }
 
-.hero-section::before { /* Overlay escuro */
+.hero-section::before {
     content: '';
     position: absolute;
     top: 0;
@@ -331,7 +358,7 @@ nav ul.main-nav li a:hover {
 .hero-section .container {
     position: relative;
     z-index: 2;
-    max-width: 900px; /* Limita a largura do conteúdo para melhor leitura */
+    max-width: 900px;
     padding: 1.5rem;
     display: flex;
     flex-direction: column;
@@ -340,33 +367,32 @@ nav ul.main-nav li a:hover {
 }
 
 .hero-section h2 {
-    font-size: clamp(2.5em, 5vw, 4em); /* Ajusta o tamanho do h2 */
+    font-size: clamp(2.5em, 5vw, 4em);
     margin-bottom: 1rem;
-    text-shadow: 2px 2px 5px rgba(0,0,0,0.7); /* Sombra mais suave */
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
     font-weight: 700;
     color: var(--white);
     text-align: center;
 }
 
 .hero-section p {
-    font-size: clamp(1em, 2vw, 1.25em); /* Ajusta o tamanho do parágrafo */
-    line-height: 1.8; /* Aumenta o espaçamento entre linhas para melhor legibilidade de blocos de texto */
+    font-size: clamp(1em, 2vw, 1.25em);
+    line-height: 1.8;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
     max-width: 700px;
-    margin: 0 auto 2rem auto; /* Mais margem inferior para separar dos botões */
+    margin: 0 auto 2rem auto;
     color: rgba(255, 255, 255, 0.9);
     text-align: center;
-    /* Mantenha os strongs essenciais, mas considere reduzir se ainda parecer muito "pesado" */
 }
 
 .hero-buttons {
     display: flex;
-    flex-direction: row; /* Mantém os botões lado a lado por padrão */
-    flex-wrap: wrap; /* Permite quebrar em linha em telas menores */
-    gap: 15px; /* Espaçamento entre os botões */
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 15px;
     margin-top: 20px;
     align-items: center;
-    justify-content: center; /* Centraliza os botões */
+    justify-content: center;
     width: 100%;
 }
 
@@ -395,7 +421,7 @@ nav ul.main-nav li a:hover {
     box-shadow: 0 8px 25px var(--shadow-strong);
 }
 
-.btn-hero-whatsapp .whatsapp-icon { /* Usado para o SVG direto aqui */
+.btn-hero-whatsapp .whatsapp-icon {
     width: 1.1em;
     height: 1.1em;
     margin-right: 0.5rem;
@@ -427,7 +453,7 @@ nav ul.main-nav li a:hover {
     box-shadow: 0 8px 25px var(--shadow-strong);
 }
 
-.btn-hero-call .whatsapp-icon { /* Você pode mudar o nome da classe para ser mais genérica se usar ícones SVG que não sejam apenas WhatsApp */
+.btn-hero-call .whatsapp-icon {
     width: 1.1em;
     height: 1.1em;
     margin-right: 0.5rem;
@@ -466,7 +492,7 @@ nav ul.main-nav li a:hover {
     line-height: 1.6;
 }
 
-.btn-cotacao-whatsapp { /* Botão de cotação */
+.btn-cotacao-whatsapp {
     background-color: var(--primary-color);
     color: var(--white);
     padding: 0.9rem 1.8rem;
@@ -831,48 +857,66 @@ footer .redes-sociais a:hover {
 
 /* Desktop e Telas Maiores (acima de 993px) */
 @media (min-width: 993px) {
-    .header-main-content.container { /* Cabeçalho em linha para desktop */
-        flex-direction: row;
-        justify-content: space-between;
+    .header-main-content { /* MODIFICADO: Cabeçalho em linha para desktop */
+        flex-direction: row; /* Itens em linha no desktop */
+        justify-content: flex-start; /* Alinha tudo ao início do container */
         align-items: center;
-    }
-    header .site-title { /* Título à esquerda */
         text-align: left;
+        gap: 30px; /* Espaçamento entre logo, texto e nav */
+    }
+    
+    .header-logo {
+        max-width: 180px; /* Tamanho do logo em desktop, ajuste se preferir maior */
+        margin-right: 0;
         margin-bottom: 0;
-        padding-right: 15px; /* Espaço entre o título e a tagline/navegação */
-        font-size: 2em; /* Pode ser um pouco maior em desktop */
-    }
-    header .tagline-header { /* Tagline centralizada */
-        text-align: left;
-        margin: 0;
-        padding-left: 0; /* Remove padding que pode ter sido adicionado para mobile */
-        font-size: 0.95em; /* Um pouco maior em desktop, mas ainda menor que o título */
-        max-width: 50%; /* Permite ocupar mais espaço se o título for menor */
-        flex-grow: 1; /* Ocupa o espaço restante */
-    }
-    /* Navegação para desktop - Ajustada para 3 fileiras de 2 itens, horizontal */
-    nav ul.main-nav {
-        justify-content: center; /* Centraliza o bloco de navegação no header */
-        gap: 0.8rem; /* Espaçamento entre os itens */
-        /* Removendo max-width para que se ajuste naturalmente com base nas colunas */
-        margin-left: auto; /* Garante centralização do bloco */
-        grid-template-columns: repeat(3, 1fr); /* FORÇANDO 3 COLUNAS EM DESKTOP */
-        padding: 0; /* Remove padding lateral que pode estar limitando o grid */
-    }
-    nav ul.main-nav li {
-        /* A largura dos itens será controlada pelo grid-template-columns */
-        width: auto; /* Deixa o item se ajustar ao conteúdo/grid */
-        max-width: unset; /* Remove largura máxima */
-    }
-    nav ul.main-nav li a {
-        font-size: 0.85em; /* Tamanho um pouco menor para caberem 3 por linha */
-        padding: 10px 5px; /* Ajuste o padding para não ficarem muito largos */
-    }
-    .nav-icon {
-        width: 25px; /* Ícone ligeiramente menor para 3 por linha */
-        height: 25px;
     }
 
+    /* ADICIONADO/MODIFICADO: Estilo para o novo contêiner de texto do cabeçalho */
+    .header-text-content {
+        flex-grow: 1; /* Permite que o bloco de texto ocupe o espaço restante */
+        align-items: flex-start; /* Alinha o título e tagline à esquerda dentro deste bloco */
+        text-align: left; /* Alinha o texto dentro deste bloco à esquerda */
+        margin-bottom: 0; /* Remove margem inferior definida para mobile */
+    }
+
+    header .site-title {
+        font-size: 2em; /* Tamanho do título em desktop */
+        margin-bottom: 0.2rem; /* Pequena margem para separar da tagline */
+        text-align: left; /* Garante alinhamento à esquerda */
+    }
+    
+    /* CORRIGIDO: Use 'tagline' para a tagline */
+    header .tagline {
+        font-size: 0.95em; /* Tamanho da tagline em desktop */
+        margin: 0;
+        text-align: left; /* Garante alinhamento à esquerda */
+    }
+
+    /* MODIFICADO: Navegação para Desktop */
+    nav { /* Remove display flex e justify-content, a nav agora é um item flex no header-main-content */
+        width: auto; /* Deixa a largura se ajustar ao conteúdo */
+        margin-left: auto; /* Empurra a navegação para a direita */
+    }
+    
+    /* CORRIGIDO: Removido margin-left: auto; daqui para desktop, e ajustado margin para 0 */
+    nav ul {
+        grid-template-columns: repeat(3, 1fr); /* 3 colunas para desktop */
+        max-width: unset; /* Remove limitação de largura */
+        justify-content: flex-end; /* Alinha os itens da navegação à direita dentro da nav */
+        margin: 0; /* Importante para o posicionamento com margin-left: auto na nav pai */
+    }
+    nav ul li {
+        width: auto;
+        max-width: unset;
+    }
+    nav ul li a {
+        font-size: 0.85em;
+        padding: 10px 5px;
+    }
+    .nav-icon {
+        width: 25px;
+        height: 25px;
+    }
 
     /* Rodapé volta a ser em linha */
     footer .container {
@@ -891,160 +935,42 @@ footer .redes-sociais a:hover {
     }
 
     .top-announcement span {
-        white-space: normal; /* Permite quebrar linha em tablets */
+        white-space: normal;
     }
 
-    header .header-main-content.container {
-        flex-direction: column; /* Empilha os itens do cabeçalho */
+    /* MODIFICADO: Header Main Content para Tablets */
+    header .header-main-content {
+        flex-direction: column; /* Continua em coluna */
         align-items: center;
         text-align: center;
-        gap: 10px;
-        padding: 0 1rem;
-    }
-    header .site-title {
-        font-size: 1.5em; /* Ajusta para tablets */
-        margin-bottom: 0.5rem;
-        padding-right: 0;
-    }
-    header .tagline-header {
-        font-size: 0.8em; /* Ajusta para tablets */
-        text-align: center;
-        margin-bottom: 1rem;
-        padding-left: 0;
-        max-width: 100%; /* Ocupa toda a largura disponível */
-    }
-    /* Navegação para tablets/mobile - AGORA VISÍVEL E EMPILHADA */
-    nav ul.main-nav {
-        display: grid; /* Mantém o grid para controle */
-        grid-template-columns: repeat(2, 1fr); /* 2 colunas para tablets */
-        gap: 0.5rem; /* Espaçamento menor */
-        max-width: 450px; /* Limita a largura em tablets para não esticar demais */
-        margin: 1rem auto 0 auto; /* Centraliza o bloco e adiciona margem superior */
-    }
-    nav ul.main-nav li {
-        width: 100%; /* Ocupa a largura da sua célula no grid */
-        text-align: center;
-    }
-    nav ul.main-nav li a {
-        font-size: 0.8em; /* Fonte ainda menor para tablets */
-        padding: 8px 5px;
-    }
-    .nav-icon {
-        width: 24px; /* Ícone menor para tablets */
-        height: 24px;
+        gap: 15px; /* Ajustei o gap para tablets */
     }
 
-
-    /* Hero Section */
-    .hero-section {
-        min-height: 350px;
-        padding: 2rem 1rem;
-    }
-    .hero-section h2 {
-        font-size: clamp(2em, 7vw, 3em);
-    }
-    .hero-section p {
-        font-size: clamp(1em, 2.5vw, 1.1em); /* Ligeiramente menor */
-        line-height: 1.6; /* Ajusta a altura da linha */
-    }
-    .hero-buttons {
-        flex-direction: column; /* Botões empilhados em tablets */
-        gap: 10px;
-    }
-    .btn-hero-whatsapp,
-    .btn-hero-call {
-        font-size: 1em;
-        padding: 0.8rem 1.5rem;
-        max-width: 280px;
-    }
-
-    .service-grid, .fleet-section .container {
-        flex-direction: column; /* Cards de serviço e frota empilhados */
-        align-items: center;
-        gap: 1.5rem;
-    }
-    .service-item {
-        width: 90%; /* Ocupa mais largura */
-        max-width: 450px; /* Limita a largura máxima */
-    }
-    .fleet-description {
-        order: 2; /* Inverte a ordem para ficar abaixo do carrossel em mobile */
-        max-width: 90%;
-        text-align: center;
-    }
-    .fleet-description ul { /* Lista mantida à esquerda */
-        text-align: left;
-    }
-    .swiper.mySwiperFleet {
-        order: 1; /* Carrossel primeiro em mobile */
-        max-width: 90%;
-    }
-
-    /* Seções com h2 */
-    .services-section h2,
-    .cotacao-section h2,
-    .contact-whatsapp-section h2 {
-        font-size: clamp(2em, 7vw, 3em);
-    }
-
-    /* Formulário de Orçamento */
-    #formOrcamentoABC {
-        padding: 20px;
-    }
-    #formOrcamentoABC input,
-    #formOrcamentoABC select,
-    #formOrcamentoABC textarea {
-        padding: 10px;
+    .header-logo {
+        max-width: 200px; /* Ajuste o tamanho do logo para tablets */
         margin-bottom: 15px;
     }
-    #formOrcamentoABC button.btn {
-        padding: 12px;
-        font-size: 1.1em;
+
+    /* MODIFICADO: Estilo do novo contêiner de texto para tablet */
+    .header-text-content {
+        margin-bottom: 1rem; /* Espaço entre o bloco de texto e a navegação */
+        align-items: center;
+        text-align: center;
+    }
+    header .site-title {
+        font-size: 1.6em; /* Ajuste o tamanho do título para tablets */
+    }
+    /* CORRIGIDO: Use 'tagline' para a tagline */
+    header .tagline {
+        font-size: 0.85em; /* Ajuste o tamanho da tagline para tablets */
+        margin-bottom: 0; /* Margem já está no .header-text-content */
     }
 
-    .orcamento-section .whatsapp-contact-text {
-        font-size: 1em;
-    }
-    .orcamento-section .btn.whatsapp-button-bottom {
-        font-size: 1em;
-        padding: 0.7rem 1.5rem;
-    }
-
-    .contact-whatsapp-section .contact-intro {
-        font-size: 1em;
-    }
-    .contact-whatsapp-section .btn-whatsapp.main-whatsapp-btn {
-        font-size: 1.1em;
-        padding: 0.8rem 1.8rem;
-    }
-    .contact-whatsapp-section .whatsapp-icon {
-        width: 1.3em;
-        height: 1.3em;
-    }
-    .contact-whatsapp-section .alt-contact,
-    .contact-whatsapp-section .address-info,
-    .contact-whatsapp-section .hours-info {
-        font-size: 0.95em;
-    }
-
-    footer {
-        padding: 1rem 0;
-        font-size: 0.8em;
-    }
-    footer .container {
-        flex-direction: column;
-    }
-    footer .redes-sociais {
-        margin-top: 0.5rem;
-    }
-    #botao-flutuante-whatsapp {
-        bottom: 1rem;
-        right: 1rem;
-        padding: 0.7rem;
-    }
-    #botao-flutuante-whatsapp .whatsapp-icon {
-        width: 2rem;
-        height: 2rem;
+    /* MODIFICADO: Navegação para Tablets (centralizada) */
+    nav ul {
+        grid-template-columns: repeat(2, 1fr); /* 2 colunas para tablets */
+        max-width: 450px; /* Limita a largura para centralizar a nav */
+        margin: 0 auto; /* Centraliza a navegação */
     }
 }
 
@@ -1064,12 +990,24 @@ footer .redes-sociais a:hover {
         margin-right: 0.3rem;
     }
 
+    /* ESTILO DO LOGOTIPO PARA SMARTPHONE */
+    .header-logo {
+        max-width: 180px; /* Ajuste o tamanho do logo para smartphones */
+        margin-bottom: 10px;
+    }
+
+    /* MODIFICADO: Estilo do novo contêiner de texto para smartphone */
+    .header-text-content {
+        margin-bottom: 0.8rem; /* Espaço entre o bloco de texto e a navegação */
+    }
+
     header .site-title {
         font-size: 1.3em;
     }
-    header .tagline-header {
+    /* CORRIGIDO: Use 'tagline' para a tagline */
+    header .tagline {
         font-size: 0.75em;
-        margin-bottom: 0.8rem;
+        margin-bottom: 0; /* Margem já está no .header-text-content */
     }
     
     /* Hero Section */
@@ -1100,19 +1038,18 @@ footer .redes-sociais a:hover {
         margin-right: 0.4rem;
     }
 
-
     /* Seções com h2 */
     .services-section h2,
-    .coverage-section h2,
-    .orcamento-section h2,
-    .contact-section h2 {
+    .coverage-section h2, /* Seções que não existem no HTML que você enviou */
+    .orcamento-section h2, /* Seções que não existem no HTML que você enviou */
+    .contact-section h2 { /* Seções que não existem no HTML que você enviou */
         font-size: clamp(1.6em, 8vw, 2.2em);
         margin-bottom: 1.5rem;
     }
     .services-section h2::after,
-    .coverage-section h2::after,
-    .orcamento-section h2::after,
-    .contact-section h2::after {
+    .coverage-section h2::after, /* Seções que não existem no HTML que você enviou */
+    .orcamento-section h2::after, /* Seções que não existem no HTML que você enviou */
+    .contact-section h2::after { /* Seções que não existem no HTML que você enviou */
         width: 50px;
     }
 
@@ -1130,7 +1067,7 @@ footer .redes-sociais a:hover {
         font-size: 0.9em;
     }
 
-    /* Formulário de Orçamento */
+    /* Formulário de Orçamento (seções que não existem no HTML que você enviou) */
     #formOrcamentoABC {
         padding: 15px;
     }
@@ -1151,8 +1088,8 @@ footer .redes-sociais a:hover {
         margin-top: 15px;
     }
     .orcamento-section .btn.whatsapp-button-bottom {
-        font-size: 0.9em;
-        padding: 0.6rem 1.2rem;
+        font-size: 0.85em;
+        padding: 0.5rem 1rem;
     }
 
     .contact-whatsapp-section .contact-intro {
@@ -1160,7 +1097,7 @@ footer .redes-sociais a:hover {
     }
     .contact-whatsapp-section .btn-whatsapp.main-whatsapp-btn {
         font-size: 1em;
-        padding: 0.7rem 1.5rem;
+        padding: 0.6rem 1.2rem;
     }
     .contact-whatsapp-section .whatsapp-icon {
         width: 1.1em;
@@ -1171,7 +1108,6 @@ footer .redes-sociais a:hover {
     .contact-whatsapp-section .hours-info {
         font-size: 0.85em;
     }
-
     footer {
         padding: 0.7rem 0;
         font-size: 0.7em;
@@ -1192,21 +1128,28 @@ footer .redes-sociais a:hover {
     .top-announcement {
         font-size: 0.65em;
     }
+    /* ESTILO DO LOGOTIPO PARA TELAS MUITO PEQUENAS */
+    .header-logo {
+        max-width: 140px; /* Ajuste o tamanho do logo para telas muito pequenas */
+        margin-bottom: 8px;
+    }
+
     header .site-title {
         font-size: 1.1em;
     }
-    header .tagline-header {
+    /* CORRIGIDO: Use 'tagline' para a tagline */
+    header .tagline {
         font-size: 0.7em;
     }
     .hero-section {
         min-height: 220px;
-        padding: 1rem 0.5rem;
     }
     .hero-section h2 {
         font-size: clamp(1.5em, 10vw, 2em);
     }
     .hero-section p {
         font-size: clamp(0.8em, 4vw, 0.95em);
+        line-height: 1.5;
     }
     .btn-hero-whatsapp,
     .btn-hero-call {
@@ -1241,10 +1184,12 @@ footer .redes-sociais a:hover {
     #formOrcamentoABC input,
     #formOrcamentoABC select,
     #formOrcamentoABC textarea {
+        padding: 8px;
+        margin-bottom: 10px;
         font-size: 0.85em;
     }
     #formOrcamentoABC button.btn {
-        padding: 8px;
+        padding: 10px;
         font-size: 0.9em;
     }
 
