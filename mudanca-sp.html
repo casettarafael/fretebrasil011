@@ -6,16 +6,20 @@
     <title>Mudança em São Paulo | Fretes Residenciais e Comerciais SP - Frete Brasil 011</title>
     
     <link rel="stylesheet" href="css/style.css"> <meta name="description" content="Sua mudança em São Paulo (Capital) com segurança e agilidade. Frete Brasil 011 oferece mudanças residenciais, comerciais e carretos em todas as zonas de SP, 24 horas. Orçamento grátis!">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 
-    </head>
+</head>
 <body>
     <header>
-        <div class="container">
+        <div class="header-main-content container">
+            <div class="header-logo">
+                <span class="visually-hidden">Logotipo Frete Brasil 011</span>
+            </div>
             <h1>Frete Brasil 011</h1>
             <nav>
                 <ul>
                     <li><a href="index.html">Início</a></li>
-                  
+                    
                 </ul>
             </nav>
         </div>
@@ -30,32 +34,40 @@
             </div>
         </section>
 
-        <section id="servicos" class="container">
-            <h2>Serviços de Mudança e Frete em São Paulo</h2>
-            <div class="service-grid">
-                <div class="service-item">
-                    <h3>Mudanças Residenciais em SP</h3>
-                    <p>Planejamos e executamos sua mudança em São Paulo com total segurança. Inclui embalagem, desmontagem e montagem de móveis.</p>
-                </div>
-                <div class="service-item">
-                    <h3>Mudanças Comerciais em SP</h3>
-                    <p>Soluções eficientes para a mudança da sua empresa em São Paulo, minimizando interrupções e garantindo a organização.</p>
-                </div>
-                <div class="service-item">
-                    <h3>Carretos e Entregas Rápidas em SP</h3>
-                    <p>Serviço ágil para transporte de itens menores e entregas urgentes dentro da cidade de São Paulo.</p>
-                </div>
-                <div class="service-item">
-                    <h3>Embalagem Profissional em SP</h3>
-                    <p>Oferecemos materiais e mão de obra para embalar seus pertences com segurança, adaptado às necessidades urbanas de São Paulo.</p>
-                </div>
-                <div class="service-item">
-                    <h3>Içamento de Móveis em SP</h3>
-                    <p>Serviço especializado para içar móveis e objetos grandes em edifícios, comum em diversas regiões de São Paulo.</p>
-                </div>
-                <div class="service-item">
-                    <h3>Atendimento 24 Horas em SP</h3>
-                    <p>Disponibilidade contínua para cotações e emergências de mudança em toda a capital paulista.</p>
+        <section id="servicos" class="services-section"> 
+            <div class="container"> 
+                <h2>Serviços de Mudança e Frete em São Paulo</h2>
+                
+                <div class="swiper mySwiperServices">
+                    <div class="swiper-wrapper">
+                        <div class="service-item swiper-slide">
+                            <h3>Mudanças Residenciais em SP</h3>
+                            <p>Planejamos e executamos sua mudança em São Paulo com total segurança. Inclui embalagem, desmontagem e montagem de móveis.</p>
+                        </div>
+                        <div class="service-item swiper-slide">
+                            <h3>Mudanças Comerciais em SP</h3>
+                            <p>Soluções eficientes para a mudança da sua empresa em São Paulo, minimizando interrupções e garantindo a organização.</p>
+                        </div>
+                        <div class="service-item swiper-slide">
+                            <h3>Carretos e Entregas Rápidas em SP</h3>
+                            <p>Serviço ágil para transporte de itens menores e entregas urgentes dentro da cidade de São Paulo.</p>
+                        </div>
+                        <div class="service-item swiper-slide">
+                            <h3>Embalagem Profissional em SP</h3>
+                            <p>Oferecemos materiais e mão de obra para embalar seus pertences com segurança, adaptado às necessidades urbanas de São Paulo.</p>
+                        </div>
+                        <div class="service-item swiper-slide">
+                            <h3>Içamento de Móveis em SP</h3>
+                            <p>Serviço especializado para içar móveis e objetos grandes em edifícios, comum em diversas regiões de São Paulo.</p>
+                        </div>
+                        <div class="service-item swiper-slide">
+                            <h3>Atendimento 24 Horas em SP</h3>
+                            <p>Disponibilidade contínua para cotações e emergências de mudança em toda a capital paulista.</p>
+                        </div>
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-pagination"></div>
                 </div>
             </div>
         </section>
@@ -137,9 +149,15 @@
         </div>
     </footer>
 
+    <a id="botao-flutuante-whatsapp" href="https://api.whatsapp.com/send?phone=5511939353246&text=Olá! Gostaria de solicitar um orçamento para frete/mudança." class="btn-whatsapp" target="_blank">
+        <img src="images/zzp.png" alt="WhatsApp Flutuante - Solicite seu Frete ou Mudança" loading="lazy" width="50" height="50">
+    </a>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
     <script>
         document.getElementById('formOrcamentoSP').addEventListener('submit', function(event) {
-            event.preventDefault(); // Impede o envio padrão do formulário
+            event.preventDefault(); 
 
             const tipoServico = document.getElementById('tipo_servico_sp').value;
             const origem = document.getElementById('origem_sp').value;
@@ -150,17 +168,16 @@
             const email = document.getElementById('email_contato_sp').value;
             const telefone = document.getElementById('telefone_contato_sp').value;
 
-            // Número do WhatsApp da Frete Brasil 011 (ajuste se for diferente)
-            const whatsappNumber = '5511939353246'; // DDD + Número, sem símbolos ou espaços
+            const whatsappNumber = '5511939353246'; 
 
             let message = `*SOLICITAÇÃO DE ORÇAMENTO - MUDANÇA EM SÃO PAULO*%0A%0A`;
             message += `*Tipo de Serviço:* ${tipoServico}%0A`;
             message += `*Origem:* ${origem}%0A`;
-            if (destino) { // Apenas adiciona destino se preenchido
+            if (destino) { 
                 message += `*Destino:* ${destino}%0A`;
             }
             message += `*Itens/Volume:* ${itens}%0A`;
-            if (data) { // Apenas adiciona data se preenchida
+            if (data) { 
                 message += `*Data Preferencial:* ${data}%0A`;
             }
             message += `*Nome:* ${nome}%0A`;
@@ -169,15 +186,43 @@
             message += `_Mensagem enviada do formulário de Orçamento da página "Mudança em SP"._`;
 
 
-            // Abre o WhatsApp com a mensagem pré-preenchida
             window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, '_blank');
+        });
 
-            // Opcional: Limpar o formulário após o envio
-            // this.reset();
-            // Opcional: Mostrar uma mensagem de sucesso para o usuário
-            // alert('Sua solicitação de orçamento foi enviada para o WhatsApp da Frete Brasil 011!');
+        // Inicialização do Swiper para a seção de serviços
+        var swiperServices = new Swiper(".mySwiperServices", {
+            slidesPerView: 1.2, // Mostra 1.2 slides por vez (para indicar que tem mais)
+            spaceBetween: 20, // Espaço entre os slides
+            loop: true, // Loop infinito
+            // REMOVIDO: centeredSlides: true, // Centraliza os slides
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            autoplay: {
+                delay: 4000,
+                disableOnInteraction: false,
+            },
+            breakpoints: {
+                // Configurações para telas maiores
+                640: {
+                    slidesPerView: 2.2, // Mostra 2.2 slides em telas a partir de 640px
+                    spaceBetween: 30,
+                },
+                993: {
+                    slidesPerView: 3.2, // Mostra 3.2 slides em telas a partir de 993px (desktop)
+                    spaceBetween: 30,
+                },
+                1200: {
+                    slidesPerView: 3.5, // Ajuste para telas muito grandes
+                    spaceBetween: 40,
+                },
+            },
         });
     </script>
-    <script src="script.js"></script>
-</body>
+    <script src="script.js"></script> </body>
 </html>
