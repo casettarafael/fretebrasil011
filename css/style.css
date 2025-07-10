@@ -1106,8 +1106,8 @@ footer .redes-sociais a:hover {
         padding: 0.5rem;
     }
     #botao-flutuante-whatsapp .whatsapp-icon {
-        width: 1.5rem;
-        height: 1.5rem;
+        width: 1.5rem !important; /* Adicionado !important */
+        height: 1.5rem !important; /* Adicionado !important */
     }
 }
 
@@ -1213,8 +1213,8 @@ footer .redes-sociais a:hover {
         padding: 0.4rem;
     }
     #botao-flutuante-whatsapp .whatsapp-icon {
-        width: 1.2rem;
-        height: 1.2rem;
+        width: 1.2rem !important; /* Adicionado !important */
+        height: 1.2rem !important; /* Adicionado !important */
     }
 }
 
