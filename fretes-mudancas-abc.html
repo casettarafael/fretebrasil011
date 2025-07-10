@@ -12,6 +12,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    
+    <link rel="icon" href="images/logo05.png" type="image/png"> 
 
 </head>
 <body>
@@ -24,8 +26,6 @@
             <nav>
                 <ul>
                     <li><a href="index.html">Início</a></li>
-                    
-                    
                 </ul>
             </nav>
         </div>
@@ -182,9 +182,7 @@
                 message += `*Destino:* ${destino}%0A`;
             }
             message += `*Itens/Volume:* ${itens}%0A`;
-            if (data) { // Apenas adiciona data se preenchida
-                message += `*Data Preferencial:* ${data}%0A`;
-            }
+            message += `*Data Preferencial:* ${data}%0A`;
             message += `*Nome:* ${nome}%0A`;
             message += `*E-mail:* ${email}%0A`;
             message += `*Telefone/WhatsApp:* ${telefone}%0A%0A`;
